@@ -6,15 +6,25 @@ Created and directed by **Mathew Minguel**, with development assistance from **O
 
 ![OpenCanvas Home with recent project previews](docs/images/home.png)
 
-## Try it locally
+## Open the app
 
-Download or clone this repository, open a terminal in its folder, and run:
+**[Launch OpenCanvas in your browser](https://mobming.github.io/opencanvas/)** — no installation or local server required.
+
+Projects are saved in the browser where you create them. To move an existing design from another OpenCanvas address, export its `.opencanvas` project file there, then import it at the new address.
+
+## Run on your own computer (optional)
+
+The `127.0.0.1` address below means **your own computer**, not the public website. It only works while the local server is running. For a normal online visit, use the **Launch OpenCanvas** link above.
+
+Install Node.js 24 or later, download or clone this repository, open a terminal in its folder, and run:
 
 ```sh
 node server.mjs
 ```
 
-Open **http://127.0.0.1:4173/**. The application ships ready to run in `dist/index.html`; no dependency installation or build step is needed. A recent desktop browser is recommended. Use Node.js 24 for the development commands below.
+Keep that terminal open, then open **http://127.0.0.1:4173/**. On Windows, you can instead double-click `Start-OpenCanvas.cmd` in the downloaded project folder. If you see "connection refused," start the server first and reload the page. Closing the server or restarting your computer stops the local app; run it again to reopen it.
+
+The application ships ready to run in `dist/index.html`; no dependency installation or build step is needed. A recent desktop browser is recommended.
 
 The [original hosted preview](https://opencanvas-studio.cocoa-lotus-4165.chatgpt.site/) may require access from its owner. The custom `www.opencanvas.com` address is not an active project address yet.
 
