@@ -50,3 +50,5 @@ The application uses browser-local storage. Keep the same origin during developm
 The existing hosted Site's `.openai` settings and internal Git history are deliberately excluded. This repository can be hosted as a static site by serving `dist/`. Configure a separate hosting destination explicitly; pushing to this repository should not silently overwrite the original hosted Site.
 
 Campaign Collection sources: `promo-scenes.js` holds asset descriptions, assignments and layout metadata; `promo-data.js` holds campaigns and discovery filters; `promo-layouts.js` draws editable compositions; `promo-tools.js` handles browsing and photo replacement. `build-promo.cjs` embeds all assets listed in `assets/people/PROVENANCE.json`. Keep image geometry square to preserve uncropped source proportions.
+
+`remix-core.js` defines 24 editable symbols, 24 themes, five art directions and responsive composition geometry. `remix-tools.js` adds the symbol picker and limits sidebar previews to 24 while the main gallery loads 30 at a time. Both are bundled by `build-promo.cjs`; regenerate the bundle after changes.

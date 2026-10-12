@@ -21,3 +21,7 @@ The authoritative per-template records are in [community-sources/PROVENANCE.json
 
 The 14 imagery assets in `assets/people/` were generated with OpenAI's built-in image generation tool for this project on 12 October 2026. They include fictional adults and crowds, equipment, a product still life and abstract artwork; they do not document real models or customer endorsements. The original prompts and output provenance are recorded in `assets/people/PROVENANCE.json`. The app bundles JPEG encodings of these assets; no Canva, Getty, Pexels or Unsplash imagery was used in this collection. Project-wide reuse terms remain described in `RIGHTS.md`.
 
+
+## Design Combinations
+
+The 24 geometric symbol sets and 120 theme/style combinations are original OpenCanvas code-defined compositions. Canva and Pinterest were reviewed for broad category/style inspiration; their files and artwork are not bundled. Photo combinations reuse the documented AI imagery above. Research links and counting details are in `docs/DESIGN-COMBINATIONS.md`.
