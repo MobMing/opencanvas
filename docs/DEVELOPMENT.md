@@ -48,3 +48,5 @@ Run a script as `node build-context.cjs`, for example. Keep original core edits 
 The application uses browser-local storage. Keep the same origin during development to keep seeing saved projects. Export project files before switching browser, host, port, or domain. The repo contains no personal saved designs or uploads from browser storage.
 
 The existing hosted Site's `.openai` settings and internal Git history are deliberately excluded. This repository can be hosted as a static site by serving `dist/`. Configure a separate hosting destination explicitly; pushing to this repository should not silently overwrite the original hosted Site.
+
+Campaign Collection sources: `promo-scenes.js` holds asset descriptions, assignments and layout metadata; `promo-data.js` holds campaigns and discovery filters; `promo-layouts.js` draws editable compositions; `promo-tools.js` handles browsing and photo replacement. `build-promo.cjs` embeds all assets listed in `assets/people/PROVENANCE.json`. Keep image geometry square to preserve uncropped source proportions.

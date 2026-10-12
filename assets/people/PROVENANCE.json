@@ -1,7 +1,7 @@
 {
   "date": "2026-10-12",
   "method": "OpenAI built-in image_gen tool",
-  "note": "Generated fictional adults. No real person, endorsement or stock agency affiliation is claimed. Original PNG outputs retained locally; JPEG conversion preserves the full composition.",
+  "note": "Original generated fictional adults, crowds, equipment, product still life and abstract artwork. No real person, endorsement or stock agency affiliation is claimed. JPEG encoding preserves full square compositions.",
   "assets": [
     {
       "id": "nightlife",
@@ -28,6 +28,76 @@
       "id": "fashion",
       "path": "assets/people/fashion.jpg",
       "prompt": "A photorealistic original high-fashion studio editorial portrait, square composition. Fictional adult dark-skinned Black woman in her late 20s with close cropped natural hair, silver minimal earrings, sophisticated cream blazer over coral top, poised confident direct gaze. Chest-up centered composition, vivid coral-pink seamless studio backdrop, crisp softbox lighting, real skin texture and premium beauty campaign quality. No text, logos, or watermarks. Standalone image asset for editable fashion, beauty, salon and creator promotional designs.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding for browser download and storage efficiency; no crop or retouch."
+    },
+    {
+      "id": "dj-vinyl",
+      "path": "assets/people/dj-vinyl.jpg",
+      "prompt": "Use case: ads-marketing. Asset: original OpenCanvas template photograph/artwork. Create one square image. A fictional adult Black male DJ aged about 40 with close beard and knit cap, candid three-quarter profile concentrating on vinyl turntables in a warm amber intimate listening bar. Environmental medium shot, records and hands visible, rich grainy music editorial photograph. No text, logos, watermarks, collage borders or typography. Fictional people only where requested; realistic natural anatomy. This image will sit beneath separately editable event typography.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding for browser download and storage efficiency; no crop or retouch."
+    },
+    {
+      "id": "dj-techno",
+      "path": "assets/people/dj-techno.jpg",
+      "prompt": "Use case: ads-marketing. Asset: original OpenCanvas template photograph/artwork. Create one square image. A fictional adult East Asian woman with short silver hair and black utilitarian outfit performing on DJ decks in an industrial basement. Hard red side light, deep blue shadows, cables and equipment visible. Wide environmental portrait, kinetic underground techno editorial photography. No text, logos, watermarks, collage borders or typography. Fictional people only where requested; realistic natural anatomy. This image will sit beneath separately editable event typography.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding for browser download and storage efficiency; no crop or retouch."
+    },
+    {
+      "id": "warehouse",
+      "path": "assets/people/warehouse.jpg",
+      "prompt": "Use case: ads-marketing. Asset: original OpenCanvas template photograph/artwork. Create one square image. A packed underground warehouse dancefloor viewed from behind the crowd, fictional adult silhouettes with hands in air, concrete pillars, green laser fans and smoky dark atmosphere. No single foreground portrait. Atmospheric realistic event photography. No text, logos, watermarks, collage borders or typography. Fictional people only where requested; realistic natural anatomy. This image will sit beneath separately editable event typography.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding for browser download and storage efficiency; no crop or retouch."
+    },
+    {
+      "id": "vinyl",
+      "path": "assets/people/vinyl.jpg",
+      "prompt": "Use case: ads-marketing. Asset: original OpenCanvas template photograph/artwork. Create one square image. Top-down close-up still life of two black vinyl records, an unbranded silver turntable, headphones and a coiled cable on a cobalt blue surface. Strong direct flash, tactile grooves, music magazine photography. No people. No text, logos, watermarks, collage borders or typography. Fictional people only where requested; realistic natural anatomy. This image will sit beneath separately editable event typography.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding for browser download and storage efficiency; no crop or retouch."
+    },
+    {
+      "id": "rooftop",
+      "path": "assets/people/rooftop.jpg",
+      "prompt": "Use case: ads-marketing. Asset: original OpenCanvas template photograph/artwork. Create one square image. A candid group of five different fictional adults of diverse appearances laughing and dancing at a rooftop sunset music gathering, warm golden city skyline, orange sky, relaxed summer clothing. Wide environmental lifestyle photograph, no dominant headshot. No text, logos, watermarks, collage borders or typography. Fictional people only where requested; realistic natural anatomy. This image will sit beneath separately editable event typography.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding for browser download and storage efficiency; no crop or retouch."
+    },
+    {
+      "id": "performer",
+      "path": "assets/people/performer.jpg",
+      "prompt": "Use case: ads-marketing. Asset: original OpenCanvas template photograph/artwork. Create one square image. A fictional adult South Asian female singer with long curly dark hair singing into a microphone on a small live stage, electric blue rim lighting and deep red stage curtain, expressive movement, candid waist-up music editorial photograph. No text, logos, watermarks, collage borders or typography. Fictional people only where requested; realistic natural anatomy. This image will sit beneath separately editable event typography.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding for browser download and storage efficiency; no crop or retouch."
+    },
+    {
+      "id": "creator-street",
+      "path": "assets/people/creator-street.jpg",
+      "prompt": "Use case: ads-marketing. Asset: original OpenCanvas template photograph/artwork. Create one square image. Two fictional adult creative collaborators, a Black man with twists and a white woman with short auburn hair, wearing expressive green and purple streetwear, casually seated outside a concrete creative studio, full-body fashion editorial, natural daylight and direct flash. No text, logos, watermarks, collage borders or typography. Fictional people only where requested; realistic natural anatomy. This image will sit beneath separately editable event typography.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding for browser download and storage efficiency; no crop or retouch."
+    },
+    {
+      "id": "beauty-still",
+      "path": "assets/people/beauty-still.jpg",
+      "prompt": "Use case: ads-marketing. Asset: original OpenCanvas template photograph/artwork. Create one square image. Premium unbranded cosmetic still life: coral glass skincare bottle, pale sculptural soap, soft lilac fabric and a cut orange on a peach plinth. Beautiful editorial hard sunshine shadows. No people, no labels. No text, logos, watermarks, collage borders or typography. Fictional people only where requested; realistic natural anatomy. This image will sit beneath separately editable event typography.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding for browser download and storage efficiency; no crop or retouch."
+    },
+    {
+      "id": "dj-disco",
+      "path": "assets/people/dj-disco.jpg",
+      "prompt": "Use case: ads-marketing. Asset: original OpenCanvas template photograph/artwork. Create one square image. A fictional adult Latino male DJ with long dark curly hair, expressive vintage orange patterned shirt, silver headphones at neck, standing behind decks in a colorful disco room with mirror ball reflections. Waist-up candid event photograph, cheerful magenta and amber light. No text, logos, watermarks, collage borders or typography. Fictional people only where requested; realistic natural anatomy. This image will sit beneath separately editable event typography.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding for browser download and storage efficiency; no crop or retouch."
+    },
+    {
+      "id": "chrome",
+      "path": "assets/people/chrome.jpg",
+      "prompt": "Use case: ads-marketing. Asset: original OpenCanvas template photograph/artwork. Create one square image. An abstract liquid-chrome twisted ring floating over a black background, iridescent electric violet and acid green highlights, subtle grain and crisp reflections. Futuristic rave artwork with spacious black margins. No people. No text, logos, watermarks, collage borders or typography. Fictional people only where requested; realistic natural anatomy. This image will sit beneath separately editable event typography.",
       "kind": "AI-generated imagery",
       "changes": "JPEG encoding for browser download and storage efficiency; no crop or retouch."
     }
