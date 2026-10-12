@@ -17,3 +17,7 @@ Keep this file, the source records, and the original license files when redistri
 Font files are bundled unmodified under SIL Open Font License 1.1. System fonts used by the editor are not redistributed. PDF.js is bundled with its upstream notices, including separate terms for supporting fonts and image decoders.
 
 The authoritative per-template records are in [community-sources/PROVENANCE.json](community-sources/PROVENANCE.json). Records describe the source, author, licensing evidence, modifications, discovery channel, and editing limits. Reddit and Pinterest references are discovery links, not blanket permission to reuse content from those services.
+# Campaign Collection imagery
+
+The four portraits in `assets/people/` were generated with OpenAI's built-in image generation tool for this project on 12 October 2026. They depict fictional adults, not documented real models or customer endorsements. The original prompts and output provenance are recorded in `assets/people/PROVENANCE.json`. The app bundles JPEG encodings of these assets; no Canva, Getty, Pexels or Unsplash imagery was used in this collection. Project-wide reuse terms remain described in `RIGHTS.md`.
+

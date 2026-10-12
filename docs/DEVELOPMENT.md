@@ -39,6 +39,7 @@ The editor is not yet a conventional source-only build. Feature assemblers patch
 11. `build-industry.cjs`
 12. `build-home.cjs`
 13. `build-context.cjs`
+14. `build-promo.cjs`
 
 Run a script as `node build-context.cjs`, for example. Keep original core edits in the standalone HTML until the planned source extraction is complete. Run all checks and browser-test affected flows after rebuilding. Recreating raw community artwork is a separate asset-preparation process; some asset preparation utilities expect `sharp`, but it is not needed to use the bundled files.
 

@@ -32,7 +32,8 @@ The [original hosted preview](https://opencanvas-studio.cocoa-lotus-4165.chatgpt
 
 - Home with recent projects, previews, favorites, sorting, and search.
 - Text, shapes, uploaded images, editable layers, undo/redo, snapping, and alignment.
-- 73 original and credited community templates, including marketing and entertainment collections.
+- 233 templates: the original 73 plus 160 photo templates (32 campaign concepts in five formats), including social, nightlife, marketing, beauty and fitness.
+- People-focused campaign layouts with labeled AI imagery, format/style filters, and replaceable photo layers. See [template sources and research](docs/TEMPLATE-SOURCES.md).
 - 36 font combinations, bundled open fonts, text effects, and saved styles.
 - Multipage designs, local presentations, and PNG, JPG, flattened PDF, and editable project exports.
 - PDF/image imports from Canva or other tools, preserved as flat artwork with editable overlays.
@@ -57,7 +58,7 @@ npm test
 npm run check
 ```
 
-These commands need no third-party packages. The current baseline contains **51 automated checks**. See [development notes](docs/DEVELOPMENT.md) for source layout and the order for rebuilding feature modules.
+These commands need no third-party packages. The current baseline contains **55 automated checks**. See [development notes](docs/DEVELOPMENT.md) for source layout and the order for rebuilding feature modules.
 
 The standalone HTML currently also contains the original editor core. Separating that core from the generated bundle is on the [roadmap](ROADMAP.md).
 

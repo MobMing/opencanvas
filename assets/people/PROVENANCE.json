@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-12",
+  "method": "OpenAI built-in image_gen tool",
+  "note": "Generated fictional adults. No real person, endorsement or stock agency affiliation is claimed. Original PNG outputs retained locally; JPEG conversion preserves the full composition.",
+  "assets": [
+    {
+      "id": "nightlife",
+      "path": "assets/people/nightlife.jpg",
+      "prompt": "A photorealistic original editorial promotional photo, square composition. A fictional adult Black woman DJ in her late 20s, natural textured hair, stylish black jacket, wearing headphones around her neck behind an unbranded DJ mixing console, focused confident expression. Rich cobalt blue and magenta nightclub light with subtle haze. Waist-up portrait, face fully visible centered in upper third, believable hands, no lettering, no logos, no watermark. This is a standalone photo asset for editable music event templates, not a finished flyer. Premium music magazine photography.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding for browser download and storage efficiency; no crop or retouch."
+    },
+    {
+      "id": "creator",
+      "path": "assets/people/creator.jpg",
+      "prompt": "A photorealistic original editorial portrait, square composition. Fictional adult East Asian man in his 30s, expressive face, wavy medium hair, dark glasses, warm rust overshirt over cream tee, smiling with relaxed confidence in a sunlit creative studio with neutral terracotta wall. Waist-up, centered, natural skin texture, realistic photography. No lettering, no logos, no watermark. Standalone asset for editable podcast, speaker and entrepreneur templates, not a finished poster.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding for browser download and storage efficiency; no crop or retouch."
+    },
+    {
+      "id": "wellness",
+      "path": "assets/people/wellness.jpg",
+      "prompt": "A photorealistic original lifestyle photo, square composition. Fictional adult Latina fitness instructor in her 30s, curly dark hair tied back, sage green athletic top, relaxed standing pose with arms naturally at sides in warm morning light beside a sunlit studio window and leafy plants. Mid-thigh-up portrait, face centered in upper third, authentic skin texture, warm healthy energy, elegant neutral background. No text, logos, or watermark. Original standalone promotional photo for editable fitness, wellness and local classes templates.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding for browser download and storage efficiency; no crop or retouch."
+    },
+    {
+      "id": "fashion",
+      "path": "assets/people/fashion.jpg",
+      "prompt": "A photorealistic original high-fashion studio editorial portrait, square composition. Fictional adult dark-skinned Black woman in her late 20s with close cropped natural hair, silver minimal earrings, sophisticated cream blazer over coral top, poised confident direct gaze. Chest-up centered composition, vivid coral-pink seamless studio backdrop, crisp softbox lighting, real skin texture and premium beauty campaign quality. No text, logos, or watermarks. Standalone image asset for editable fashion, beauty, salon and creator promotional designs.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding for browser download and storage efficiency; no crop or retouch."
+    }
+  ]
+}
