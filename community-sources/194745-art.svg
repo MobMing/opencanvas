@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg2" viewBox="53.15 53.15 318.9 194.88" version="1.1" width="1200" height="733">
+  <defs id="defs4">
+    <linearGradient id="linearGradient5673">
+      <stop id="stop5675" style="stop-color:#b8db7c" offset="0" />
+      <stop id="stop3045" style="stop-color:#84c225" offset=".54067" />
+      <stop id="stop5677" style="stop-color:#00923f" offset="1" />
+    </linearGradient>
+    <linearGradient id="linearGradient3172" y2="381.36" xlink:href="#linearGradient5673" gradientUnits="userSpaceOnUse" x2="539" gradientTransform="translate(-.87961 333.28)" y1="498.36" x1="331" />
+    <linearGradient id="linearGradient3177" y2="381.36" xlink:href="#linearGradient5673" gradientUnits="userSpaceOnUse" x2="539" gradientTransform="translate(341.95 333.28)" y1="498.36" x1="331" />
+    <linearGradient id="linearGradient3183" y2="381.36" xlink:href="#linearGradient5673" gradientUnits="userSpaceOnUse" x2="539" gradientTransform="translate(341.95 113.28)" y1="498.36" x1="331" />
+    <linearGradient id="linearGradient3213" y2="381.36" xlink:href="#linearGradient5673" gradientUnits="userSpaceOnUse" x2="539" gradientTransform="translate(-1.0512 -4.056)" y1="498.36" x1="331" />
+    <linearGradient id="linearGradient3237" y2="381.36" xlink:href="#linearGradient5673" gradientUnits="userSpaceOnUse" x2="539" gradientTransform="translate(-341.05 -4.056)" y1="498.36" x1="331" />
+    <linearGradient id="linearGradient3255" y2="381.36" xlink:href="#linearGradient5673" gradientUnits="userSpaceOnUse" x2="539" gradientTransform="translate(-341.05 215.94)" y1="498.36" x1="331" />
+    <linearGradient id="linearGradient3273" y2="381.36" xlink:href="#linearGradient5673" gradientUnits="userSpaceOnUse" x2="539" gradientTransform="translate(-1.0512 215.94)" y1="498.36" x1="331" />
+    <linearGradient id="linearGradient3186" y2="381.36" xlink:href="#linearGradient5673" gradientUnits="userSpaceOnUse" x2="539" gradientTransform="translate(474 79.87)" y1="498.36" x1="331" />
+  </defs>
+  <g id="layer3" transform="translate(-643.9 -396.99)">
+    <rect id="rect3939" style="color:#000000;fill:url(#linearGradient3186)" height="194.88" width="318.9" y="450.14" x="697.05" />
+    <g id="g3941" transform="translate(474 -37.061)">
+      <path id="path3943" style="color:#000000;fill:#fff500" d="m541.49 565.56c-8.6951 61.946-103.2 111.47-221.79 116.28v0.36367h221.79v-116.65z" />
+      <path id="path3945" style="color:#000000;fill:#dd137b" d="m541.85 577.8c-7.7563 55.258-92.056 99.433-197.84 103.73v0.32439h197.84v-104.05z" />
+    </g>
+    <g id="g3947" transform="matrix(-.64751 0 0 -.78827 1049.4 1079)">
+      <path id="path3949" style="color:#000000;fill:#fff500" d="m543.75 695.77c-6.436 53.709-76.385 96.647-164.16 100.82v0.31531h164.16v-101.14z" />
+      <path id="path3951" style="color:#000000;fill:#dd137b" d="m543.75 706.69c-5.7411 47.91-68.138 86.212-146.44 89.938v0.28125h146.44v-90.219z" />
+    </g>
+    </g>
+  </svg>

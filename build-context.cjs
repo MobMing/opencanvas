@@ -1,0 +1,10 @@
+const fs=require('node:fs'),vm=require('node:vm');let html=fs.readFileSync('dist/index.html','utf8').replace(/\n<!-- CONTEXT START -->[\s\S]*?<!-- CONTEXT END -->/,'').replace(/\/\* CONTEXT CORE START \*\/[\s\S]*?\/\* CONTEXT CORE END \*\/\n/,'');
+html=html.replace("let design=template('bold')",'/* CONTEXT CORE START */\n'+fs.readFileSync('context-core.js','utf8')+'\n/* CONTEXT CORE END */\n'+"let design=template('bold')");
+if(!html.includes('Object.assign(e,contextMetadata(o));return e}'))html=html.replace('return e});if(new Set(d.elements','Object.assign(e,contextMetadata(o));return e});if(new Set(d.elements');
+html=html.replace('if(!e)return;canvas.focus();drag=',"if(!e)return;if(e.locked){toast('Unlock this element to move or resize it.');return}canvas.focus();drag=");
+html=html.replace("if(!e||e.type!=='text')return;checkpoint();inline=", "if(!e||e.locked||e.type!=='text')return;checkpoint();inline=");
+html=html.replace('function remove(){if(!selected)return;', 'function remove(){if(!selected||getSelected()?.locked)return;');
+html=html.replace('function reorder(delta){const i=', 'function reorder(delta){if(getSelected()?.locked)return;const i=');
+html=html.replace("includes(e.key)&&getSelected()){", "includes(e.key)&&getSelected()&&!getSelected().locked){");
+html=html.replace('</body>',()=> '\n<!-- CONTEXT START -->\n<style>'+fs.readFileSync('context-menu.css','utf8')+'</style>\n<script>\n'+fs.readFileSync('context-menu.js','utf8')+'\n</script>\n<!-- CONTEXT END -->\n</body>');
+for(const s of html.matchAll(/<script>([\s\S]*?)<\/script>/g))new vm.Script(s[1]);fs.writeFileSync('dist/index.html',html);console.log('Context menu built.');

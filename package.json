@@ -1,0 +1,14 @@
+{
+  "name": "opencanvas-studio",
+  "version": "0.1.0-dev",
+  "private": true,
+  "description": "An independent browser-local design editor by Mathew Minguel, developed with assistance from OpenAI Codex. Work in progress.",
+  "author": "Mathew Minguel",
+  "license": "UNLICENSED",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test tests/*.test.cjs",
+    "check": "node scripts/check-source.cjs"
+  }
+}

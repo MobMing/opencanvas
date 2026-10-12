@@ -1,2 +1,62 @@
-# opencanvas
-An independent, subscription-free design editor by Mathew Minguel, developed with assistance from OpenAI Codex. Work in progress.
+# OpenCanvas
+
+**An independent, subscription-free design editor. Actively being built.**
+
+Created and directed by **Mathew Minguel**, with development assistance from **OpenAI Codex**. OpenCanvas is an ongoing project, not a finished replacement for every commercial design tool. It is independently implemented and is not affiliated with Canva.
+
+![OpenCanvas Home with recent project previews](docs/images/home.png)
+
+## Try it locally
+
+Download or clone this repository, open a terminal in its folder, and run:
+
+```sh
+node server.mjs
+```
+
+Open **http://127.0.0.1:4173/**. The application ships ready to run in `dist/index.html`; no dependency installation or build step is needed. A recent desktop browser is recommended. Use Node.js 24 for the development commands below.
+
+The [original hosted preview](https://opencanvas-studio.cocoa-lotus-4165.chatgpt.site/) may require access from its owner. The custom `www.opencanvas.com` address is not an active project address yet.
+
+## What works today
+
+- Home with recent projects, previews, favorites, sorting, and search.
+- Text, shapes, uploaded images, editable layers, undo/redo, snapping, and alignment.
+- 73 original and credited community templates, including marketing and entertainment collections.
+- 36 font combinations, bundled open fonts, text effects, and saved styles.
+- Multipage designs, local presentations, and PNG, JPG, flattened PDF, and editable project exports.
+- PDF/image imports from Canva or other tools, preserved as flat artwork with editable overlays.
+- Drawing tools, charts, image adjustments, simple background removal, resizing, and CSV bulk creation.
+- Brand kits and a local business workspace for campaigns, review stages, and imported ad reports.
+- Right-click copy/paste, style transfer, layer order, page alignment, locking, links, descriptions, local comments, and reusable single-element components.
+
+![Right-click element actions](docs/images/context-menu.png)
+
+## Important limits
+
+Your designs are saved **in your browser on this device**. Download `.opencanvas` project backups regularly. Different browsers, devices, ports, and website addresses have separate storage; moving to another address does not automatically move your projects.
+
+This is a static browser application. It does not provide cloud accounts, shared editing, online comments, connected ad accounts, automatic social publishing, AI writing, automatic translation, or a video timeline. Some format presets are static mockups or storyboards. Imported PDF/image artwork does not become separately editable text and shapes. Current PDF output is rasterized.
+
+Element links and descriptions stay in editable project files; current image/PDF exports do not preserve clickable links or accessibility metadata. Saved components insert independent copies, not synchronized instances.
+
+## Development
+
+```sh
+npm test
+npm run check
+```
+
+These commands need no third-party packages. The current baseline contains **51 automated checks**. See [development notes](docs/DEVELOPMENT.md) for source layout and the order for rebuilding feature modules.
+
+The standalone HTML currently also contains the original editor core. Separating that core from the generated bundle is on the [roadmap](ROADMAP.md).
+
+## Credits and reuse
+
+See [CREDITS.md](CREDITS.md) for project credits and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for asset and dependency notices. Original third-party licenses and source records are included.
+
+**A project-wide reuse license has not yet been selected.** This publication does not replace the licenses of included third-party material. See [RIGHTS.md](RIGHTS.md). Contributions are welcome as discussion and proposals while the maintainer chooses a contribution and licensing policy.
+
+## Still in progress
+
+This repository is the starting point for continued development, not a final release. Use [ROADMAP.md](ROADMAP.md) to see the next areas of work and [CONTRIBUTING.md](CONTRIBUTING.md) before proposing changes. Please use made-up sample content in public issue reports rather than uploading private designs or client information.

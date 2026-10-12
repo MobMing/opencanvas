@@ -1,0 +1,11 @@
+const fs=require('fs'),vm=require('vm');
+const filename='dist/index.html';let html=fs.readFileSync(filename,'utf8');
+html=html.replace(/\n\/\* STUDIO STYLES START \*\/[\s\S]*?\/\* STUDIO STYLES END \*\//,'');
+html=html.replace(/\n<!-- STUDIO SCRIPT START -->[\s\S]*?<!-- STUDIO SCRIPT END -->/,'');
+const move='e.y=Math.round(o.y+p.y-drag.p.y)';
+if(!html.includes(move+';snapGuides'))html=html.replace(move,()=>move+';snapGuides=[];if(snapEnabled&&!ev.altKey)applySnapping(e)');
+html=html.replace('function finishDrag(){if(drag?.started)changed();drag=null}',()=> 'function finishDrag(){const moved=drag?.started;drag=null;snapGuides=[];if(moved)changed();else render()}');
+html=html.replace('</style>',()=> '\n/* STUDIO STYLES START */\n'+fs.readFileSync('studio-features.css','utf8')+'\n/* STUDIO STYLES END */\n</style>');
+html=html.replace('</body>',()=> '\n<!-- STUDIO SCRIPT START -->\n<script>\n'+fs.readFileSync('studio-features.js','utf8')+'\n</script>\n<!-- STUDIO SCRIPT END -->\n</body>');
+for(const script of html.matchAll(/<script>([\s\S]*?)<\/script>/g))new vm.Script(script[1]);
+fs.writeFileSync(filename,html);console.log('Studio build ready; syntax validated.');
