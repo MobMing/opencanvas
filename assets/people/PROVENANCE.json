@@ -100,6 +100,62 @@
       "prompt": "Use case: ads-marketing. Asset: original OpenCanvas template photograph/artwork. Create one square image. An abstract liquid-chrome twisted ring floating over a black background, iridescent electric violet and acid green highlights, subtle grain and crisp reflections. Futuristic rave artwork with spacious black margins. No people. No text, logos, watermarks, collage borders or typography. Fictional people only where requested; realistic natural anatomy. This image will sit beneath separately editable event typography.",
       "kind": "AI-generated imagery",
       "changes": "JPEG encoding for browser download and storage efficiency; no crop or retouch."
+    },
+    {
+      "id": "duo",
+      "path": "assets/people/duo.jpg",
+      "prompt": "Original photorealistic editorial photograph for an editable promotional design. Square composition. Two fictional adult DJs, a Black woman with long braids and a Latino man with buzz cut, side by side behind a mixing desk in a dark industrial club, candid musical connection, electric cyan side light and red rim light, medium-wide environmental photo, both faces in middle horizontal third. All people are fictional adults. Believable anatomy and natural skin texture. No text, lettering, branding, logos, watermark, borders or graphic design. This is a standalone photo, not a flyer.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; complete square photograph retained."
+    },
+    {
+      "id": "dancer",
+      "path": "assets/people/dancer.jpg",
+      "prompt": "Original photorealistic editorial photograph for an editable promotional design. Square composition. Fictional adult South Asian woman street dancer captured mid-stride in a bold full body pose, oversized cobalt tracksuit, clean pale gray concrete studio backdrop, editorial flash photography, lots of space around body, centered full figure, shoes visible. All people are fictional adults. Believable anatomy and natural skin texture. No text, lettering, branding, logos, watermark, borders or graphic design. This is a standalone photo, not a flyer.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; complete square photograph retained."
+    },
+    {
+      "id": "singer",
+      "path": "assets/people/singer.jpg",
+      "prompt": "Original photorealistic editorial photograph for an editable promotional design. Square composition. Fictional adult Black male soul singer in his thirties, short textured hair and burgundy velvet jacket, singing into a microphone on an amber lit intimate concert stage, dynamic side profile, half body, warm smoky atmosphere, face in center third. All people are fictional adults. Believable anatomy and natural skin texture. No text, lettering, branding, logos, watermark, borders or graphic design. This is a standalone photo, not a flyer.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; complete square photograph retained."
+    },
+    {
+      "id": "podcast-pair",
+      "path": "assets/people/podcast-pair.jpg",
+      "prompt": "Original photorealistic editorial photograph for an editable promotional design. Square composition. Two fictional adult women podcast hosts, one East Asian with short dark bob and one Black woman with natural curly hair, laughing across a recording table with two microphones, sunlit peach and cream recording studio, candid wide editorial photograph, faces in center third. All people are fictional adults. Believable anatomy and natural skin texture. No text, lettering, branding, logos, watermark, borders or graphic design. This is a standalone photo, not a flyer.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; complete square photograph retained."
+    },
+    {
+      "id": "beauty-editorial",
+      "path": "assets/people/beauty-editorial.jpg",
+      "prompt": "Original photorealistic editorial photograph for an editable promotional design. Square composition. Fictional adult woman with medium brown skin and natural freckles, silver eye makeup, dark slicked back hair, oversized sculptural silver earrings, closeup editorial beauty portrait against rich plum purple background, face slightly to right of center, premium soft directional light. All people are fictional adults. Believable anatomy and natural skin texture. No text, lettering, branding, logos, watermark, borders or graphic design. This is a standalone photo, not a flyer.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; complete square photograph retained."
+    },
+    {
+      "id": "night-friends",
+      "path": "assets/people/night-friends.jpg",
+      "prompt": "Original photorealistic editorial photograph for an editable promotional design. Square composition. Four fictional adult friends of varied appearances and skin tones in adventurous streetwear outside a brick music venue at night, candid editorial group fashion photograph, direct flash, burgundy and blue clothing, urban energy, full figures with space around them, no signage. All people are fictional adults. Believable anatomy and natural skin texture. No text, lettering, branding, logos, watermark, borders or graphic design. This is a standalone photo, not a flyer.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; complete square photograph retained."
+    },
+    {
+      "id": "comedian",
+      "path": "assets/people/comedian.jpg",
+      "prompt": "Original photorealistic editorial photograph for an editable promotional design. Square composition. Fictional adult East Asian male standup comedian in his forties with round glasses, mustard jacket and black tee, smiling while holding microphone in small comedy club, red velvet curtain background, waist up centered, warm cinematic spotlight. All people are fictional adults. Believable anatomy and natural skin texture. No text, lettering, branding, logos, watermark, borders or graphic design. This is a standalone photo, not a flyer.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; complete square photograph retained."
+    },
+    {
+      "id": "creative-founder",
+      "path": "assets/people/creative-founder.jpg",
+      "prompt": "Original photorealistic editorial photograph for an editable promotional design. Square composition. Fictional adult Black woman creative founder in her forties, short natural hair, oversized pale blue shirt, sitting casually on a stool in bright white artist studio, full body editorial portrait, confident relaxed expression, sunlit shadows and plenty of white negative space. All people are fictional adults. Believable anatomy and natural skin texture. No text, lettering, branding, logos, watermark, borders or graphic design. This is a standalone photo, not a flyer.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; complete square photograph retained."
     }
   ]
 }

@@ -32,7 +32,7 @@ The [original hosted preview](https://opencanvas-studio.cocoa-lotus-4165.chatgpt
 
 - Home with recent projects, previews, favorites, sorting, and search.
 - Text, shapes, uploaded images, editable layers, undo/redo, snapping, and alignment.
-- 913 templates: 600 new Design Combinations (24 themes × five art directions × five formats), plus the existing 313 templates, including social, nightlife, marketing, beauty and fitness.
+- 933 template entries, including 20 individually composed People & Culture designs and 22 original photo/art assets. Default browsing shows 165 distinct concepts, grouping older style and size variations; enable Show all variations to see every entry.
 - People-focused campaign layouts with labeled AI imagery, format/style filters, and replaceable photo layers. See [template sources and research](docs/TEMPLATE-SOURCES.md).
 - 36 font combinations, bundled open fonts, text effects, and saved styles.
 - Multipage designs, local presentations, and PNG, JPG, flattened PDF, and editable project exports.
