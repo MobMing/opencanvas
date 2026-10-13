@@ -58,7 +58,7 @@ npm test
 npm run check
 ```
 
-These commands need no third-party packages. The current baseline contains **63 automated checks**. See [development notes](docs/DEVELOPMENT.md) for source layout and the order for rebuilding feature modules.
+These commands need no third-party packages. The current baseline contains **67 automated checks**. See [development notes](docs/DEVELOPMENT.md) for source layout and the order for rebuilding feature modules.
 
 The standalone HTML currently also contains the original editor core. Separating that core from the generated bundle is on the [roadmap](ROADMAP.md).
 
