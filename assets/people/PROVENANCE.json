@@ -236,6 +236,38 @@
       "prompt": "Original striking vintage halftone illustration of a smiling vampire mouth with two pointed canine teeth, close crop showing only lips and teeth, black ink stipple and grain on warm ivory paper, stylish camp horror movie poster artwork, no blood, no gore, bold graphic contrast, centered square composition with generous cream margin. Standalone original art asset, no lettering, no words, no logos, no watermarks, not a finished poster.",
       "kind": "AI-generated imagery",
       "changes": "JPEG encoding only; square composition retained."
+    },
+    {
+      "id": "life-birthday",
+      "path": "assets/people/life-birthday.jpg",
+      "date": "2026-10-14",
+      "prompt": "Use case: photorealistic-natural. Square portrait photo asset for an original birthday invitation. A fictional smiling young adult Latino man with curly dark hair and joyful laugh, head and shoulders centered, cream studio background, black and white film photography, no text, no hat, no logos. Keep entire head inside the frame with generous room above his hair.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; square composition retained."
+    },
+    {
+      "id": "life-creator",
+      "path": "assets/people/life-creator.jpg",
+      "date": "2026-10-14",
+      "prompt": "Use case: photorealistic-natural. Square editorial portrait for a creator profile template. Fictional young adult East Asian woman wearing an olive knitted beanie and oatmeal sweater, sitting casually with a journal, cozy studio, softly lit cream background, natural skin texture, welcoming confident expression. Upper body fully framed with space above head. No text or logos.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; square composition retained."
+    },
+    {
+      "id": "life-forest",
+      "path": "assets/people/life-forest.jpg",
+      "date": "2026-10-14",
+      "prompt": "Use case: photorealistic-natural. Square cinematic nature photography asset, lush dense temperate forest with fern undergrowth and tall mossy trees after rain, delicate mist and diagonal soft sunlight, richly detailed green foliage. Immersive peaceful mood, no people, no buildings, no text, no logos.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; square composition retained."
+    },
+    {
+      "id": "life-harvest",
+      "path": "assets/people/life-harvest.jpg",
+      "date": "2026-10-14",
+      "prompt": "Use case: illustration-story. Square hand-drawn vintage harvest illustration for an autumn market invitation. A charming still life of two orange pumpkins, a steaming ceramic cup, oak leaves and acorns, fine dark-brown pen outlines and warm ochre muted watercolor on ivory paper. Centered compact composition with generous blank border. No lettering, no logos, no text.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; square composition retained."
     }
   ]
 }

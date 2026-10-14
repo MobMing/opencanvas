@@ -32,7 +32,7 @@ The [original hosted preview](https://opencanvas-studio.cocoa-lotus-4165.chatgpt
 
 - Home with recent projects, previews, favorites, sorting, and search.
 - Text, shapes, uploaded images, editable layers, undo/redo, snapping, and alignment.
-- 957 template entries, including 24 Studio Mix and 20 People & Culture designs, with 32 original generated photo/art assets. Default browsing shows 189 distinct concepts, grouping older style and size variations; enable Show all variations to see every entry.
+- 973 template entries, including 16 Lifestyle & Events, 24 Studio Mix and 20 People & Culture designs, with 36 original generated photo/art assets. Default browsing shows 205 distinct concepts, grouping older style and size variations; enable Show all variations to see every entry.
 - People-focused campaign layouts with labeled AI imagery, format/style filters, and replaceable photo layers. See [template sources and research](docs/TEMPLATE-SOURCES.md).
 - 36 font combinations, bundled open fonts, text effects, and saved styles.
 - Multipage designs, local presentations, and PNG, JPG, flattened PDF, and editable project exports.
@@ -58,7 +58,7 @@ npm test
 npm run check
 ```
 
-These commands need no third-party packages. The current baseline contains **70 automated checks**. See [development notes](docs/DEVELOPMENT.md) for source layout and the order for rebuilding feature modules.
+These commands need no third-party packages. The current baseline contains **71 automated checks**. See [development notes](docs/DEVELOPMENT.md) for source layout and the order for rebuilding feature modules.
 
 The standalone HTML currently also contains the original editor core. Separating that core from the generated bundle is on the [roadmap](ROADMAP.md).
 
