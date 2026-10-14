@@ -156,6 +156,86 @@
       "prompt": "Original photorealistic editorial photograph for an editable promotional design. Square composition. Fictional adult Black woman creative founder in her forties, short natural hair, oversized pale blue shirt, sitting casually on a stool in bright white artist studio, full body editorial portrait, confident relaxed expression, sunlit shadows and plenty of white negative space. All people are fictional adults. Believable anatomy and natural skin texture. No text, lettering, branding, logos, watermark, borders or graphic design. This is a standalone photo, not a flyer.",
       "kind": "AI-generated imagery",
       "changes": "JPEG encoding only; complete square photograph retained."
+    },
+    {
+      "id": "studio-chrome",
+      "path": "assets/people/studio-chrome.jpg",
+      "date": "2026-10-14",
+      "prompt": "Sculptural liquid-chrome ribbon looping through space, three asymmetrical interconnected loops with mirrored metal reflections, highly polished silver, soft warm white seamless background, experimental contemporary art installation product photograph, strong curves and generous negative space, object centered, square composition. Standalone original visual asset for editable design templates. No text, letters, logos, watermarks, border or finished poster layout. Any people are fictional adults. High visual quality.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; square composition retained."
+    },
+    {
+      "id": "studio-portrait",
+      "path": "assets/people/studio-portrait.jpg",
+      "date": "2026-10-14",
+      "prompt": "Original fashion editorial photograph of a fictional adult woman with medium brown skin, short wavy dark hair, amber sunglasses and cream linen shirt, wind and warm late-afternoon light, muted sea-blue background, cinematic analog film grain, waist-up portrait centered, distinctive understated art-house mood, square composition. Standalone original visual asset for editable design templates. No text, letters, logos, watermarks, border or finished poster layout. Any people are fictional adults. High visual quality.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; square composition retained."
+    },
+    {
+      "id": "studio-city",
+      "path": "assets/people/studio-city.jpg",
+      "date": "2026-10-14",
+      "prompt": "Original realistic aerial travel photograph of a fictional coastal city with dense terracotta roofs, pastel modernist buildings, narrow streets and a blue bay, late-afternoon long shadows, striking layered urban geometry, cinematic editorial documentary framing, square composition. Standalone original visual asset for editable design templates. No text, letters, logos, watermarks, border or finished poster layout. Any people are fictional adults. High visual quality.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; square composition retained."
+    },
+    {
+      "id": "studio-concert",
+      "path": "assets/people/studio-concert.jpg",
+      "date": "2026-10-14",
+      "prompt": "Original black-and-white documentary-style concert photograph, fictional adult indie band on stage with a drummer, bassist and female singer, dramatic beams of white light, visible excited audience hands silhouetted at bottom, high contrast gritty analog film aesthetic, wide stage view within square composition. Standalone original visual asset for editable design templates. No text, letters, logos, watermarks, border or finished poster layout. Any people are fictional adults. High visual quality.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; square composition retained."
+    },
+    {
+      "id": "studio-duo",
+      "path": "assets/people/studio-duo.jpg",
+      "date": "2026-10-14",
+      "prompt": "Original playful 1990s indie-pop editorial photograph of two fictional adult women musicians, a Black woman with short curly hair and an East Asian woman with shoulder-length dark hair, colorful vintage jackets, direct flash with subtle analog grain, teal-blue seamless studio background, close together laughing naturally, waist-up centered square composition. Standalone original visual asset for editable design templates. No text, letters, logos, watermarks, border or finished poster layout. Any people are fictional adults. High visual quality.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; square composition retained."
+    },
+    {
+      "id": "studio-botanical",
+      "path": "assets/people/studio-botanical.jpg",
+      "date": "2026-10-14",
+      "prompt": "Original artistic still-life photograph: translucent smoky glass vase filled with burgundy dahlias and delicate dried stems beside an unbranded black vinyl record partially in a plain cream paper sleeve, warm beige plaster background, dramatic directional sunlight and rich shadows, sophisticated independent music editorial mood, square composition. Standalone original visual asset for editable design templates. No text, letters, logos, watermarks, border or finished poster layout. Any people are fictional adults. High visual quality.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; square composition retained."
+    },
+    {
+      "id": "studio-gothic",
+      "path": "assets/people/studio-gothic.jpg",
+      "date": "2026-10-14",
+      "prompt": "Original hand-drawn antique engraving illustration on warm ivory paper, two elegant skeletal hands holding a crescent moon, surrounded by moths and small botanical flourishes, fine black ink hatching, symmetrical gothic invitation ornament, refined spooky woodcut aesthetic, all objects fully inside the square canvas with generous ivory margin. No lettering. Standalone original visual asset for editable design templates. No text, letters, logos, watermarks, border or finished poster layout. Any people are fictional adults. High visual quality.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; square composition retained."
+    },
+    {
+      "id": "studio-skeletons",
+      "path": "assets/people/studio-skeletons.jpg",
+      "date": "2026-10-14",
+      "prompt": "Original playful hand-drawn vintage Halloween illustration, two friendly full-body skeletons dancing together beneath a crescent moon, tiny stars, bats and a couple of pink flowers, cream ivory ink and muted pink on almost-black plum background, fine etched lines, whimsical sophisticated party invitation artwork, centered square composition, generous dark margins, no gore. Standalone original art asset, no lettering, no words, no logos, no watermarks, not a finished poster.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; square composition retained."
+    },
+    {
+      "id": "studio-friends",
+      "path": "assets/people/studio-friends.jpg",
+      "date": "2026-10-14",
+      "prompt": "Original candid lifestyle photograph of three fictional adult female friends with different skin tones laughing together at an outdoor cafe, one with dark curls, one with auburn hair, one with straight dark hair, cream and pastel clothing, warm autumn sun, coffee cups and flowers, joyful natural moment, high quality analog travel scrapbook aesthetic, square composition. Standalone original art asset, no lettering, no words, no logos, no watermarks, not a finished poster.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; square composition retained."
+    },
+    {
+      "id": "studio-fangs",
+      "path": "assets/people/studio-fangs.jpg",
+      "date": "2026-10-14",
+      "prompt": "Original striking vintage halftone illustration of a smiling vampire mouth with two pointed canine teeth, close crop showing only lips and teeth, black ink stipple and grain on warm ivory paper, stylish camp horror movie poster artwork, no blood, no gore, bold graphic contrast, centered square composition with generous cream margin. Standalone original art asset, no lettering, no words, no logos, no watermarks, not a finished poster.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; square composition retained."
     }
   ]
 }

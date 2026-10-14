@@ -32,7 +32,7 @@ The [original hosted preview](https://opencanvas-studio.cocoa-lotus-4165.chatgpt
 
 - Home with recent projects, previews, favorites, sorting, and search.
 - Text, shapes, uploaded images, editable layers, undo/redo, snapping, and alignment.
-- 933 template entries, including 20 individually composed People & Culture designs and 22 original photo/art assets. Default browsing shows 165 distinct concepts, grouping older style and size variations; enable Show all variations to see every entry.
+- 957 template entries, including 24 Studio Mix and 20 People & Culture designs, with 32 original generated photo/art assets. Default browsing shows 189 distinct concepts, grouping older style and size variations; enable Show all variations to see every entry.
 - People-focused campaign layouts with labeled AI imagery, format/style filters, and replaceable photo layers. See [template sources and research](docs/TEMPLATE-SOURCES.md).
 - 36 font combinations, bundled open fonts, text effects, and saved styles.
 - Multipage designs, local presentations, and PNG, JPG, flattened PDF, and editable project exports.
@@ -58,7 +58,7 @@ npm test
 npm run check
 ```
 
-These commands need no third-party packages. The current baseline contains **67 automated checks**. See [development notes](docs/DEVELOPMENT.md) for source layout and the order for rebuilding feature modules.
+These commands need no third-party packages. The current baseline contains **70 automated checks**. See [development notes](docs/DEVELOPMENT.md) for source layout and the order for rebuilding feature modules.
 
 The standalone HTML currently also contains the original editor core. Separating that core from the generated bundle is on the [roadmap](ROADMAP.md).
 
@@ -73,3 +73,4 @@ See [CREDITS.md](CREDITS.md) for project credits and [THIRD_PARTY_NOTICES.md](TH
 This repository is the starting point for continued development, not a final release. Use [ROADMAP.md](ROADMAP.md) to see the next areas of work and [CONTRIBUTING.md](CONTRIBUTING.md) before proposing changes. Please use made-up sample content in public issue reports rather than uploading private designs or client information.
 
 The Design Combinations pack adds 120 theme/style combinations and 24 original editable symbols. Browse with the Collection and Layout filters; find the symbols under Elements. These are original compositions inspired by broad design directions, with references documented in [design research](docs/DESIGN-COMBINATIONS.md). Existing photo assets are reused; no new photo shoots or downloaded Pinterest graphics are claimed.
+
