@@ -12,3 +12,8 @@ coverage/
 playwright-report/
 test-results/
 assets/people/*-original.png
+
+cloud-data/
+*.db
+*.db-wal
+*.db-shm

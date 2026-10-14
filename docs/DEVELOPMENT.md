@@ -40,6 +40,7 @@ The editor is not yet a conventional source-only build. Feature assemblers patch
 12. `build-home.cjs`
 13. `build-context.cjs`
 14. `build-promo.cjs`
+15. `build-plus.cjs`
 
 Run a script as `node build-context.cjs`, for example. Keep original core edits in the standalone HTML until the planned source extraction is complete. Run all checks and browser-test affected flows after rebuilding. Recreating raw community artwork is a separate asset-preparation process; some asset preparation utilities expect `sharp`, but it is not needed to use the bundled files.
 
@@ -60,3 +61,5 @@ Campaign Collection sources: `promo-scenes.js` holds asset descriptions, assignm
 Reference Remix is defined in reference-collection.js, after studio-collection.js in build-promo.cjs. It composes 20 layout families with 12 independently editable variations each. tests/reference-collection.test.cjs validates all 240 designs, real calendar dates, imagery metadata, independent IDs and dark-panel contrast.
 
 City Collection is defined in `city-collection.js`, bundled after Reference Remix. Eight destinations have three native layouts each. City images are AI illustrations, not verified documentary photographs. `catalog-data.js` normalizes city/cities, skyline/skylines and hyphens for home and gallery queries; `home.js` ranks matching city designs first. After catalog changes, rebuild from `build-create.cjs` through `build-promo.cjs` in the order above. `tests/cities.test.cjs` checks all 24 designs, aliases and filters.
+
+Studio Plus appends after every earlier module. `studio-plus-core.js` contains pure helpers; storage, tools, media and connection UI have separate modules. Re-run `build-plus.cjs` after rebuilding any earlier feature. `cloud/server.mjs` uses Node 24 built-ins and SQLite; its tests use an in-memory database and mock publishing. Never package `cloud-data/` or service secrets.

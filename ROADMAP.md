@@ -20,22 +20,30 @@ Maintained by Mathew Minguel. These are proposed directions, not promises or rel
 - [ ] Add browser regression coverage for saving, imports, locking, and exports
 - [ ] Improve keyboard and screen-reader workflows across the editor
 - [ ] Improve responsive layouts and touch interactions
-- [ ] Add project-storage usage and recovery tools
+- [x] Add project-storage usage and recovery tools
 
 ## Design and media
 
 - [ ] Expand original templates and verified community collections
-- [ ] Improve background removal and image editing
-- [ ] Add grouped elements and richer reusable components
+- [x] Add photo framing and manual cutout refinement
+- [ ] Add automatic subject segmentation
+- [x] Add grouped elements and reusable layout copies
+- [ ] Add synchronized component instances
 - [ ] Explore editable vector imports and accessible/vector PDF exports
-- [ ] Design a real animation/video timeline
+- [x] Add timed page scenes, video overlays, soundtrack and WebM export
+- [ ] Extend motion with trimming, waveform editing and MP4
 
-## Connected features to design separately
+## Connected services
 
-- [ ] Optional accounts, cloud backup, and clear migration from local projects
-- [ ] Shared editing, permissions, and genuine review notifications
+A private workspace server and Render setup are now prepared. Production hosting/accounts remain unconfigured. See docs/CONNECTED-SETUP.md.
+
+- [x] Optional workspace accounts and explicit cloud save/open
+- [ ] Activate production hosting, account recovery and off-site database backups
+- [x] Shared project copies, permissions, comments and version-specific reviews
+- [ ] Live collaborative editing and notifications outside the workspace panel
 - [ ] Optional AI writing and translation with transparent provider and cost controls
-- [ ] Connected publishing and analytics
+- [x] Configurable Bluesky publishing queue
+- [ ] Additional social networks and analytics
 - [ ] Complete custom-domain ownership verification and project migration guidance
 
 Keep unavailable features visibly distinct from working tools. Preserve existing projects and third-party notices while iterating.

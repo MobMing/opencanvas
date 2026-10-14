@@ -28,6 +28,12 @@ The application ships ready to run in `dist/index.html`; no dependency installat
 
 The [original hosted preview](https://opencanvas-studio.cocoa-lotus-4165.chatgpt.site/) may require access from its owner. The custom `www.opencanvas.com` address is not an active project address yet.
 
+## Studio Plus
+
+Open **Studio Plus** on Home or in the editor for recovery versions and workspace backups, photo zoom/pan and cutout brushes, grouped layers and reusable layouts, event campaign creation, adaptive resizing, design checks and WebM motion export. [Tool details and limits](docs/STUDIO-PLUS.md).
+
+An optional workspace backend supports cloud project copies, shared editing with conflict protection, comments, version-specific approvals and scheduled Bluesky posts. It requires separate hosting and account setup; these connected services are not active on GitHub Pages alone. [Setup guide](docs/CONNECTED-SETUP.md).
+
 ## What works today
 
 - Home with recent projects, previews, favorites, sorting, and search.
@@ -47,7 +53,7 @@ The [original hosted preview](https://opencanvas-studio.cocoa-lotus-4165.chatgpt
 
 Your designs are saved **in your browser on this device**. Download `.opencanvas` project backups regularly. Different browsers, devices, ports, and website addresses have separate storage; moving to another address does not automatically move your projects.
 
-This is a static browser application. It does not provide cloud accounts, shared editing, online comments, connected ad accounts, automatic social publishing, AI writing, automatic translation, or a video timeline. Some format presets are static mockups or storyboards. Imported PDF/image artwork does not become separately editable text and shapes. Current PDF output is rasterized.
+The public website is a static browser application. Connected accounts, shared projects, online comments and scheduled Bluesky publishing require the separately configured workspace server. Connected ad accounts, AI writing and automatic translation are not included. Motion provides page scenes and WebM export, with the limits described above. Some format presets are static mockups or storyboards. Imported PDF/image artwork does not become separately editable text and shapes. Current PDF output is rasterized.
 
 Element links and descriptions stay in editable project files; current image/PDF exports do not preserve clickable links or accessibility metadata. Saved components insert independent copies, not synchronized instances.
 
@@ -58,7 +64,7 @@ npm test
 npm run check
 ```
 
-These commands need no third-party packages. The current baseline contains **80 automated checks**. See [development notes](docs/DEVELOPMENT.md) for source layout and the order for rebuilding feature modules.
+These commands need no third-party packages. The current baseline contains **89 automated checks**. See [development notes](docs/DEVELOPMENT.md) for source layout and the order for rebuilding feature modules.
 
 The standalone HTML currently also contains the original editor core. Separating that core from the generated bundle is on the [roadmap](ROADMAP.md).
 

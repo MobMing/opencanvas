@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: opencanvas-workspace
+    runtime: node
+    plan: starter
+    buildCommand: node --check cloud/server.mjs
+    startCommand: node cloud/server.mjs
+    healthCheckPath: /health
+    disk:
+      name: opencanvas-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: OPENCANVAS_DB
+        value: /var/data/opencanvas.db
+      - key: ALLOWED_ORIGIN
+        value: https://mobming.github.io
+      - key: ADMIN_USER
+        value: owner
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: INVITE_CODE
+        generateValue: true
+      - key: BSKY_HANDLE
+        sync: false
+      - key: BSKY_APP_PASSWORD
+        sync: false
+
