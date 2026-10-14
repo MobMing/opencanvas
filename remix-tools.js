@@ -17,7 +17,7 @@ const remixRefreshGraphics=refreshGraphicPreviews;refreshGraphicPreviews=functio
 // The sidebar stays light even as the full template library grows.
 renderTemplates=function(){
  const root=$('#templateGrid');if(!root)return;
- const items=distinctTemplateConcepts([...cityTemplates,...referenceTemplates,...studioTemplates.slice(24),...studioTemplates.slice(0,24),...peopleTemplates,...templateCatalog().filter(t=>!['people','studio','lifestyle','reference','cities'].includes(t.collection))].filter(t=>(filter==='All'||t.category===filter||t.topic===filter||(filter==='Community'&&communityInfo(t.id)))&&matchesCatalog(t,query)));
+ const items=curateTemplates(distinctTemplateConcepts(templateCatalog().filter(t=>(filter==='All'||t.category===filter||t.topic===filter||(filter==='Community'&&communityInfo(t.id)))&&matchesCatalog(t,query))));
  root.innerHTML=items.slice(0,24).map(t=>'<div class="community-card"><button class="template-card" data-template="'+esc(t.id)+'"><canvas aria-hidden="true"></canvas><span class="tname">'+esc(t.name)+'</span><span class="ttype">'+esc(t.topic||t.category)+'</span></button>'+(communityInfo(t.id)?'<button class="template-credit" data-credit="'+esc(t.id)+'">Source &amp; license ↗</button>':'')+'</div>').join('')+(items.length>24?'<button class="btn wide" id="remixBrowseAll">Browse all '+items.length+' matches</button>':'')+(!items.length?'<p class="empty">No matches. Try another topic.</p>':'');
  root.querySelectorAll('[data-template]').forEach(b=>{paintTemplateCard(b.querySelector('canvas'),template(b.dataset.template));b.onclick=()=>openTemplate(b.dataset.template);});
  root.querySelectorAll('[data-credit]').forEach(b=>b.onclick=()=>showCommunityCredit(b.dataset.credit));

@@ -28,6 +28,10 @@ The application ships ready to run in `dist/index.html`; no dependency installat
 
 The [original hosted preview](https://opencanvas-studio.cocoa-lotus-4165.chatgpt.site/) may require access from its owner. The custom `www.opencanvas.com` address is not an active project address yet.
 
+## Template discovery
+
+The gallery, editor sidebar and Home recommendations mix collections while spacing out repeated imagery, layouts and topics. Search and filters retain their scope, and loading more cards keeps the existing order stable. Creative Crossovers adds 32 editable designs in eight layout families using the existing credited AI artwork and original shapes.
+
 ## Studio Plus
 
 Open **Studio Plus** on Home or in the editor for recovery versions and workspace backups, photo zoom/pan and cutout brushes, grouped layers and reusable layouts, event campaign creation, adaptive resizing, design checks and WebM motion export. [Tool details and limits](docs/STUDIO-PLUS.md).
@@ -64,7 +68,7 @@ npm test
 npm run check
 ```
 
-These commands need no third-party packages. The current baseline contains **89 automated checks**. See [development notes](docs/DEVELOPMENT.md) for source layout and the order for rebuilding feature modules.
+These commands need no third-party packages. The current baseline contains **92 automated checks**. See [development notes](docs/DEVELOPMENT.md) for source layout and the order for rebuilding feature modules.
 
 The standalone HTML currently also contains the original editor core. Separating that core from the generated bundle is on the [roadmap](ROADMAP.md).
 

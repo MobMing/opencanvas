@@ -63,3 +63,5 @@ Reference Remix is defined in reference-collection.js, after studio-collection.j
 City Collection is defined in `city-collection.js`, bundled after Reference Remix. Eight destinations have three native layouts each. City images are AI illustrations, not verified documentary photographs. `catalog-data.js` normalizes city/cities, skyline/skylines and hyphens for home and gallery queries; `home.js` ranks matching city designs first. After catalog changes, rebuild from `build-create.cjs` through `build-promo.cjs` in the order above. `tests/cities.test.cjs` checks all 24 designs, aliases and filters.
 
 Studio Plus appends after every earlier module. `studio-plus-core.js` contains pure helpers; storage, tools, media and connection UI have separate modules. Re-run `build-plus.cjs` after rebuilding any earlier feature. `cloud/server.mjs` uses Node 24 built-ins and SQLite; its tests use an in-memory database and mock publishing. Never package `cloud-data/` or service secrets.
+
+`discovery-collection.js` defines the Creative Crossovers designs and stable discovery ordering. It loads before `promo-tools.js`. Rebuild promo and Studio Plus after edits.
