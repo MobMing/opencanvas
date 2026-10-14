@@ -16,6 +16,8 @@ Some designs use only editable text and geometric shapes. A template's photo can
 
 ## Design collections and visual research
 
+- [Art Directed](ART-DIRECTED.md): 24 individually composed designs, six new transparent/texture/photo assets, and five open font families. Exact [prompts and provenance](../assets/atelier/PROVENANCE.json) are included.
+- [Canva comparison](CANVA-COMPARISON.md): public gallery research, existing features, and remaining product gaps.
 - [Nightlife & Culture](NEW-WAVE.md): 48 layouts using eight new generated images, with research and prompt links.
 - [Flyer Lab](FLYER-LAB.md): 36 original music, nightlife and community flyers, using a broader mix of existing artwork and editable graphic designs.
 

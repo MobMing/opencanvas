@@ -35,3 +35,14 @@ const typePresets=[
  {id:'paper',name:'Paper & ink',category:'Classic',parts:[{text:'A story worth telling.',font:'Georgia',size:70,color:'#273c57'},{text:'CHAPTER ONE / YOUR NEXT ADVENTURE',font:'Courier New',size:26,color:'#273c57'}]},
  {id:'spark',name:'Small sparks',category:'Handwritten',parts:[{text:'a little spark',font:'Kalam',size:100,color:'#b94365',textEffect:'shadow',effectColor:'#f3d4bd',effectAmount:4},{text:'CAN CHANGE EVERYTHING',font:'Trebuchet MS',size:30,color:'#b94365',tracking:.1}]}
 ];
+// Original display pairings for editable editorial, club and culture graphics.
+typePresets.push(
+ {id:'atelier-headliner',name:'The headliner',category:'Bold',parts:[{text:'AFTERHOURS',font:'Anton',size:112,color:'#b3f144',lineHeight:.95},{text:'INDEPENDENT SOUNDS / OPEN MINDS',font:'DM Sans',size:24,color:'#26322d',tracking:.12}]},
+ {id:'atelier-editorial',name:'Editorial contrast',category:'Classic',parts:[{text:'The new perspective',font:'Cormorant Garamond',size:92,color:'#902e39',italic:true},{text:'ART / CULTURE / IDEAS',font:'DM Sans',size:25,color:'#902e39',tracking:.18}]},
+ {id:'atelier-volume',name:'Maximum volume',category:'Bold',parts:[{text:'TURN IT UP',font:'Bebas Neue',size:156,color:'#202520',lineHeight:.95},{text:'a little louder this time',font:'Caveat',size:57,color:'#dc4732'}]},
+ {id:'atelier-soul',name:'Soul session',category:'Handwritten',parts:[{text:'Soul after sundown',font:'Caveat',size:102,color:'#882a36'},{text:'LIVE / INTIMATE / ONE NIGHT ONLY',font:'Bebas Neue',size:38,color:'#882a36',tracking:.06}]},
+ {id:'atelier-archive',name:'The culture journal',category:'Classic',parts:[{text:'NO ORDINARY DAY',font:'Anton',size:100,color:'#282722'},{text:'Notes from a different kind of weekend.',font:'Cormorant Garamond',size:48,color:'#282722',italic:true}]},
+ {id:'atelier-runway',name:'Street edition',category:'Bold',parts:[{text:'OFF DUTY',font:'Bebas Neue',size:155,color:'#2150bd',lineHeight:.9},{text:'The city is your runway.',font:'DM Sans',size:31,color:'#20242a'}]},
+ {id:'atelier-letter',name:'A personal note',category:'Handwritten',parts:[{text:'Made for you',font:'Caveat',size:113,color:'#be3b36'},{text:'A LITTLE THANK YOU FROM OUR STUDIO',font:'DM Sans',size:24,color:'#352c2b',tracking:.08}]},
+ {id:'atelier-gallery',name:'Gallery invitation',category:'Classic',parts:[{text:'Ways of seeing',font:'Cormorant Garamond',size:112,color:'#242723'},{text:'NEW WORKS / OPEN STUDIO',font:'Bebas Neue',size:39,color:'#242723',tracking:.15}]}
+);

@@ -1,0 +1,64 @@
+{
+  "assets": [
+    {
+      "id": "atelier-dj-cutout",
+      "transparent": true,
+      "prompt": "Use case: photorealistic-natural. Asset for an independently designed music event flyer, not a finished poster. A fictional adult Black woman DJ, waist-up three-quarter editorial portrait with sleek black headphones around her neck, a structured metallic silver jacket over black top, short natural hair, confident direct gaze, one relaxed hand lightly touching headphones. Striking fashion photography, bright detailed face, crisp dramatic side light, naturally detailed skin. Entire head, hair, arms and jacket visible inside frame. Transparent background with clean alpha edges, no scene, no text, no logo, no watermark. Square image; subject fills height and center 75 percent width. Excellent cutout suitable to overlap large typography.",
+      "filename": "exec-66db2bc0-f685-40be-8d84-5ddeb2bd0f60.png",
+      "path": "assets/atelier/atelier-dj-cutout.webp",
+      "method": "OpenAI built-in image generation",
+      "created": "2026-10-14",
+      "changes": "Resized to a maximum edge of 1200 pixels and encoded as WebP; alpha preserved for transparent assets."
+    },
+    {
+      "id": "atelier-fashion-cutout",
+      "transparent": true,
+      "prompt": "Use case: photorealistic-natural. Original cutout asset for a street culture poster. Fictional adult East Asian man with long dark hair in a flowing cobalt blue coat, wide dark trousers and silver sneakers, full body, dynamic leaning fashion pose, confident, hand in pocket. Contemporary independent magazine campaign photography, candid expression, rich blue fabric texture, dramatic bright studio lighting. Entire person visible with generous breathing space at all edges; no cropped feet or head. Transparent background with clean natural alpha edge. No type, no words, no brands, no watermark. Tall vertical subject centered in square image.",
+      "filename": "exec-5133ad95-de53-4c35-ab8c-b5a4e2da644f.png",
+      "path": "assets/atelier/atelier-fashion-cutout.webp",
+      "method": "OpenAI built-in image generation",
+      "created": "2026-10-14",
+      "changes": "Resized to a maximum edge of 1200 pixels and encoded as WebP; alpha preserved for transparent assets."
+    },
+    {
+      "id": "atelier-singer-cutout",
+      "transparent": true,
+      "prompt": "Use case: photorealistic-natural. Original photographic cutout for a soul jazz concert flyer. Fictional adult woman with medium brown skin, short curly hair, warm expressive smile, eyes half closed singing into a vintage handheld microphone, elegant deep burgundy satin blouse, hoop earrings, waist-up portrait. Warm golden stage light on her face and one cool rim light, natural skin detail, cinematic film photo character. Entire head, hands, arms, microphone visible within frame. Transparent empty background, naturally isolated with alpha channel. No text, no branding, no watermark. Square image with subject centered.",
+      "filename": "exec-6543dbea-b6c1-4d9a-a916-f67193f7fd8e.png",
+      "path": "assets/atelier/atelier-singer-cutout.webp",
+      "method": "OpenAI built-in image generation",
+      "created": "2026-10-14",
+      "changes": "Resized to a maximum edge of 1200 pixels and encoded as WebP; alpha preserved for transparent assets."
+    },
+    {
+      "id": "atelier-chrome",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. Original abstract sculpture asset for contemporary electronic music and art exhibition posters. One impossible fluid ribbon of polished mirror chrome folded into a twisting continuous knot, organic sinuous loops, reflections of violet and ice-blue neon with black highlights. Luxurious experimental 3D editorial art, very sculptural and unusual, dramatic studio reflections. Entire sculpture fits inside image with breathing room. Genuine transparent background alpha, no shadow on ground, no text, no logos, no humans. Square image.",
+      "filename": "exec-d6eb9962-1aa5-4089-9791-8da621043078.png",
+      "path": "assets/atelier/atelier-chrome.webp",
+      "method": "OpenAI built-in image generation",
+      "created": "2026-10-14",
+      "changes": "Resized to a maximum edge of 1200 pixels and encoded as WebP; alpha preserved for transparent assets."
+    },
+    {
+      "id": "atelier-paper",
+      "transparent": false,
+      "prompt": "Use case: stylized-concept. Full bleed original scanned off-white archival paper texture for editable graphic design backgrounds. Warm ivory paper with fine tooth, tiny black flecks, faint creases, very subtle age and printing grain, low contrast and mostly bright cream so black or red typography remains legible. No objects, no writing, no text, no frame, no border, no symbols. Even flat illumination, high detail, square.",
+      "filename": "exec-153bdd63-608d-41b4-925b-cc3a2e5866e9.png",
+      "path": "assets/atelier/atelier-paper.webp",
+      "method": "OpenAI built-in image generation",
+      "created": "2026-10-14",
+      "changes": "Resized to a maximum edge of 1200 pixels and encoded as WebP; alpha preserved for transparent assets."
+    },
+    {
+      "id": "atelier-rave",
+      "transparent": false,
+      "prompt": "Use case: photorealistic-natural. Full bleed original editorial concert photograph for a techno event poster. A dark underground industrial warehouse dancefloor filled with a diverse crowd of fictional adults seen mostly from behind, small silhouettes in lower half. Dramatic saturated acid-green laser beams fan through smoky black space, dim violet ambient glow near horizon, authentic grainy analog nightlife photography, packed energy, sweeping large negative black space in upper third for editable title. No readable signs, no text, no recognizable people, no logos or watermarks. Portrait 4:5 composition.",
+      "filename": "exec-c768ee56-ff23-4ee0-a5b2-c876044af790.png",
+      "path": "assets/atelier/atelier-rave.webp",
+      "method": "OpenAI built-in image generation",
+      "created": "2026-10-14",
+      "changes": "Resized to a maximum edge of 1200 pixels and encoded as WebP; alpha preserved for transparent assets."
+    }
+  ]
+}

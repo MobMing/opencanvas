@@ -4,6 +4,8 @@ Added 14 October 2026: 36 original editable templates across 12 composition fami
 
 ## Composition families
 
+The Art Directed release rebuilds all 36 compositions with full-bleed photo framing, larger condensed headlines, editorial typography, layered graphic details, and native photo crops. Existing template IDs, names, and imagery are preserved so bookmarks and search results continue to work. See [Art Directed](ART-DIRECTED.md) for the 24 additional designs and the new preview and photo-editing tools.
+
 Back-to-back bills, record-shop sleeves, three-frame photo dispatches, after-hours timetables, wide community bulletins, detachable guest passes, vertical artist diaries, orbit sound graphics, acoustic editorials, asymmetric culture zines, festival wayfinding posters and weekend diptychs.
 
 Music and nightlife topics include underground rave, house, techno, disco, vinyl, jazz, live soul, indie concerts and open-air festivals. Other topics include makers markets, dance classes, local creative meetups, exhibitions, fashion and social promotions. Event details and all text remain editable; photo layers can be replaced.

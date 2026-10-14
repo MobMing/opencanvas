@@ -1,0 +1,122 @@
+[
+  {
+    "family": "Anton",
+    "dir": "anton",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/anton/Anton-Regular.ttf",
+    "sha": "4d65707db9d8663ccfa99cd28cd3a4e0025be178",
+    "name": "anton-Anton-Regular.ttf",
+    "kind": "font",
+    "style": "normal",
+    "weight": "400"
+  },
+  {
+    "family": "Anton",
+    "dir": "anton",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/anton/OFL.txt",
+    "sha": "93feddee37145696e123ea65a6772cab09663f9e",
+    "name": "anton-OFL.txt",
+    "kind": "license",
+    "style": "normal",
+    "weight": "400"
+  },
+  {
+    "family": "Bebas Neue",
+    "dir": "bebasneue",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/bebasneue/BebasNeue-Regular.ttf",
+    "sha": "c328c6e08b20a20a1de47d823e007ee73812a438",
+    "name": "bebasneue-BebasNeue-Regular.ttf",
+    "kind": "font",
+    "style": "normal",
+    "weight": "400"
+  },
+  {
+    "family": "Bebas Neue",
+    "dir": "bebasneue",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/bebasneue/OFL.txt",
+    "sha": "da9571488f44176ef90d7f10c0f402c8be74db67",
+    "name": "bebasneue-OFL.txt",
+    "kind": "license",
+    "style": "normal",
+    "weight": "400"
+  },
+  {
+    "family": "DM Sans",
+    "dir": "dmsans",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/dmsans/DMSans-Italic%5Bopsz%2Cwght%5D.ttf",
+    "sha": "bf6819b0f811026ecf98d66183509b7302c0bf61",
+    "name": "dmsans-DMSans-Italic.ttf",
+    "kind": "font",
+    "style": "italic",
+    "weight": "100 1000"
+  },
+  {
+    "family": "DM Sans",
+    "dir": "dmsans",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/dmsans/DMSans%5Bopsz%2Cwght%5D.ttf",
+    "sha": "c672f98060af9b2c85fca704ebd5ad9a8717c1df",
+    "name": "dmsans-DMSans.ttf",
+    "kind": "font",
+    "style": "normal",
+    "weight": "100 1000"
+  },
+  {
+    "family": "DM Sans",
+    "dir": "dmsans",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/dmsans/OFL.txt",
+    "sha": "4430b85ac62998e2edb914360f9ebdfe43f4deaa",
+    "name": "dmsans-OFL.txt",
+    "kind": "license",
+    "style": "normal",
+    "weight": "100 1000"
+  },
+  {
+    "family": "Cormorant Garamond",
+    "dir": "cormorantgaramond",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/cormorantgaramond/CormorantGaramond-Italic%5Bwght%5D.ttf",
+    "sha": "0d914e7663b7a1429d06ec60a5c5bb026031a2ef",
+    "name": "cormorantgaramond-CormorantGaramond-Italic.ttf",
+    "kind": "font",
+    "style": "italic",
+    "weight": "300 700"
+  },
+  {
+    "family": "Cormorant Garamond",
+    "dir": "cormorantgaramond",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/cormorantgaramond/CormorantGaramond%5Bwght%5D.ttf",
+    "sha": "d992a83ce525c330fad3a19087746bcb2dc038ee",
+    "name": "cormorantgaramond-CormorantGaramond.ttf",
+    "kind": "font",
+    "style": "normal",
+    "weight": "300 700"
+  },
+  {
+    "family": "Cormorant Garamond",
+    "dir": "cormorantgaramond",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/cormorantgaramond/OFL.txt",
+    "sha": "507d70f4565352dbfcf2dfc9b42eb092b57c0be8",
+    "name": "cormorantgaramond-OFL.txt",
+    "kind": "license",
+    "style": "normal",
+    "weight": "300 700"
+  },
+  {
+    "family": "Caveat",
+    "dir": "caveat",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/caveat/Caveat%5Bwght%5D.ttf",
+    "sha": "f84acf2ce2d1b3329b194749530dbaec047e6df6",
+    "name": "caveat-Caveat.ttf",
+    "kind": "font",
+    "style": "normal",
+    "weight": "400 700"
+  },
+  {
+    "family": "Caveat",
+    "dir": "caveat",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/caveat/OFL.txt",
+    "sha": "6e5220c9576d98dfc684e550ddf0d87f68b3edc5",
+    "name": "caveat-OFL.txt",
+    "kind": "license",
+    "style": "normal",
+    "weight": "400 700"
+  }
+]

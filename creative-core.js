@@ -10,6 +10,45 @@ function adjustPhotoPixels(data,brightness,contrast,saturation){
   const b=brightness/100,c=contrast/100,s=saturation/100;
   for(let i=0;i<data.length;i+=4){const l=.2126*data[i]+.7152*data[i+1]+.0722*data[i+2];for(let k=0;k<3;k++)data[i+k]=Math.max(0,Math.min(255,((l+(data[i+k]-l)*s)*b-128)*c+128));}return data;
 }
+const photoDuotonePresets=[
+ {id:'carbon',name:'Carbon & cream',shadow:'#171719',highlight:'#f5efdb'},
+ {id:'electric',name:'Electric violet',shadow:'#24103f',highlight:'#daff4c'},
+ {id:'club',name:'Midnight club',shadow:'#09245a',highlight:'#f389ce'},
+ {id:'poster',name:'Red poster',shadow:'#38151d',highlight:'#ff654a'},
+ {id:'forest',name:'Forest print',shadow:'#153c31',highlight:'#e9daa0'},
+ {id:'cobalt',name:'Cobalt paper',shadow:'#164fa0',highlight:'#fff4da'},
+ {id:'sepia',name:'Warm archive',shadow:'#3d2723',highlight:'#f1cb95'}
+];
+function photoStudioSettings(raw={}){
+ const number=(key,fallback,min,max)=>{const value=raw[key]??fallback;if(typeof value!=='number'||!Number.isFinite(value)||value<min||value>max)throw Error('Invalid photo '+key+'.');return value};
+ const color=(key,fallback)=>{const value=raw[key]??fallback;if(typeof value!=='string'||!/^#[a-f0-9]{6}$/i.test(value))throw Error('Invalid photo '+key+'.');return value.toLowerCase()};
+ const frame=raw.frame??'none';if(!['none','circle','round','arch'].includes(frame))throw Error('Invalid photo frame.');
+ return {brightness:number('brightness',100,20,180),contrast:number('contrast',100,20,180),saturation:number('saturation',100,0,200),flip:raw.flip===true,frame,remove:raw.remove===true,key:color('key','#ffffff'),tolerance:number('tolerance',18,0,65),shadow:color('shadow','#171719'),highlight:color('highlight','#f5efdb'),intensity:number('intensity',0,0,100)};
+}
+function duotonePhotoPixels(data,shadow,highlight,intensity=100){
+ const settings=photoStudioSettings({shadow,highlight,intensity}),a=settings.shadow.match(/[a-f0-9]{2}/g).map(v=>parseInt(v,16)),b=settings.highlight.match(/[a-f0-9]{2}/g).map(v=>parseInt(v,16)),mix=settings.intensity/100;
+ if(!mix)return data;
+ for(let i=0;i<data.length;i+=4){if(!data[i+3])continue;const tone=(.2126*data[i]+.7152*data[i+1]+.0722*data[i+2])/255;for(let k=0;k<3;k++)data[i+k]=Math.round(data[i+k]*(1-mix)+(a[k]+(b[k]-a[k])*tone)*mix);}return data;
+}
+function photoSourceFingerprint(src){let hash=2166136261;for(let i=0;i<src.length;i++)hash=Math.imul(hash^src.charCodeAt(i),16777619);return src.length.toString(16)+'-'+(hash>>>0).toString(16).padStart(8,'0');}
+function photoStudioMetadata(raw){
+ if(!raw||raw.type!=='image'||raw.photoStudio===undefined)return {};
+ const record=raw.photoStudio;if(!record||record.version!==1||typeof record.source!=='string'||record.source.length>16*1024*1024||!/^data:image\/(png|jpeg|webp|gif);base64,[A-Za-z0-9+/=]+$/.test(record.source)||typeof record.result!=='string'||!/^[-a-f0-9]{10,24}$/.test(record.result))throw Error('Invalid original photo data.');
+ const settings=photoStudioSettings(record.settings);if(typeof raw.src!=='string'||photoSourceFingerprint(raw.src)!==record.result)return {};
+ return {photoStudio:{version:1,source:record.source,result:record.result,settings}};
+}
+function applyPhotoStudioResult(element,src,record,width,height){
+ if(element.type!=='image'||element.locked)throw Error('Choose an unlocked image.');
+ if(!Number.isFinite(width)||!Number.isFinite(height)||width<1||height<1)throw Error('Invalid photo size.');
+ const previousFrame=photoStudioMetadata(element).photoStudio?.settings.frame||'none',next=photoStudioMetadata({type:'image',src,photoStudio:record}).photoStudio;
+ if(!next)throw Error('Invalid photo result.');
+ const frame=next.settings.frame;
+ if(previousFrame!==frame)element.photoCrop={zoom:1,x:.5,y:.5};
+ element.src=src;element.photoStudio=next;
+ if(frame!=='none'){const size=Math.min(element.w,element.h);element.x+=(element.w-size)/2;element.y+=(element.h-size)/2;element.w=element.h=size}
+ else if(previousFrame!=='none'){const centerX=element.x+element.w/2,centerY=element.y+element.h/2,ratio=Math.min(element.w/width,element.h/height);element.w=Math.max(1,width*ratio);element.h=Math.max(1,height*ratio);element.x=centerX-element.w/2;element.y=centerY-element.h/2}
+ return element;
+}
 function parseChartRows(text){
   const rows=text.trim().split(/\r?\n/).filter(v=>v.trim()).map(line=>{const i=line.lastIndexOf(','),label=line.slice(0,i).trim(),value=Number(line.slice(i+1).trim());if(i<1||!label||label.length>32||!line.slice(i+1).trim()||!Number.isFinite(value)||value<0||value>1e12)throw Error('Use Label, number on each line. Values must be 0–1 trillion; labels up to 32 characters.');return{label,value}});
   if(!rows.length||rows.length>12||!rows.some(r=>r.value>0))throw Error('Add 1–12 rows with at least one positive value.');return rows;

@@ -28,6 +28,10 @@ The application ships ready to run in `dist/index.html`; no dependency installat
 
 The [original hosted preview](https://opencanvas-studio.cocoa-lotus-4165.chatgpt.site/) may require access from its owner. The custom `www.opencanvas.com` address is not an active project address yet.
 
+## Art-directed templates and editing
+
+24 new individually composed designs, 36 rebuilt Flyer Lab designs, five additional font families, large template previews, saved template bookmarks, and reversible duotone photo editing. See the [release guide](docs/ART-DIRECTED.md) and [Canva feature comparison](docs/CANVA-COMPARISON.md).
+
 ## Template discovery
 
 The gallery, editor sidebar and Home recommendations mix collections while spacing out repeated imagery, layouts and topics. Search and filters retain their scope, and loading more cards keeps the existing order stable. Creative Crossovers adds 32 editable designs in eight layout families using the existing credited AI artwork and original shapes.
@@ -42,9 +46,9 @@ An optional workspace backend supports cloud project copies, shared editing with
 
 - Home with recent projects, previews, favorites, sorting, and search.
 - Text, shapes, uploaded images, editable layers, undo/redo, snapping, and alignment.
-- 1,353 template entries, including 24 City Collection designs across eight destinations, 240 Reference Remix combinations, 16 Lifestyle & Events, 24 Studio Mix and 20 People & Culture designs, with 54 original generated photo/art assets. Default browsing shows 585 design cards, grouping older style and size variations; enable Show all variations to see every entry.
+- 1,377 template entries, including 24 City Collection designs across eight destinations, 240 Reference Remix combinations, 16 Lifestyle & Events, 24 Studio Mix and 20 People & Culture designs, with 60 original generated photo/art assets. Default browsing shows 609 design cards, grouping older style and size variations; enable Show all variations to see every entry.
 - People-focused campaign layouts with documented artwork origins, format/style filters, and replaceable photo layers. See [template sources and research](docs/TEMPLATE-SOURCES.md).
-- 36 font combinations, bundled open fonts, text effects, and saved styles.
+- 44 font combinations, eight bundled open font families, text effects, and saved styles.
 - Multipage designs, local presentations, and PNG, JPG, flattened PDF, and editable project exports.
 - PDF/image imports from Canva or other tools, preserved as flat artwork with editable overlays.
 - Drawing tools, charts, image adjustments, simple background removal, resizing, and CSV bulk creation.

@@ -1,6 +1,8 @@
 const fs=require('node:fs'),vm=require('node:vm');let html=fs.readFileSync('dist/index.html','utf8').replace(/\n<!-- CONTEXT START -->[\s\S]*?<!-- CONTEXT END -->/,'').replace(/\/\* CONTEXT CORE START \*\/[\s\S]*?\/\* CONTEXT CORE END \*\/\n/,'');
 html=html.replace("let design=template('bold')",'/* CONTEXT CORE START */\n'+fs.readFileSync('context-core.js','utf8')+'\n/* CONTEXT CORE END */\n'+"let design=template('bold')");
-if(!html.includes('Object.assign(e,contextMetadata(o));return e}'))html=html.replace('return e});if(new Set(d.elements','Object.assign(e,contextMetadata(o));return e});if(new Set(d.elements');
+if(!html.includes('Object.assign(e,contextMetadata(o));'))html=html.replace('return e});if(new Set(d.elements','Object.assign(e,contextMetadata(o));return e});if(new Set(d.elements');
+// Keep the metadata hook idempotent when another feature inserts validation after it.
+html=html.replace("Object.assign(e,contextMetadata(o));if(e.type==='image'&&typeof photoStudioMetadata==='function')Object.assign(e,photoStudioMetadata(o));Object.assign(e,contextMetadata(o));", "Object.assign(e,contextMetadata(o));if(e.type==='image'&&typeof photoStudioMetadata==='function')Object.assign(e,photoStudioMetadata(o));");
 html=html.replace('if(!e)return;canvas.focus();drag=',"if(!e)return;if(e.locked){toast('Unlock this element to move or resize it.');return}canvas.focus();drag=");
 html=html.replace("if(!e||e.type!=='text')return;checkpoint();inline=", "if(!e||e.locked||e.type!=='text')return;checkpoint();inline=");
 html=html.replace('function remove(){if(!selected)return;', 'function remove(){if(!selected||getSelected()?.locked)return;');

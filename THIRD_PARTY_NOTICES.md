@@ -8,6 +8,11 @@ Keep this file, the source records, and the original license files when redistri
 | Bangers | Vernon Adams | `vendor/fonts/bangers-OFL.txt` and `bangers-METADATA.pb` |
 | Creepster | Sideshow / Font Diner | `vendor/fonts/creepster-OFL.txt` and `creepster-METADATA.pb` |
 | Kalam | Indian Type Foundry | `vendor/fonts/kalam-OFL.txt` and `kalam-METADATA.pb` |
+| Anton | The Anton Project Authors | `vendor/fonts/anton-OFL.txt` |
+| Bebas Neue | Dharma Type | `vendor/fonts/bebasneue-OFL.txt` |
+| DM Sans | The DM Sans Project Authors | `vendor/fonts/dmsans-OFL.txt` |
+| Cormorant Garamond | The Cormorant Project Authors | `vendor/fonts/cormorantgaramond-OFL.txt` |
+| Caveat | The Caveat Project Authors | `vendor/fonts/caveat-OFL.txt` |
 | Card / Colorwave business card | istana, via Openclipart | `community-sources/PROVENANCE.json`, record `community-card`; CC0 evidence and source link retained |
 | Certificate of Award / Golden award | Arvin61r58; border/background by Raker Tooth | `community-sources/PROVENANCE.json`, record `community-award`; CC0 evidence and source link retained |
 | Research poster layouts | MIT Biological Engineering Communication Lab | `community-sources/mit-template-license.txt`, source PPTX files and provenance records; template-specific CC0 terms |
@@ -15,6 +20,12 @@ Keep this file, the source records, and the original license files when redistri
 | Under the Wave off Kanagawa (The Great Wave) | Katsushika Hokusai; image from The Metropolitan Museum of Art Open Access | `community-sources/met-wave-record.json` and provenance records documenting public-domain status |
 
 Font files are bundled unmodified under SIL Open Font License 1.1. System fonts used by the editor are not redistributed. PDF.js is bundled with its upstream notices, including separate terms for supporting fonts and image decoders.
+
+The five added display/text families are original, unmodified font files from the official Google Fonts repository. Exact source URLs and Git blob checksums are retained in [the font source manifest](vendor/fonts/ATELIER-SOURCES.json).
+
+## Art Directed collection
+
+Six additional visual assets in `assets/atelier/` were created with OpenAI's built-in image generation tool on October 14, 2026: three fictional adult portrait cutouts, a chrome sculpture, paper texture, and a warehouse crowd. The files are WebP encodings with transparency preserved where applicable. [Their manifest](assets/atelier/PROVENANCE.json) retains the prompts and processing notes. These assets are development-time artwork, not an in-app AI service or documentary photos. They are used in original editable compositions, alongside previously credited imagery.
 
 The authoritative per-template records are in [community-sources/PROVENANCE.json](community-sources/PROVENANCE.json). Records describe the source, author, licensing evidence, modifications, discovery channel, and editing limits. Reddit and Pinterest references are discovery links, not blanket permission to reuse content from those services.
 # Campaign Collection imagery

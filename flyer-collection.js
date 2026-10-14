@@ -55,39 +55,85 @@ const flyerNonPeople=new Set(['vinyl','city-winston-salem','city-chicago','city-
 const flyerTemplates=flyerFamilies.flatMap((family,layout)=>family.rows.map(([title,topic,assetIds,sub,tags],variant)=>{const [width,height]=family.size,[bg,ink,accent]=flyerPalettes[(layout+variant*4)%12],hasPeople=assetIds.some(a=>!flyerNonPeople.has(a));return{id:'flyer-lab-'+layout+'-'+variant,name:title.replace(/\n/g,' '),title,topic,assetIds,asset:assetIds[0]||'',sub,tags:tags+' flyer poster social media promotion '+flyerLayouts[layout],layout,layoutName:flyerLayouts[layout],style:family.style,variant,width,height,bg,ink,accent,collection:'flyer-lab',format:width>height?'cover':height===1920?'story':width===height?'square':'post',category:height===1920?'Story':width>height?'Social':'Poster',aiImagery:assetIds.length>0,hasPeople,imagery:assetIds.length?(hasPeople?'People':assetIds.every(id=>id==='vinyl')?'Equipment':'Crowds & places'):'Shapes & symbols',detail:topic==='Small Business'?'SATURDAY / 12–6 PM / YOUR MARKET':topic==='Fitness'?'YOUR DATE / ALL LEVELS / YOUR STUDIO':topic==='Music & DJ'||topic==='Entertainment'?'YOUR DATE / DOORS 9 PM / YOUR VENUE':'YOUR DATE / YOUR PLACE / JOIN US'};}));
 function flyerAccentInk(t){const lum=h=>{const rgb=h.slice(1).match(/../g).map(v=>parseInt(v,16)/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4);return rgb[0]*.2126+rgb[1]*.7152+rgb[2]*.0722;};const score=c=>{const a=lum(c),b=lum(t.accent);return(Math.max(a,b)+.05)/(Math.min(a,b)+.05)};return[t.ink,t.bg,'#000000','#ffffff'].sort((a,b)=>score(b)-score(a))[0];}
 function makeFlyerDesign(t,assets){
- const d={version:1,id:uid(),name:t.name,width:t.width,height:t.height,background:t.bg,elements:[]},a=d.elements,accentInk=flyerAccentInk(t);
+ const d={version:1,id:uid(),name:t.name,width:t.width,height:t.height,background:t.bg,elements:[]},a=d.elements,accentInk=flyerAccentInk(t),v=t.variant;
  const r=(x,y,w,h,c=t.ink,kind='rect',extra={})=>a.push(shape(x,y,w,h,c,kind,extra));
- const tx=(text,x,y,w,h,size,c=t.ink,font='Arial',extra={})=>a.push(txt(text,x,y,w,size,c,{h,font,weight:font==='Georgia'?'400':'700',...extra}));
- const title=(x,y,w,h,size,font='Impact',c=t.ink)=>tx(t.title,x,y,w,h,size,c,font);
- const photo=(i,x,y,s)=>a.push(base('image',x,y,s,s,{src:assets[t.assetIds[i]],altText:'Original AI-generated fictional scene: '+t.assetIds[i]+'. No real person, performer or event is represented. Source details: assets/people/PROVENANCE.json.'}));
- const detail=(x,y,w,h=65,size=27,c=t.ink)=>tx(t.detail,x,y,w,h,size,c);
- const rules=(y,w=960,x=60,c=t.ink)=>r(x,y,w,4,c);
- const record=(x,y,s)=>{r(x,y,s,s,t.ink,'ellipse');for(let n=1;n<=6;n++){const inset=n*s*.055;r(x+inset,y+inset,s-inset*2,s-inset*2,n%2?t.accent:t.ink,'ellipse');}r(x+s*.45,y+s*.45,s*.1,s*.1,t.bg,'ellipse');};
+ const tx=(text,x,y,w,h,size,c=t.ink,font='DM Sans',extra={})=>a.push(txt(text,x,y,w,size,c,{h,font,weight:'400',lineHeight:1,tracking:0,...extra}));
+ const title=(x,y,w,h,size,font='Anton',c=t.ink,extra={})=>tx(t.title,x,y,w,h,size,c,font,extra);
+ const small=(text,x,y,w,c=t.ink,extra={})=>tx(text,x,y,w,80,27,c,'DM Sans',{weight:'700',lineHeight:1.15,...extra});
+ const photo=(i,x,y,w,h,extra={})=>a.push(base('image',x,y,w,h,{src:assets[t.assetIds[i]],photoCrop:{zoom:1,x:.5,y:.35},altText:'Original AI-generated fictional scene: '+t.assetIds[i]+'. No real person, performer or event is represented. Source details: assets/people/PROVENANCE.json.',...extra}));
+ const detail=(x,y,w,c=t.ink,extra={})=>small(t.detail,x,y,w,c,extra);
+ const line=(x,y,w,c=t.ink,h=2)=>r(x,y,w,h,c);
+ const disc=(x,y,s,ink=t.ink,accent=t.accent)=>{r(x,y,s,s,ink,'ellipse');for(let k=0;k<8;k++){const inset=20+k*s*.042;if(s-inset*2>0)r(x+inset,y+inset,s-inset*2,s-inset*2,k%2?ink:accent,'ellipse');}r(x+s*.45,y+s*.45,s*.1,s*.1,t.bg,'ellipse');};
+ const bars=(x,y,w,h,c=t.ink)=>{for(let offset=0,i=0;offset<w-8;i++){const s=[3,7,2,5,3][i%5];r(x+offset,y,s,h,c);offset+=s+4;}};
  switch(t.layout){
- case 0:
-  tx('INDEPENDENT SOUNDS / SHARED SPACE',60,45,960,45,26);title(60,130,960,270,115);photo(0,60,450,450);photo(1,570,600,450);r(570,450,450,100,t.accent);tx('BACK TO BACK',595,470,400,65,37,accentInk);tx('01 / 02',60,960,450,65,56,t.ink,'Georgia');rules(1105);tx(t.sub,60,1150,960,75,31);detail(60,1250,960);break;
- case 1:
-  tx('THE LISTENING DEPARTMENT',45,35,990,45,23);title(45,115,630,240,100);tx('33\nRPM',790,135,240,190,72,t.ink,'Georgia');record(560,450,460);photo(0,45,400,480);r(45,920,990,5);tx(t.sub,45,945,990,45,28);detail(45,1010,990,45,23);break;
- case 2:
-  title(60,55,960,240,105,'Georgia');tx(t.sub,60,325,960,70,28);photo(0,60,460,300);photo(1,390,560,300);photo(2,720,660,300);tx('01',60,790,300,60,42);tx('02',390,890,300,60,42);tx('03',720,990,300,60,42);r(60,1080,960,95,t.accent);tx('A LITTLE MORE LIFE IN YOUR WEEKEND',85,1095,910,65,32,accentInk);detail(60,1240,960);break;
- case 3:
-  tx('THE PROGRAM / SAVE THE DATE',55,45,970,45,24);title(55,130,970,275,120);r(55,450,970,120,t.accent);tx(t.sub,80,475,920,80,31,accentInk);for(const [i,time,label]of[[0,'21:00','THE WARM-UP'],[1,'23:00','THE MAIN ROOM'],[2,'01:00','THE LATE SESSION']]){const y=630+i*165;tx(time,60,y,270,95,64,t.ink,'Georgia');tx(label,370,y+10,640,80,46);rules(y+115);}detail(60,1200,960,95,32);break;
- case 4:
-  r(0,0,660,900,t.ink);tx(t.sub,55,45,550,100,24,t.bg);title(55,230,550,360,102,'Georgia',t.bg);detail(55,710,550,100,25,t.bg);photo(0,730,65,300);photo(1,1065,400,300);r(730,405,285,295,t.accent);tx('GOOD\nTHINGS\nHAPPEN\nHERE',755,435,235,235,42,accentInk);tx('MEET YOU THERE',730,770,635,70,40);break;
- case 5:
-  r(40,40,1000,1270,t.ink);r(60,60,960,1230,t.bg);title(100,105,880,220,100);photo(0,100,390,650);r(800,390,180,650,t.accent);tx('YOUR\nNAME\nHERE',820,450,140,220,36,accentInk);tx('001',820,880,140,90,55,accentInk,'Georgia');for(let i=0;i<18;i++)r(100+i*50,1090,20,5);tx(t.sub,100,1140,880,60,28);detail(100,1230,880,45,23);break;
- case 6:
-  tx('A STORY IN THREE FRAMES',60,45,960,50,27);title(60,145,960,300,125);photo(0,60,540,450);photo(1,570,880,450);photo(2,60,1220,450);tx('01 / BEGIN',570,585,450,90,42);tx('02 / EXPLORE',60,1040,450,90,42);tx('03 / CONNECT',570,1450,450,90,42);r(60,1720,960,140,t.accent);detail(85,1760,910,65,32,accentInk);break;
- case 7:
-  r(50,50,980,980,t.ink);r(75,75,930,930,t.bg);tx(t.sub,110,110,860,90,26);for(const [x,y,s]of[[120,260,290],[670,260,290],[395,430,290]]){r(x,y,s,s,t.accent,'ellipse');r(x+36,y+36,s-72,s-72,t.bg,'ellipse');r(x+s*.42,y+s*.42,s*.16,s*.16,t.ink,'ellipse');}r(110,720,860,210,t.bg);title(110,720,860,195,79);detail(110,950,860,40,22);break;
- case 8:
-  tx('THE INTIMATE SERIES / LIVE MUSIC',60,45,960,45,25);rules(115);title(60,165,960,240,108,'Georgia');photo(0,60,475,660);tx('LISTEN\nA LITTLE\nCLOSER',780,500,240,250,44,t.ink,'Georgia');r(780,865,240,240,t.accent,'ellipse');tx('LIVE',800,945,200,70,44,accentInk);detail(60,1230,960);break;
- case 9:
-  title(60,50,960,230,108);photo(0,60,335,600);photo(1,720,635,300);r(720,335,300,230,t.accent);tx('THE\nLOCAL\nSCENE',745,360,250,175,47,accentInk);tx('CULTURE IS\nBETTER SHARED.',60,990,960,100,44,t.ink,'Georgia');rules(1150);detail(60,1240,960);break;
- case 10:
-  tx('YOUR WEEKEND, REIMAGINED',60,45,960,45,25);title(60,130,960,260,116);r(35,405,935,8);r(35,405,8,799);r(35,1196,935,8);r(35,530,25,8);r(35,1080,25,8);for(const [x,y,n,label]of[[60,430,'01','DISCOVER'],[660,670,'02','CONNECT'],[60,980,'03','CELEBRATE']]){r(x,y,200,200,t.accent,'ellipse');tx(n,x+40,y+55,120,95,67,accentInk,'Georgia');tx(label,x===60?300:150,y+65,430,80,48);}detail(60,1240,960);break;
- case 11:
-  tx(t.sub,55,35,1330,50,26);photo(0,55,150,450);photo(1,550,350,450);title(1040,155,345,420,74,'Georgia');r(550,150,450,140,t.accent);tx('THE WEEKEND EDIT',575,185,400,65,35,accentInk);tx('GO SOMEWHERE.\nFEEL SOMETHING.',55,650,450,115,35);detail(1040,700,345,135,25);break;
+ case 0:{
+  const split=510+v*25;photo(0,0,405,split,785,{photoCrop:{zoom:1,x:.5,y:0}});photo(1,split+12,405,1068-split,785,{photoCrop:{zoom:1,x:.5,y:0}});r(0,0,1080,405,t.ink);
+  small('INDEPENDENT SOUNDS / SHARED SPACE',45,35,990,t.bg);title(43,125,990,255,118,'Anton',t.bg);r(45,955,430,180,t.accent);
+  tx('BACK\nTO BACK',65,978,390,135,61,accentInk,'Bebas Neue');r(735,1020,310,110,'#111111','rect',{opacity:.65});tx('01 / 02',760,1038,270,95,72,'#ffffff','Cormorant Garamond',{align:'right'});
+  r(0,1190,1080,160,t.ink);small(t.sub,45,1214,990,t.bg,{h:48,size:26});detail(45,1280,990,t.bg,{h:40,size:23});break;
+ }
+ case 1:{
+  photo(0,0,355,1080,570,{photoCrop:{zoom:1,x:.5,y:0}});r(0,355,1080,570,'#172126','rect',{opacity:.34});r(0,0,1080,355,'#172126');
+  small('THE LISTENING DEPARTMENT',40,30,1000,'#fff2da',{h:50,size:22});title(38,110,1000,230,105,'Anton','#fff2da');
+  const s=360+v*45,x=v===1?40:1040-s,y=500-v*20;disc(x,y,s,t.ink,t.accent);
+  const textX=v===1?570:40;tx('33\nRPM',textX,605,380,220,93,'#fff2da','Cormorant Garamond');
+  r(0,925,1080,155,'#172126');small(t.sub,40,946,1000,'#fff2da',{h:45,size:27});detail(40,1016,1000,'#fff2da',{h:42,size:21});break;
+ }
+ case 2:{
+  const split=510+v*35;photo(0,0,0,split,450,{photoCrop:{zoom:1,x:.5,y:0}});photo(1,split+12,0,1068-split,450,{photoCrop:{zoom:1,x:.5,y:0}});photo(2,0,760,1080,590,{photoCrop:{zoom:1,x:.5,y:0}});
+  r(36,450,1008,310,t.bg);small('THE CULTURE DISPATCH / ISSUE 0'+(v+1),60,475,950,t.ink,{h:40,size:23});title(56,545,965,190,88,'Anton');
+  r(36,1020,605,170,t.accent);tx('A LITTLE MORE\nLIFE IN YOUR\nWEEKEND.',60,1040,555,145,43,accentInk,'Bebas Neue');
+  r(0,1230,1080,120,t.ink);detail(40,1270,1000,t.bg,{h:48,size:25});break;
+ }
+ case 3:{
+  r(0,0,1080,1350,t.ink);title(40,80,1000,360,154,'Anton',t.bg);small('THE PROGRAM / SAVE THE DATE',45,30,990,t.bg,{h:40,size:22});
+  r(40,475,1000,120,t.accent);small(t.sub,64,507,952,accentInk,{h:67,size:32});
+  for(const [i,time,label]of[[0,'21:00','THE WARM-UP'],[1,'23:00','THE MAIN ROOM'],[2,'01:00','THE LATE SESSION']]){const y=645+i*170,numberX=v%2?825:45,timeX=v%2?45:310;tx('0'+(i+1),numberX,y,210,130,110,t.bg,'Anton',{textEffect:'hollow',effectColor:t.bg,effectAmount:1.3});tx(time,timeX,y+5,420,80,63,t.bg,'Cormorant Garamond');small(label,timeX,y+83,470,t.bg,{h:43,size:25});line(45,y+145,990,t.bg,1);}
+  detail(45,1240,990,t.bg,{h:70,size:27});break;
+ }
+ case 4:{
+  const split=600+v*35;photo(0,split,0,1440-split,900);r(0,0,split+30,900,t.ink);small(t.sub,40,30,split-40,t.bg,{h:80,size:23});title(40,155,split-45,355,111,'Anton',t.bg);
+  photo(1,40,570,270,275);r(350,570,split-360,275,t.accent);tx('GOOD\nTHINGS\nHAPPEN\nHERE',368,590,split-396,230,47,accentInk,'Bebas Neue');
+  r(split+65,715,1440-split-105,135,t.bg);detail(split+85,745,1440-split-145,t.ink,{h:80,size:25});break;
+ }
+ case 5:{
+  const pw=735-v*20;photo(0,0,338,pw,857,{photoCrop:{zoom:1,x:.5,y:0}});r(pw,0,1080-pw,1350,t.bg);
+  r(35,48,1010,290,t.ink);title(58,70,965,245,112,'Anton',t.bg);tx('ADMIT',pw+25,400,1030-pw,80,57,t.ink,'Bebas Neue');tx('ONE',pw+25,485,1030-pw,100,90,t.ink,'Bebas Neue');
+  small('YOUR\nNAME\nHERE',pw+25,645,1030-pw,t.ink,{h:185,size:40});tx('00'+(v+1),pw+25,900,1030-pw,120,89,t.ink,'Cormorant Garamond');bars(pw+25,1070,1030-pw,80);
+  r(0,1195,1080,155,t.ink);small(t.sub,40,1218,1000,t.bg,{h:46,size:25});detail(40,1285,1000,t.bg,{h:40,size:21});break;
+ }
+ case 6:{
+  photo(0,0,460,1080,730,{photoCrop:{zoom:1,x:.5,y:0}});r(0,0,1080,460,t.ink);small('A STORY IN THREE FRAMES',45,40,990,t.bg,{h:50,size:25});title(42,140,995,280,120,'Anton',t.bg);
+  r(40,965,1000,190,t.accent);small(t.sub,65,1000,950,accentInk,{h:110,size:40});
+  const y2=1225+v*25;photo(1,40,y2,480,490);photo(2,560,1225,480,490);small('02 / THE DETAILS',40,1780,480,t.ink,{h:40,size:23});small('03 / THE PEOPLE',560,1780,480,t.ink,{h:40,size:23});line(40,1840,1000);detail(40,1860,1000,t.ink,{h:45,size:25});break;
+ }
+ case 7:{
+  r(0,0,1080,1080,t.ink);const cx=410+v*30;for(let k=0;k<13;k++){const w=610-k*39;r(cx+k*19.5,80+k*19.5,w,w,k%2?t.ink:t.accent,'ellipse');}
+  title(40,95,635,340,142,'Anton',t.bg);r(40,500,405,130,t.accent);small('A SIGNAL\nWORTH FOLLOWING',62,520,365,accentInk,{h:95,size:31});
+  r(65,770,225,45,t.bg);r(265,715,155,155,t.bg,'triangle',{rotation:90});small(t.sub,445,730,590,t.bg,{h:150,size:35});line(40,963,1000,t.bg);detail(40,996,1000,t.bg,{h:50,size:22});break;
+ }
+ case 8:{
+  photo(0,0,470,1080,640,{photoCrop:{zoom:1,x:.5,y:0}});r(0,470,1080,640,'#172126','rect',{opacity:.25});r(0,0,1080,470,'#172126');r(0,1110,1080,240,'#172126');
+  small('THE INTIMATE SERIES / LIVE MUSIC',45,40,990,'#fff3df',{h:50,size:23});title(45,145,990,320,137,v===1?'Caveat':'Cormorant Garamond','#fff3df',{italic:v!==1});
+  tx('listen a little closer',55,950,940,120,100,'#fff3df','Caveat',{rotation:-2,textEffect:'shadow',effectColor:'#172126',effectAmount:2});small(t.sub,45,1160,990,'#fff3df',{h:75,size:31});detail(45,1267,990,'#fff3df',{h:50,size:25});break;
+ }
+ case 9:{
+  photo(0,0,365,730+v*20,870,{photoCrop:{zoom:1,x:.5,y:0}});r(745+v*20,0,335-v*20,1350,t.accent);photo(1,585,600,455,565);
+  r(35,65,1010,300,t.ink);title(55,85,970,260,115,'Anton',t.bg);tx('THE\nLOCAL\nSCENE',793,400,230,165,47,accentInk,'Bebas Neue');
+  r(35,965,500,230,t.bg);tx('Culture is\nbetter shared.',57,1000,455,160,64,t.ink,'Caveat');r(0,1235,1080,115,t.ink);detail(40,1272,1000,t.bg,{h:50,size:24});break;
+ }
+ case 10:{
+  const dark=v!==1;if(dark)r(0,0,1080,1350,t.ink);const fg=dark?t.bg:t.ink,baseColor=dark?t.ink:t.bg;
+  small('YOUR WEEKEND / REIMAGINED',45,35,990,fg,{h:50,size:23});title(40,130,1000,300,130,'Anton',fg);
+  r(45,500,990,680,t.accent);const labels=['DISCOVER','CONNECT','CELEBRATE'];for(let i=0;i<3;i++){const y=545+i*205;tx('0'+(i+1),70,y,225,165,135,accentInk,'Anton');tx(labels[i],325,y+25,650,105,70,accentInk,'Bebas Neue');if(i<2)line(70,y+175,935,accentInk,2);}
+  small(t.sub,45,1210,990,fg,{h:42,size:25});detail(45,1280,990,fg,{h:40,size:22});break;
+ }
+ case 11:{
+  photo(0,0,0,1440,900);r(0,0,1440,900,'#101c24','rect',{opacity:.5});small(t.sub,40,35,1360,'#fff3df',{h:60,size:25});title(40,160,815,400,153,'Anton','#fff3df');
+  const pw=400+v*25;photo(1,1400-pw,210,pw,520);r(40,670,775,180,t.accent);tx('GO SOMEWHERE.\nFEEL SOMETHING.',62,697,730,125,54,accentInk,'Bebas Neue');r(925,752,495,118,'#101c24','rect',{opacity:.9});detail(945,773,455,'#fff3df',{h:85,size:25});break;
+ }
  }
  return d;
 }
+
+

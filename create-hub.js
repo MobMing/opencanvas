@@ -1,6 +1,6 @@
 // Create browser and topic-aware template discovery. Everything runs locally.
 const hubBaseTemplate=template;
-function fitCatalogText(d){for(const e of d.elements){if(e.type!=='text')continue;const maxHeight=e.h;for(let i=0;i<120;i++){ctx.font=e.weight+' '+e.size+'px "'+e.font+'"';const width=Math.max(...e.text.split(/\s+/).map(w=>ctx.measureText(w).width),0);if(linesFor(ctx,e).length*e.size*1.15<=maxHeight+.1&&width<=e.w+.1)break;e.size=Math.max(8,e.size-1)}}return d}
+function fitCatalogText(d){for(const e of d.elements){if(e.type!=='text')continue;const fits=size=>{const candidate={...e,size};ctx.font=typeFont(candidate);return typeLines(ctx,candidate).length*size*(e.lineHeight||1.15)<=e.h+.1&&e.text.split(/\s+/).every(word=>typeWidth(ctx,word,candidate)<=e.w+.1)};if(fits(e.size))continue;let low=8,high=e.size;for(let i=0;i<16;i++){const mid=(low+high)/2;if(fits(mid))low=mid;else high=mid}e.size=Math.floor(low*100)/100}return d}
 template=function(key){const t=nicheTemplates.find(t=>t.id===key);return t?fitCatalogText(makeNicheTemplate(t)):hubBaseTemplate(key)};
 for(const t of nicheTemplates)templates.push([t.id,t.name,t.category]);
 function templateCatalog(){return templates.map(([id,name,category])=>{const n=nicheTemplates.find(t=>t.id===id),c=communityInfo(id);return n||{id,name,category,topic:c?'Community':'General',style:c?(c.style||'Classic'):'Original',tags:c?'community cc0 '+c.originalTitle+' '+(c.tags||'')+' '+(c.sourceChannel||''):'original social creative design',author:c?.author}})}
