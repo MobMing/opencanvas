@@ -1,8 +1,29 @@
 // Stable editorial sequencing: variety without reshuffling while people browse.
 function discoveryHash(s){let n=2166136261;for(const ch of s)n=Math.imul(n^ch.charCodeAt(0),16777619);return n>>>0;}
 function curateTemplates(items){
- const pool=[...new Map(items.map(t=>[t.id,t])).values()].sort((a,b)=>discoveryHash(a.id)-discoveryHash(b.id)||a.id.localeCompare(b.id)),out=[],counts=new Map();
- while(pool.length){let best=0,bestScore=-Infinity;for(let i=0;i<Math.min(pool.length,96);i++){const t=pool[i],collection=t.collection||'original';let score=-(counts.get(collection)||0)*1.2+discoveryHash(t.id)/4294967296+(['crossovers','new-wave'].includes(collection)?.65:0);for(let j=Math.max(0,out.length-7);j<out.length;j++){const p=out[j],distance=out.length-j,w=1/distance;if(t.topic===p.topic)score-=5*w;if((t.layoutName||t.style)===(p.layoutName||p.style))score-=8*w;if(t.style===p.style)score-=2*w;if(t.bg&&t.bg===p.bg)score-=4*w;if((t.assetIds||[]).some(a=>(p.assetIds||[]).includes(a)))score-=18*w;if(t.collection===p.collection)score-=3*w;}if(score>bestScore){bestScore=score;best=i}}const [t]=pool.splice(best,1);out.push(t);const k=t.collection||'original';counts.set(k,(counts.get(k)||0)+1);}return out;
+ const pool=[...new Map(items.map(t=>[t.id,t])).values()].sort((a,b)=>discoveryHash(a.id)-discoveryHash(b.id)||a.id.localeCompare(b.id)),out=[],counts=new Map(),usedAssets=new Map();
+ const assets=t=>t.assetIds?.length?t.assetIds:t.asset?[t.asset]:[];
+ while(pool.length){
+  let best=0,bestScore=-Infinity;const candidates=Math.min(pool.length,96);
+  for(let i=0;i<candidates;i++){
+   // Sample the entire remaining catalog; similar ID prefixes must not monopolize a page.
+   const index=candidates===1?0:Math.floor(i*(pool.length-1)/(candidates-1)),t=pool[index],collection=t.collection||'original',photoIds=assets(t);
+   let score=-(counts.get(collection)||0)*1.2+discoveryHash(t.id)/4294967296+(['crossovers','new-wave'].includes(collection)?.65:0)-photoIds.reduce((sum,id)=>sum+(usedAssets.get(id)||0)*5,0);
+   for(let j=Math.max(0,out.length-12);j<out.length;j++){
+    const p=out[j],distance=out.length-j,w=1/distance;
+    if(t.topic===p.topic)score-=5*w;
+    if((t.layoutName||t.style)===(p.layoutName||p.style))score-=8*w;
+    if(t.style===p.style)score-=2*w;
+    if(t.bg&&t.bg===p.bg)score-=4*w;
+    if(photoIds.some(id=>assets(p).includes(id)))score-=24*w;
+    if(t.collection===p.collection)score-=3*w;
+   }
+   if(score>bestScore){bestScore=score;best=index;}
+  }
+  const [t]=pool.splice(best,1);out.push(t);const key=t.collection||'original';counts.set(key,(counts.get(key)||0)+1);
+  for(const id of assets(t))usedAssets.set(id,(usedAssets.get(id)||0)+1);
+ }
+ return out;
 }
 const crossoverFamilies=[
  ['Window masthead','Editorial',['AFTER THE SET','LOCAL VOICES','SLOW SUNDAY','THE STREET EDIT'],['duo','podcast-pair','wellness','creator-street'],['Music & DJ','Podcast','Wellness','Fashion']],

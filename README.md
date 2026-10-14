@@ -42,8 +42,8 @@ An optional workspace backend supports cloud project copies, shared editing with
 
 - Home with recent projects, previews, favorites, sorting, and search.
 - Text, shapes, uploaded images, editable layers, undo/redo, snapping, and alignment.
-- 1,317 template entries, including 24 City Collection designs across eight destinations, 240 Reference Remix combinations, 16 Lifestyle & Events, 24 Studio Mix and 20 People & Culture designs, with 54 original generated photo/art assets. Default browsing shows 549 design cards, grouping older style and size variations; enable Show all variations to see every entry.
-- People-focused campaign layouts with labeled AI imagery, format/style filters, and replaceable photo layers. See [template sources and research](docs/TEMPLATE-SOURCES.md).
+- 1,353 template entries, including 24 City Collection designs across eight destinations, 240 Reference Remix combinations, 16 Lifestyle & Events, 24 Studio Mix and 20 People & Culture designs, with 54 original generated photo/art assets. Default browsing shows 585 design cards, grouping older style and size variations; enable Show all variations to see every entry.
+- People-focused campaign layouts with documented artwork origins, format/style filters, and replaceable photo layers. See [template sources and research](docs/TEMPLATE-SOURCES.md).
 - 36 font combinations, bundled open fonts, text effects, and saved styles.
 - Multipage designs, local presentations, and PNG, JPG, flattened PDF, and editable project exports.
 - PDF/image imports from Canva or other tools, preserved as flat artwork with editable overlays.
@@ -68,7 +68,7 @@ npm test
 npm run check
 ```
 
-These commands need no third-party packages. The current baseline contains **96 automated checks**. See [development notes](docs/DEVELOPMENT.md) for source layout and the order for rebuilding feature modules.
+These commands need no third-party packages. The current baseline contains **102 automated checks**. See [development notes](docs/DEVELOPMENT.md) for source layout and the order for rebuilding feature modules.
 
 The standalone HTML currently also contains the original editor core. Separating that core from the generated bundle is on the [roadmap](ROADMAP.md).
 
@@ -88,3 +88,8 @@ The Design Combinations pack adds 120 theme/style combinations and 24 original e
 ### Nightlife & Culture
 
 48 new editable designs, 12 layout families, eight fresh AI-generated images and six credited Lucide graphics. Browse the new collection or discover it mixed into the full library. [Artwork, research and source notes](docs/NEW-WAVE.md).
+
+### Flyer Lab
+
+36 new layouts use 34 different existing artwork assets across 27 photo-led designs and nine graphic-only designs. Template cards omit repeated imagery badges, with origins recorded in [artwork credits](docs/ARTWORK.md). Discovery now spaces repeated photos across the full library. [Collection details](docs/FLYER-LAB.md).
+

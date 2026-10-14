@@ -67,3 +67,5 @@ Studio Plus appends after every earlier module. `studio-plus-core.js` contains p
 `discovery-collection.js` defines the Creative Crossovers designs and stable discovery ordering. It loads before `promo-tools.js`. Rebuild promo and Studio Plus after edits.
 
 Nightlife & Culture: wave-collection.js adds 48 designs and loads before promo-tools.js. The promo build embeds assets/lucide/rendered.json and all credited generated JPEGs. See docs/NEW-WAVE.md. Rebuild promo then Studio Plus.
+
+Flyer Lab: flyer-collection.js defines 36 designs and loads before promo-tools.js. Rebuild promo, then Studio Plus. docs/ARTWORK.md is the central gallery credit link. Discovery samples candidates across the full catalog and tracks photo reuse to keep initial pages varied.
