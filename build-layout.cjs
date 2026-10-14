@@ -1,0 +1,13 @@
+const fs=require('node:fs'),vm=require('node:vm');
+let html=fs.readFileSync('dist/index.html','utf8').replace(/\n<!-- LAYOUT START -->[\s\S]*?<!-- LAYOUT END -->\n?/g,'').replace(/\n\/\* LAYOUT CORE START \*\/[\s\S]*?\/\* LAYOUT CORE END \*\/\n/g,'');
+const patch=(from,to)=>{if(html.includes(to))return;if(!html.includes(from))throw Error('Layout integration anchor missing: '+from.slice(0,90));html=html.replace(from,to);};
+const marker="let design=template('bold')";if(!html.includes(marker))throw Error('Editor initialization missing.');html=html.replace(marker,()=> '\n/* LAYOUT CORE START */\n'+fs.readFileSync('layout-core.js','utf8')+'\n/* LAYOUT CORE END */\n'+marker);
+patch('d.elements=raw.elements.map(o=>{',"if(typeof layoutDocumentMetadata==='function')Object.assign(d,layoutDocumentMetadata(raw,d.width,d.height));d.elements=raw.elements.map(o=>{");
+patch('Object.assign(e,contextMetadata(o));',"Object.assign(e,contextMetadata(o));if(typeof layoutElementMetadata==='function')Object.assign(e,layoutElementMetadata(o));");
+patch('elements:clone(d.elements),communityTemplateId:d.communityTemplateId};',"elements:clone(d.elements),communityTemplateId:d.communityTemplateId,...(typeof layoutPageMetadata==='function'?layoutPageMetadata(d):{})};");
+patch('function adoptPage(d){const p=',"function adoptPage(d){if(typeof layoutAdoptPage==='function')layoutAdoptPage(d);const p=");
+patch('c.translate(-e.w/2,-e.h/2);c.fillStyle=e.color;',"c.translate(-e.w/2,-e.h/2);c.fillStyle=typeof layoutElementPaint==='function'?layoutElementPaint(c,e):e.color;");
+patch('if(!transparent){c.fillStyle=d.background;c.fillRect',"if(!transparent){c.fillStyle=typeof layoutDocumentPaint==='function'?layoutDocumentPaint(c,d):d.background;c.fillRect");
+patch('cx.fillStyle=p.background;cx.fillRect(0,0,c.width,c.height);',"cx.fillStyle=typeof layoutPaint==='function'?layoutPaint(cx,p.backgroundGradient,p.background,c.width,c.height):p.background;cx.fillRect(0,0,c.width,c.height);");
+html=html.replace('</body>',()=> '\n<!-- LAYOUT START -->\n<style>'+fs.readFileSync('layout.css','utf8')+'</style>\n<script>\n'+fs.readFileSync('layout-tools.js','utf8')+'\n</script>\n<!-- LAYOUT END -->\n</body>');
+for(const s of html.matchAll(/<script>([\s\S]*?)<\/script>/g))new vm.Script(s[1]);fs.writeFileSync('dist/index.html',html);console.log('Manual guides, rulers and editable gradients built.');

@@ -1,6 +1,23 @@
 # Canva comparison and design priorities
 
-**Release update, October 14, 2026:** OpenCanvas now adds curved text, local custom-font management, print PDF sizes/bleed/crop marks, QR codes, and photo palette extraction. The [new tool guide](PRODUCTIVITY.md) records how these work and their limits. The table below remains the historical comparison; it does not represent the status after these additions. This release is not the result of a completed exhaustive audit of every Canva screen.
+**Implementation update, October 14, 2026:** The current source includes curved text, custom fonts, physical print sizes/bleed/crop marks, QR codes, photo palettes, manual rulers/guides, gradient fills, and scalable SVG export. The older comparison farther down is a historical baseline, not a list of features still missing today. This is a focused comparison of documented workflows; it does not claim an exhaustive audit of every Canva screen or account-specific feature.
+
+## Current status after the local workflow additions
+
+| Workflow | What OpenCanvas now provides | Important remaining difference |
+| --- | --- | --- |
+| Typography | Editable curved text, effects, font pairings and portable custom-font files. | Mixed styling within one text box and text on an arbitrary vector path are separate capabilities. See the [personalization guide](PRODUCTIVITY.md). |
+| Precision layout | Pixel rulers, draggable horizontal/vertical guides, numeric positions, guide visibility, keyboard movement and snapping for individual layers. Guides are saved per page, support Undo, and do not appear in exports. | Up to 30 guides per page. Existing group dragging does not snap to manual guides. Rulers use design pixels rather than physical print units. |
+| Gradient color | Editable linear/radial fills for page backgrounds and native shape layers, with two or three colors, angle and radial-center controls. | No gradient text, image recoloring through gradient fills, mesh gradients or arbitrary color-stop editing. Ordinary solid-color changes replace the gradient. |
+| Scalable output | SVG keeps native text/shapes, gradient fills, links and descriptions; photographs and drawn/library artwork remain embedded raster images. Available fonts can be embedded for supporting viewers. | SVG is a separate export, not a change to PDF. Other editors may interpret fonts, text effects or curved lettering differently; retain the editable `.opencanvas` project. |
+| Print PDF | Physical page dimensions, selected pages, resolution controls, 3 mm edge-extended bleed and crop marks. | Artwork remains flattened RGB pixels. CMYK conversion, selectable/vector PDF text, clickable PDF links and tagged accessible PDFs remain absent. Canva documents [CMYK and file-format controls](https://www.canva.com/help/download-file-types/) and [unflattened accessible PDFs](https://www.canva.com/help/pdf-accessibility-features/). |
+| Project organization | Local folders and recoverable Trash supplement recent projects, stars, recovery versions and workspace backups. | Browser storage remains device/origin-specific. These controls do not activate account sync, team permissions or an off-device backup. |
+| Photo preparation | Crop/framing, reversible adjustments and duotone, erase/restore brushes and plain-background color removal. | No automatic person/hair recognition, semantic object extraction, background reconstruction or Magic Layers equivalent. Canva describes [Magic Grab](https://www.canva.com/help/using-magic-grab/) and [Magic Layers](https://www.canva.com/en_gb/help/editable-magic-layers-variantb/) with their own input and availability limits. |
+| Video and presentations | Page scenes, local video plus soundtrack, entrance effects, local presentation mode and bounded WebM export. | No multi-track trim/split workflow, MP4 output, automatic captions, mixing or recording studio. Canva's [updated timeline](https://www.canva.com/help/creating-and-editing-videos/) is documented as a gradual rollout, and its [editable captions](https://www.canva.com/help/generate-edit-captions-on-videos/) require supported media. |
+
+The strongest next improvements are reliable subject cutouts, durable video/media workflows, richer editable imports and better PDF fidelity. Cloud collaboration, connected publishing and commercial stock libraries require additional services or content agreements; adding controls alone would not supply them.
+
+## Historical baseline
 
 Reviewed October 14, 2026. This audit compares Canva's public galleries and product/help pages with OpenCanvas's implementation at commit `3d1aa91`. It records the baseline before the next redesign, so proposed work below is not a claim that it has shipped. New releases should report their changes separately.
 

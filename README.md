@@ -30,7 +30,11 @@ The [original hosted preview](https://opencanvas-studio.cocoa-lotus-4165.chatgpt
 
 ## Art-directed templates and editing
 
-24 new individually composed designs, 36 rebuilt Flyer Lab designs, five additional font families, large template previews, saved template bookmarks, and reversible duotone photo editing. See the [release guide](docs/ART-DIRECTED.md) and [Canva feature comparison](docs/CANVA-COMPARISON.md).
+The new [Signature collection](docs/SIGNATURE.md) adds 20 individually composed designs for music, nightlife, markets, beauty, exhibitions, and social promotions. Every layer is editable text or native shapes; this collection adds no generated imagery. It joins 24 Art directed designs and 36 rebuilt Flyer Lab designs, with large previews, saved template bookmarks, and reversible duotone photo editing. See the [Art directed guide](docs/ART-DIRECTED.md) and [Canva feature comparison](docs/CANVA-COMPARISON.md).
+
+## Organize, align, and export
+
+Home now has project folders and recoverable Trash. The editor restores your last saved project after loading the local workspace. **Tools** includes rulers, draggable guides, and editable page/shape gradients. **Export → SVG** keeps supported text and shapes as vectors, with embedded images and optional fonts. Read the [workspace and layout guide](docs/WORKSPACE-AND-LAYOUT.md) for controls and limits.
 
 ## More tools for your own designs
 
@@ -48,12 +52,13 @@ An optional workspace backend supports cloud project copies, shared editing with
 
 ## What works today
 
-- Home with recent projects, previews, favorites, sorting, and search.
+- Home with recent projects, previews, favorites, folders, recoverable Trash, sorting, and search.
 - Text, shapes, uploaded images, editable layers, undo/redo, snapping, and alignment.
-- 1,377 template entries, including 24 City Collection designs across eight destinations, 240 Reference Remix combinations, 16 Lifestyle & Events, 24 Studio Mix and 20 People & Culture designs, with 60 original generated photo/art assets. Default browsing shows 609 design cards, grouping older style and size variations; enable Show all variations to see every entry.
+- 1,397 template entries, including 20 Signature designs, 24 City Collection designs across eight destinations, 240 Reference Remix combinations, 16 Lifestyle & Events, 24 Studio Mix and 20 People & Culture designs, with 60 original generated photo/art assets. Default browsing shows 629 design cards, grouping older style and size variations; enable Show all variations to see every entry.
 - People-focused campaign layouts with documented artwork origins, format/style filters, and replaceable photo layers. See [template sources and research](docs/TEMPLATE-SOURCES.md).
 - 46 font combinations, eight bundled open font families, custom font uploads, curved text, text effects, and saved styles.
-- Multipage designs, local presentations, and PNG, JPG, flattened PDF, and editable project exports.
+- Multipage designs, local presentations, and PNG, JPG, SVG, flattened PDF, and editable project exports.
+- Page rulers, manual guides with snapping, and two- or three-color linear/radial gradients for pages and supported shapes.
 - PDF/image imports from Canva or other tools, preserved as flat artwork with editable overlays.
 - Drawing tools, charts, image adjustments, simple background removal, resizing, and CSV bulk creation.
 - Brand kits and a local business workspace for campaigns, review stages, and imported ad reports.
@@ -68,7 +73,9 @@ Your designs are saved **in your browser on this device**. Download `.opencanvas
 
 The public website is a static browser application. Connected accounts, shared projects, online comments and scheduled Bluesky publishing require the separately configured workspace server. Connected ad accounts, AI writing and automatic translation are not included. Motion provides page scenes and WebM export, with the limits described above. Some format presets are static mockups or storyboards. Imported PDF/image artwork does not become separately editable text and shapes. Current PDF output is rasterized.
 
-Element links and descriptions stay in editable project files; current image/PDF exports do not preserve clickable links or accessibility metadata. Saved components insert independent copies, not synchronized instances.
+SVG export includes supported layer links and descriptions; text and shape editing depends on the receiving application, and photos, drawings, and library artwork remain embedded images. Current image/PDF exports do not preserve clickable links or accessibility metadata. Keep `.opencanvas` files for full editing and portable project metadata. Saved components insert independent copies, not synchronized instances.
+
+Folders and Trash are local to this browser. Trashed projects remain stored and can be restored; there is no automatic deletion. Workspace backups include their folder assignments and Trash. Clearing browser data can still remove the whole workspace.
 
 ## Development
 
@@ -77,7 +84,7 @@ npm test
 npm run check
 ```
 
-These commands need no third-party packages. The current baseline contains **167 automated checks**. See [development notes](docs/DEVELOPMENT.md) for source layout and the order for rebuilding feature modules.
+These commands need no third-party packages. The current baseline contains **210 automated checks**. See [development notes](docs/DEVELOPMENT.md) for source layout and the order for rebuilding feature modules.
 
 The standalone HTML currently also contains the original editor core. Separating that core from the generated bundle is on the [roadmap](ROADMAP.md).
 

@@ -7,11 +7,14 @@ Maintained by Mathew Minguel. These are proposed directions, not promises or rel
 - [x] Local design editor and editable project backups
 - [x] Templates, community asset credits, and industry collections
 - [x] Home and recent project discovery
+- [x] Local project folders, recoverable Trash, and last-project restoration
 - [x] Multipage editing and PDF/image import
 - [x] Text combinations and drawing tools
 - [x] Curved editable text and portable custom fonts
 - [x] Print PDF sizes, bleed, crop marks and preview guides
 - [x] Local QR generation and photo palette extraction
+- [x] Rulers, manual guides, guide snapping, and page/shape gradients
+- [x] SVG export with vector text/shapes and embedded image layers
 - [x] Brand kits, CSV bulk creation, and local business tools
 - [x] Right-click element actions
 
@@ -28,6 +31,7 @@ Maintained by Mathew Minguel. These are proposed directions, not promises or rel
 ## Design and media
 
 - [ ] Expand original templates and verified community collections
+- [x] Add 20 distinct Signature compositions with editable type and native shapes
 - [x] Add photo framing and manual cutout refinement
 - [ ] Add automatic subject segmentation
 - [x] Add grouped elements and reusable layout copies

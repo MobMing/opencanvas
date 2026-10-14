@@ -21,6 +21,13 @@ test('featured art direction stays diverse without losing or adding catalog entr
  const narrow=[items[5],items.at(-1)];assert.deepEqual(new Set(core.promoFeatureAtelier(narrow).map(t=>t.id)),new Set(narrow.map(t=>t.id)));assert.deepEqual(core.promoFeatureAtelier(items).map(t=>t.id),mixed.map(t=>t.id));
 });
 
+test('Signature and Atelier spotlights preserve the complete catalog, stable order, and filtered scope',()=>{
+ const signature=Array.from({length:24},(_,i)=>({id:'signature-'+String(i+1).padStart(2,'0'),collection:'signature',layoutName:'Signature direction '+i})),atelier=Array.from({length:12},(_,i)=>({id:'atelier-'+i,collection:'atelier',layoutName:'Atelier direction '+i,asset:'portrait-'+i})),older=[{id:'older-reference',collection:'reference'},{id:'older-flyer',collection:'flyer-lab'}],items=[...older,...atelier,...signature].reverse(),before=JSON.stringify(items),mixed=core.promoFeatureSignature(items);
+ assert.equal(mixed.length,items.length);assert.equal(new Set(mixed.map(t=>t.id)).size,items.length,'Featured designs must not also appear in the remainder');assert.deepEqual(new Set(mixed.map(t=>t.id)),new Set(items.map(t=>t.id)),'No catalog entry may be dropped or invented');assert.equal(JSON.stringify(items),before,'Featuring must not mutate its input');assert.ok(mixed.every(t=>items.includes(t)),'Existing catalog records must be preserved');assert.deepEqual(core.promoFeatureSignature(items).map(t=>t.id),mixed.map(t=>t.id),'Repeated browsing must retain the same order');
+ assert.deepEqual(Array.from(mixed.slice(0,12),t=>t.collection),Array.from({length:12},(_,i)=>i%2?'atelier':'signature'),'Featured rows should mix the two collections');
+ const narrow=[signature[18],atelier[5],older[1]],narrowBefore=JSON.stringify(narrow),filtered=core.promoFeatureSignature(narrow);assert.equal(filtered.length,narrow.length);assert.equal(new Set(filtered.map(t=>t.id)).size,narrow.length);assert.deepEqual(new Set(filtered.map(t=>t.id)),new Set(narrow.map(t=>t.id)),'A narrow filter must never pull featured designs from outside its input');assert.equal(JSON.stringify(narrow),narrowBefore);assert.deepEqual(core.promoFeatureSignature(narrow).map(t=>t.id),filtered.map(t=>t.id));
+});
+
 test('masonry uses available columns without overlap or changing the curated reading order',()=>{
  const heights=[330,210,460,180,360,270,430,150,290,320,400,200];
  for(const [columns,width] of [[1,320],[2,420],[3,840],[4,1100]]){
