@@ -49,7 +49,8 @@ const nicheTemplates=[
  ['dance-move','Move Your Own Way','Fitness','Bold','split','MOVE YOUR\nOWN WAY.','OPEN DANCE CLASS','FIND YOUR RHYTHM','TUESDAY · 7PM · NO EXPERIENCE NEEDED','#d4d8ef','#45316b','#f08355','dance dancing dancer ballet hip hop studio movement fitness'],
  ['birthday-orbit','Another Trip Around','Celebrations','Playful','orbit','ANOTHER TRIP\nAROUND\nTHE SUN.','LET’S CELEBRATE','YOU’RE INVITED','SATURDAY · 5PM · BRING YOUR FAVORITE PEOPLE','#f3d9bd','#6b3958','#bca1ce','birthday party celebration invitation anniversary milestone']
 ].map(([id,name,topic,style,layout,title,kicker,sub,footer,bg,ink,accent,tags])=>({id:'niche-'+id,name,topic,style,layout,title,kicker,sub,footer,bg,ink,accent,tags,category:'Social',width:1080,height:1350}));
-function matchesCatalog(item,value){const hay=[item.name,item.topic,item.style,item.tags,item.category,item.author].filter(Boolean).join(' ').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');return value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim().split(/\s+/).filter(Boolean).every(word=>hay.includes(word))}
+function normalizeCatalogSearch(value){return String(value||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[–—-]/g,' ').replace(/\bcities\b/g,'city').replace(/\bskylines\b/g,'skyline')}
+function matchesCatalog(item,value){const hay=normalizeCatalogSearch([item.name,item.topic,item.style,item.tags,item.category,item.author].filter(Boolean).join(' '));return normalizeCatalogSearch(value).trim().split(/\s+/).filter(Boolean).every(word=>hay.includes(word))}
 function makeNicheTemplate(t){const d={version:1,id:uid(),name:t.name,width:1080,height:1350,background:t.bg,elements:[]},e=d.elements;
 const box=(text,x,y,w,h,size,color=t.ink,font='Arial',weight='700',align='left')=>e.push(txt(text,x,y,w,size,color,{h,font,weight,align}));
 const s=(x,y,w,h,color,kind='rect',extra={})=>e.push(shape(x,y,w,h,color,kind,extra));

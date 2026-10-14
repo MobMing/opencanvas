@@ -284,6 +284,70 @@
       "prompt": "Use case: illustration-story. Square charming red-ink line illustration on warm ivory paper for a picnic invitation. Overhead arrangement of a gingham blanket, woven basket, two glasses, strawberries, bread and small flowers, hand drawn lively imperfect pen lines, abundant blank margins. No text, no letters, no logos. Original artwork.",
       "kind": "AI-generated imagery",
       "changes": "JPEG encoding only; square composition retained."
+    },
+    {
+      "id": "city-new-york",
+      "path": "assets/people/city-new-york.jpg",
+      "date": "2026-10-14",
+      "prompt": "Use case: photorealistic-natural. Create a square original city-travel artwork asset: New York City, Manhattan skyline viewed from across the river at warm sunset, distinctive dense skyscrapers, water reflections, cinematic orange and teal. Richly detailed editorial photography style. This is AI-generated illustrative city imagery, not a verified documentary photo. No title, no watermark, no logos, no readable text, no identifiable close-up faces. Fill the square with an immersive city composition.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; square composition retained."
+    },
+    {
+      "id": "city-chicago",
+      "path": "assets/people/city-chicago.jpg",
+      "date": "2026-10-14",
+      "prompt": "Use case: photorealistic-natural. Create a square original city-travel artwork asset: Chicago, downtown skyline and river with steel bridges, blue hour architectural city scene, crisp reflections and glowing windows. Richly detailed editorial photography style. This is AI-generated illustrative city imagery, not a verified documentary photo. No title, no watermark, no logos, no readable text, no identifiable close-up faces. Fill the square with an immersive city composition.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; square composition retained."
+    },
+    {
+      "id": "city-miami",
+      "path": "assets/people/city-miami.jpg",
+      "date": "2026-10-14",
+      "prompt": "Use case: photorealistic-natural. Create a square original city-travel artwork asset: Miami, pastel Art Deco buildings and palm trees along a sunny coastal boulevard, turquoise sky, peach and mint colors, bright travel editorial. Richly detailed editorial photography style. This is AI-generated illustrative city imagery, not a verified documentary photo. No title, no watermark, no logos, no readable text, no identifiable close-up faces. Fill the square with an immersive city composition.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; square composition retained."
+    },
+    {
+      "id": "city-london",
+      "path": "assets/people/city-london.jpg",
+      "date": "2026-10-14",
+      "prompt": "Use case: photorealistic-natural. Create a square original city-travel artwork asset: London, River Thames with Westminster and Elizabeth Tower, overcast light breaking through clouds, warm stone architecture and moody blue water. Richly detailed editorial photography style. This is AI-generated illustrative city imagery, not a verified documentary photo. No title, no watermark, no logos, no readable text, no identifiable close-up faces. Fill the square with an immersive city composition.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; square composition retained."
+    },
+    {
+      "id": "city-paris",
+      "path": "assets/people/city-paris.jpg",
+      "date": "2026-10-14",
+      "prompt": "Use case: photorealistic-natural. Create a square original city-travel artwork asset: Paris, Eiffel Tower seen above leafy streets and classic cream Haussmann buildings, soft morning light, romantic warm editorial tones. Richly detailed editorial photography style. This is AI-generated illustrative city imagery, not a verified documentary photo. No title, no watermark, no logos, no readable text, no identifiable close-up faces. Fill the square with an immersive city composition.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; square composition retained."
+    },
+    {
+      "id": "city-tokyo",
+      "path": "assets/people/city-tokyo.jpg",
+      "date": "2026-10-14",
+      "prompt": "Use case: photorealistic-natural. Create a square original city-travel artwork asset: Tokyo, dense modern neon-lit street at night in Shinjuku, layered illuminated signs rendered as abstract marks without readable lettering, violet and blue light with warm shopfronts. Richly detailed editorial photography style. This is AI-generated illustrative city imagery, not a verified documentary photo. No title, no watermark, no logos, no readable text, no identifiable close-up faces. Fill the square with an immersive city composition.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; square composition retained."
+    },
+    {
+      "id": "city-barcelona",
+      "path": "assets/people/city-barcelona.jpg",
+      "date": "2026-10-14",
+      "prompt": "Use case: photorealistic-natural. Create a square original city-travel artwork asset: Barcelona, colorful Gaudi-inspired mosaic foreground overlooking warm Mediterranean city rooftops, sea on horizon, bright sun and terracotta colors. Richly detailed editorial photography style. This is AI-generated illustrative city imagery, not a verified documentary photo. No title, no watermark, no logos, no readable text, no identifiable close-up faces. Fill the square with an immersive city composition.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; square composition retained."
+    },
+    {
+      "id": "city-winston-salem",
+      "path": "assets/people/city-winston-salem.jpg",
+      "date": "2026-10-14",
+      "prompt": "Use case: photorealistic-natural. Create a square original city-travel artwork asset: Winston-Salem, North Carolina, a welcoming downtown scene with red brick historic industrial architecture, repurposed tobacco warehouses and a modest modern skyline, leafy street, warm autumn afternoon. Richly detailed editorial photography style. This is AI-generated illustrative city imagery, not a verified documentary photo. No title, no watermark, no logos, no readable text, no identifiable close-up faces. Fill the square with an immersive city composition.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; square composition retained."
     }
   ]
 }
