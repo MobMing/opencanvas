@@ -268,6 +268,22 @@
       "prompt": "Use case: illustration-story. Square hand-drawn vintage harvest illustration for an autumn market invitation. A charming still life of two orange pumpkins, a steaming ceramic cup, oak leaves and acorns, fine dark-brown pen outlines and warm ochre muted watercolor on ivory paper. Centered compact composition with generous blank border. No lettering, no logos, no text.",
       "kind": "AI-generated imagery",
       "changes": "JPEG encoding only; square composition retained."
+    },
+    {
+      "id": "mix-beach",
+      "path": "assets/people/mix-beach.jpg",
+      "date": "2026-10-14",
+      "prompt": "Use case: photorealistic-natural. Square aerial coastal travel photography asset. Turquoise bay curving around a green island, white sand beach, distant blue islands and soft clouds. Natural daytime colors, detailed coastline, inviting tranquil atmosphere. No people identifiable, no text, no logos. Original illustrative travel scene for a template.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; square composition retained."
+    },
+    {
+      "id": "mix-picnic",
+      "path": "assets/people/mix-picnic.jpg",
+      "date": "2026-10-14",
+      "prompt": "Use case: illustration-story. Square charming red-ink line illustration on warm ivory paper for a picnic invitation. Overhead arrangement of a gingham blanket, woven basket, two glasses, strawberries, bread and small flowers, hand drawn lively imperfect pen lines, abundant blank margins. No text, no letters, no logos. Original artwork.",
+      "kind": "AI-generated imagery",
+      "changes": "JPEG encoding only; square composition retained."
     }
   ]
 }
