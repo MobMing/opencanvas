@@ -42,7 +42,7 @@ An optional workspace backend supports cloud project copies, shared editing with
 
 - Home with recent projects, previews, favorites, sorting, and search.
 - Text, shapes, uploaded images, editable layers, undo/redo, snapping, and alignment.
-- 1,237 template entries, including 24 City Collection designs across eight destinations, 240 Reference Remix combinations, 16 Lifestyle & Events, 24 Studio Mix and 20 People & Culture designs, with 46 original generated photo/art assets. Default browsing shows 469 design cards, grouping older style and size variations; enable Show all variations to see every entry.
+- 1,317 template entries, including 24 City Collection designs across eight destinations, 240 Reference Remix combinations, 16 Lifestyle & Events, 24 Studio Mix and 20 People & Culture designs, with 54 original generated photo/art assets. Default browsing shows 549 design cards, grouping older style and size variations; enable Show all variations to see every entry.
 - People-focused campaign layouts with labeled AI imagery, format/style filters, and replaceable photo layers. See [template sources and research](docs/TEMPLATE-SOURCES.md).
 - 36 font combinations, bundled open fonts, text effects, and saved styles.
 - Multipage designs, local presentations, and PNG, JPG, flattened PDF, and editable project exports.
@@ -68,7 +68,7 @@ npm test
 npm run check
 ```
 
-These commands need no third-party packages. The current baseline contains **92 automated checks**. See [development notes](docs/DEVELOPMENT.md) for source layout and the order for rebuilding feature modules.
+These commands need no third-party packages. The current baseline contains **95 automated checks**. See [development notes](docs/DEVELOPMENT.md) for source layout and the order for rebuilding feature modules.
 
 The standalone HTML currently also contains the original editor core. Separating that core from the generated bundle is on the [roadmap](ROADMAP.md).
 
@@ -84,3 +84,7 @@ This repository is the starting point for continued development, not a final rel
 
 The Design Combinations pack adds 120 theme/style combinations and 24 original editable symbols. Browse with the Collection and Layout filters; find the symbols under Elements. These are original compositions inspired by broad design directions, with references documented in [design research](docs/DESIGN-COMBINATIONS.md). Existing photo assets are reused; no new photo shoots or downloaded Pinterest graphics are claimed.
 
+
+### Nightlife & Culture
+
+48 new editable designs, 12 layout families, eight fresh AI-generated images and six credited Lucide graphics. Browse the new collection or discover it mixed into the full library. [Artwork, research and source notes](docs/NEW-WAVE.md).

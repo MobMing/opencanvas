@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-14",
+  "creator": "Lucide contributors",
+  "license": "ISC; full upstream LICENSE includes Feather MIT notices",
+  "licenseFile": "LICENSE",
+  "changes": "Original SVGs preserved. rendered.json contains 84px PNG renderings recolored to template ink colors, preserving geometry.",
+  "assets": [
+    {
+      "id": "music-2",
+      "path": "music-2.svg",
+      "source": "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/music-2.svg",
+      "sha256": "fd3e51e40de1d9c5b1872030467fc1e181592072c3a70854133e060b134c3661"
+    },
+    {
+      "id": "radio",
+      "path": "radio.svg",
+      "source": "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/radio.svg",
+      "sha256": "e55ef723902350caaabb68c8814ba57c4c2d237e0747a5f0520624e6f2f8c861"
+    },
+    {
+      "id": "mic-vocal",
+      "path": "mic-vocal.svg",
+      "source": "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/mic-vocal.svg",
+      "sha256": "571cafe82376ae0950eab5a709c3c9195aa466c9043462ea83f26e125e027d47"
+    },
+    {
+      "id": "sparkles",
+      "path": "sparkles.svg",
+      "source": "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/sparkles.svg",
+      "sha256": "f5499f33f09d7158151e9bd2ec0faf79ff8fb57292f84fdd7286d96d0f0424d8"
+    },
+    {
+      "id": "ticket",
+      "path": "ticket.svg",
+      "source": "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/ticket.svg",
+      "sha256": "37dfe2d23041dd13224fef9d1cb7db4b4f589b661b850f23f57105e843534a2f"
+    },
+    {
+      "id": "headphones",
+      "path": "headphones.svg",
+      "source": "https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/headphones.svg",
+      "sha256": "7719585dafa921805aefc21fc3262bbcc621507610a653b84e1632236650b35a"
+    }
+  ]
+}

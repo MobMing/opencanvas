@@ -65,3 +65,5 @@ City Collection is defined in `city-collection.js`, bundled after Reference Remi
 Studio Plus appends after every earlier module. `studio-plus-core.js` contains pure helpers; storage, tools, media and connection UI have separate modules. Re-run `build-plus.cjs` after rebuilding any earlier feature. `cloud/server.mjs` uses Node 24 built-ins and SQLite; its tests use an in-memory database and mock publishing. Never package `cloud-data/` or service secrets.
 
 `discovery-collection.js` defines the Creative Crossovers designs and stable discovery ordering. It loads before `promo-tools.js`. Rebuild promo and Studio Plus after edits.
+
+Nightlife & Culture: wave-collection.js adds 48 designs and loads before promo-tools.js. The promo build embeds assets/lucide/rendered.json and all credited generated JPEGs. See docs/NEW-WAVE.md. Rebuild promo then Studio Plus.
