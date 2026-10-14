@@ -1,0 +1,46 @@
+{
+  "retrieved": "2026-10-14",
+  "generatorVersion": "2.0.4",
+  "files": [
+    {
+      "path": "vendor/qrcode/qrcode.js",
+      "source": "https://raw.githubusercontent.com/kazuhikoarase/qrcode-generator/83b7e8fe3fddd3b0368dbafd6ce56995bd25e3c8/js/dist/qrcode.js",
+      "commit": "83b7e8fe3fddd3b0368dbafd6ce56995bd25e3c8",
+      "sha256": "aa988519e3865ea3aa6b0b133f3b82e515ebf83e163294189b9bc134e7a2537f",
+      "purpose": "runtime QR generation",
+      "modifications": "None; source text retained."
+    },
+    {
+      "path": "vendor/qrcode/qrcode_UTF8.js",
+      "source": "https://raw.githubusercontent.com/kazuhikoarase/qrcode-generator/83b7e8fe3fddd3b0368dbafd6ce56995bd25e3c8/js/dist/qrcode_UTF8.js",
+      "commit": "83b7e8fe3fddd3b0368dbafd6ce56995bd25e3c8",
+      "sha256": "1e8e3fd34abca1383a734dc21939e5c19876f3b87c0b04118bcd0184056ef3ae",
+      "purpose": "runtime QR generation",
+      "modifications": "None; source text retained."
+    },
+    {
+      "path": "vendor/qrcode/LICENSE",
+      "source": "https://raw.githubusercontent.com/kazuhikoarase/qrcode-generator/83b7e8fe3fddd3b0368dbafd6ce56995bd25e3c8/LICENSE",
+      "commit": "83b7e8fe3fddd3b0368dbafd6ce56995bd25e3c8",
+      "sha256": "771d16d004b2ab364ce8856f0e6771286c6f5f7d26f2398b2cac47150298c097",
+      "purpose": "runtime QR generation",
+      "modifications": "None; source text retained."
+    },
+    {
+      "path": "vendor/testing/jsQR.js",
+      "source": "https://raw.githubusercontent.com/cozmo/jsQR/8e6a036beafa7053dd44b1b76ac578d22b1b3311/dist/jsQR.js",
+      "commit": "8e6a036beafa7053dd44b1b76ac578d22b1b3311",
+      "sha256": "3b16531e458e494c20bd00b8302ce282c479a4de31fd299e896569383e6e41a2",
+      "purpose": "test-only independent decoder",
+      "modifications": "None; source text retained."
+    },
+    {
+      "path": "vendor/testing/jsQR-LICENSE",
+      "source": "https://raw.githubusercontent.com/cozmo/jsQR/8e6a036beafa7053dd44b1b76ac578d22b1b3311/LICENSE",
+      "commit": "8e6a036beafa7053dd44b1b76ac578d22b1b3311",
+      "sha256": "28a773bfffa828ec38c030fc8ace5f3aeb90926ec1309bbd135441c4387ce3cd",
+      "purpose": "test-only independent decoder",
+      "modifications": "None; source text retained."
+    }
+  ]
+}

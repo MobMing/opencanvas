@@ -41,6 +41,9 @@ The editor is not yet a conventional source-only build. Feature assemblers patch
 13. `build-context.cjs`
 14. `build-promo.cjs`
 15. `build-plus.cjs`
+16. `build-font-library.cjs`
+17. `build-print.cjs`
+18. `build-productivity.cjs`
 
 Run a script as `node build-context.cjs`, for example. Keep original core edits in the standalone HTML until the planned source extraction is complete. Run all checks and browser-test affected flows after rebuilding. Recreating raw community artwork is a separate asset-preparation process; some asset preparation utilities expect `sharp`, but it is not needed to use the bundled files.
 
@@ -62,9 +65,11 @@ Reference Remix is defined in reference-collection.js, after studio-collection.j
 
 City Collection is defined in `city-collection.js`, bundled after Reference Remix. Eight destinations have three native layouts each. City images are AI illustrations, not verified documentary photographs. `catalog-data.js` normalizes city/cities, skyline/skylines and hyphens for home and gallery queries; `home.js` ranks matching city designs first. After catalog changes, rebuild from `build-create.cjs` through `build-promo.cjs` in the order above. `tests/cities.test.cjs` checks all 24 designs, aliases and filters.
 
-Studio Plus appends after every earlier module. `studio-plus-core.js` contains pure helpers; storage, tools, media and connection UI have separate modules. Re-run `build-plus.cjs` after rebuilding any earlier feature. `cloud/server.mjs` uses Node 24 built-ins and SQLite; its tests use an in-memory database and mock publishing. Never package `cloud-data/` or service secrets.
+Studio Plus appends after the original feature modules. `studio-plus-core.js` contains pure helpers; storage, tools, media and connection UI have separate modules. Re-run `build-plus.cjs` and the three later builders after rebuilding an earlier feature. `cloud/server.mjs` uses Node 24 built-ins and SQLite; its tests use an in-memory database and mock publishing. Never package `cloud-data/` or service secrets.
 
 `discovery-collection.js` defines the Creative Crossovers designs and stable discovery ordering. It loads before `promo-tools.js`. Rebuild promo and Studio Plus after edits.
+
+The personalization/print release adds three final assemblers. `font-library-core.js` must load before first project validation, while the runtime uses a separate IndexedDB font library. Exporters await `fontLibraryReadyFor(document)` before measuring text. `print-core.js` defines physical PDF geometry and bounded raster export; `print-tools.js` renders previews and artwork using the existing document renderer. `productivity-core.js` validates editable QR metadata and extracts photo palettes; its QR generator is bundled under its upstream MIT license. The jsQR decoder under `vendor/testing/` is only used in tests. See `docs/PRODUCTIVITY.md` for user-facing limits. Rebuild these three stages after any earlier stage.
 
 Nightlife & Culture: wave-collection.js adds 48 designs and loads before promo-tools.js. The promo build embeds assets/lucide/rendered.json and all credited generated JPEGs. See docs/NEW-WAVE.md. Rebuild promo then Studio Plus.
 

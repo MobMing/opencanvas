@@ -1,14 +1,50 @@
 function typeStyle(raw={}){
   const number=(key,fallback,min,max)=>{const n=raw[key]??fallback;if(typeof n!=='number'||!Number.isFinite(n)||n<min||n>max)throw Error('Invalid text '+key+'.');return n};
   const effect=raw.textEffect??'none';if(!['none','shadow','outline','hollow','glow'].includes(effect))throw Error('Invalid text effect.');
-  return {italic:raw.italic===true,lineHeight:number('lineHeight',1.15,.8,2.5),tracking:number('tracking',0,-.03,.3),textEffect:effect,effectColor:/^#[0-9a-f]{6}$/i.test(raw.effectColor||'')?raw.effectColor:'#203e36',effectAmount:number('effectAmount',5,1,15)};
+  return {italic:raw.italic===true,lineHeight:number('lineHeight',1.15,.8,2.5),tracking:number('tracking',0,-.03,.3),curve:number('curve',0,-180,180),textEffect:effect,effectColor:/^#[0-9a-f]{6}$/i.test(raw.effectColor||'')?raw.effectColor:'#203e36',effectAmount:number('effectAmount',5,1,15)};
 }
 function typeFont(e){return (e.italic?'italic ':'')+e.weight+' '+e.size+'px "'+e.font+'"'}
 function typeWidth(c,text,e){if(!e.tracking)return c.measureText(text).width;const chars=Array.from(text);return chars.reduce((n,ch)=>n+c.measureText(ch).width,0)+Math.max(0,chars.length-1)*e.tracking*e.size}
 function typeLines(c,e){const result=[];for(const paragraph of e.text.split('\n')){if(!paragraph){result.push('');continue}let line='';for(const word of paragraph.split(' ')){const next=line?line+' '+word:word;if(typeWidth(c,next,e)>e.w&&line){result.push(line);line=word}else line=next}result.push(line)}return result}
+function typeCurveUnits(text){
+  // Keep connected scripts together within words; rotating individual Arabic or Indic
+  // letters would break their shaping. Other scripts use complete grapheme clusters.
+  if(/[\u0600-\u08ff\u0900-\u0dff]/u.test(text))return text.match(/\S+|\s+/gu)||[];
+  if(typeof Intl!=='undefined'&&Intl.Segmenter)return Array.from(new Intl.Segmenter(undefined,{granularity:'grapheme'}).segment(text),part=>part.segment);
+  return Array.from(text);
+}
+function typeCurveLayout(c,e){
+  c.font=typeFont(e);const previousBaseline=c.textBaseline;c.textBaseline='alphabetic';const size=e.size,curve=Math.max(-180,Math.min(180,Number(e.curve)||0)),angle=Math.abs(curve)*Math.PI/180,sign=curve<0?-1:1;
+  const amount=size*(e.effectAmount||5)/100,effect=e.textEffect||'none',padding=effect==='glow'?amount*6:effect==='shadow'?amount*2:['outline','hollow'].includes(effect)?amount:1;
+  const lines=[],gap=Math.max(0,(e.lineHeight||1.15)-1)*size;let y=0;
+  for(const text of typeLines(c,e)){
+    const units=typeCurveUnits(text);if(/^[^A-Za-z\u0590-\u08ff]*[\u0590-\u08ff]/u.test(text))units.reverse();
+    const glyphs=units.map(text=>{const m=c.measureText(text),width=Math.max(0,m.width),finite=(v,fallback)=>Number.isFinite(v)?v:fallback;return{text,width,left:-width/2-finite(m.actualBoundingBoxLeft,0),right:-width/2+finite(m.actualBoundingBoxRight,width),top:-finite(m.actualBoundingBoxAscent,size*.85),bottom:finite(m.actualBoundingBoxDescent,size*.25)}});
+    if(!glyphs.length){const height=size*(e.lineHeight||1.15);lines.push({text,glyphs:[],x:0,y,width:0,height,scale:1,minX:0,minY:0,padding:0});y+=height+gap;continue;}
+    const spacing=(e.tracking||0)*size,total=Math.max(1,glyphs.reduce((n,g)=>n+g.width,0)+Math.max(0,glyphs.length-1)*spacing),radius=angle>.00001?Math.max(total/angle,sign<0?size*2:0):Infinity;
+    let cursor=0,minX=Infinity,minY=Infinity,maxX=-Infinity,maxY=-Infinity;
+    for(const g of glyphs){const offset=cursor+g.width/2-total/2,theta=Number.isFinite(radius)?offset/radius:0;g.x=Number.isFinite(radius)?radius*Math.sin(theta):offset;g.y=Number.isFinite(radius)?sign*radius*(1-Math.cos(theta)):0;g.rotation=sign*theta;cursor+=g.width+spacing;
+      const cos=Math.cos(g.rotation),sin=Math.sin(g.rotation);for(const [x,y]of[[g.left,g.top],[g.right,g.top],[g.right,g.bottom],[g.left,g.bottom]]){const px=g.x+x*cos-y*sin,py=g.y+x*sin+y*cos;minX=Math.min(minX,px);maxX=Math.max(maxX,px);minY=Math.min(minY,py);maxY=Math.max(maxY,py);}
+    }
+    const rawWidth=Math.max(1,maxX-minX+padding*2),rawHeight=Math.max(size*.25,maxY-minY+padding*2),scale=Math.min(1,Math.max(1,e.w)/rawWidth),width=rawWidth*scale,height=rawHeight*scale;
+    const x=e.align==='center'?(e.w-width)/2:e.align==='right'?e.w-width:0;lines.push({text,glyphs,x,y,width,height,scale,minX,minY,padding});y+=height+gap;
+  }
+  c.textBaseline=previousBaseline||'alphabetic';return{width:e.w,height:Math.max(1,y-gap),lines};
+}
+function typeTextHeight(c,e){c.font=typeFont(e);return e.curve?typeCurveLayout(c,e).height:typeLines(c,e).length*e.size*(e.lineHeight||1.15)}
+function paintTypeEffect(c,e,text,x,y){
+  const amount=e.size*(e.effectAmount||5)/100,effect=e.textEffect||'none';
+  if(effect==='shadow'){c.fillStyle=e.effectColor;c.fillText(text,x+amount,y+amount);c.fillStyle=e.color;}
+  if(effect==='glow'){c.shadowColor=e.effectColor;c.shadowBlur=amount*3;c.fillText(text,x,y);c.shadowBlur=0;}
+  if(effect==='outline'||effect==='hollow')c.strokeText(text,x,y);
+  if(effect!=='hollow')c.fillText(text,x,y);
+}
 function paintType(c,e){
   c.save();c.globalAlpha=e.opacity;c.translate(e.x+e.w/2,e.y+e.h/2);c.rotate(e.rotation*Math.PI/180);c.translate(-e.w/2,-e.h/2);c.font=typeFont(e);c.textBaseline='top';c.textAlign='left';c.fillStyle=e.color;c.strokeStyle=e.effectColor||'#203e36';c.lineJoin='round';
   const amount=e.size*(e.effectAmount||5)/100,effect=e.textEffect||'none';c.lineWidth=amount;
+  if(e.curve){const layout=typeCurveLayout(c,e),fit=Math.min(1,Math.max(1,e.h)/layout.height),offset=e.align==='center'?(e.w-e.w*fit)/2:e.align==='right'?e.w-e.w*fit:0;c.translate(offset,0);c.scale(fit,fit);c.textBaseline='alphabetic';
+    for(const line of layout.lines){c.save();c.translate(line.x,line.y);c.scale(line.scale,line.scale);c.translate(-line.minX+line.padding,-line.minY+line.padding);for(const glyph of line.glyphs){c.save();c.translate(glyph.x,glyph.y);c.rotate(glyph.rotation);paintTypeEffect(c,e,glyph.text,-glyph.width/2,0);c.restore();}c.restore();}c.restore();return;
+  }
   const paint=(text,x,y,stroke)=>{if(!e.tracking){c[stroke?'strokeText':'fillText'](text,x,y);return}for(const ch of Array.from(text)){c[stroke?'strokeText':'fillText'](ch,x,y);x+=c.measureText(ch).width+e.tracking*e.size}};
   typeLines(c,e).forEach((line,i)=>{const w=typeWidth(c,line,e),x=e.align==='center'?(e.w-w)/2:e.align==='right'?e.w-w:0,y=i*e.size*(e.lineHeight||1.15);
     if(effect==='shadow'){c.fillStyle=e.effectColor;paint(line,x+amount,y+amount,false);c.fillStyle=e.color}
@@ -44,5 +80,7 @@ typePresets.push(
  {id:'atelier-archive',name:'The culture journal',category:'Classic',parts:[{text:'NO ORDINARY DAY',font:'Anton',size:100,color:'#282722'},{text:'Notes from a different kind of weekend.',font:'Cormorant Garamond',size:48,color:'#282722',italic:true}]},
  {id:'atelier-runway',name:'Street edition',category:'Bold',parts:[{text:'OFF DUTY',font:'Bebas Neue',size:155,color:'#2150bd',lineHeight:.9},{text:'The city is your runway.',font:'DM Sans',size:31,color:'#20242a'}]},
  {id:'atelier-letter',name:'A personal note',category:'Handwritten',parts:[{text:'Made for you',font:'Caveat',size:113,color:'#be3b36'},{text:'A LITTLE THANK YOU FROM OUR STUDIO',font:'DM Sans',size:24,color:'#352c2b',tracking:.08}]},
- {id:'atelier-gallery',name:'Gallery invitation',category:'Classic',parts:[{text:'Ways of seeing',font:'Cormorant Garamond',size:112,color:'#242723'},{text:'NEW WORKS / OPEN STUDIO',font:'Bebas Neue',size:39,color:'#242723',tracking:.15}]}
+ {id:'atelier-gallery',name:'Gallery invitation',category:'Classic',parts:[{text:'Ways of seeing',font:'Cormorant Garamond',size:112,color:'#242723'},{text:'NEW WORKS / OPEN STUDIO',font:'Bebas Neue',size:39,color:'#242723',tracking:.15}]},
+ {id:'arc-nightclub',name:'Nightclub arc',category:'Curved',parts:[{text:'FOLLOW THE SOUND',font:'Bebas Neue',size:115,color:'#293c66',curve:115,tracking:.03},{text:'GOOD PEOPLE / LATE NIGHTS',font:'DM Sans',size:27,color:'#d75035',tracking:.1}]},
+ {id:'arc-record',name:'Record label',category:'Curved',parts:[{text:'INDEPENDENT SOUNDS',font:'Anton',size:90,color:'#27513e',curve:-90,tracking:.01},{text:'THE LISTENING CLUB',font:'DM Sans',size:27,color:'#27513e',tracking:.14}]}
 );

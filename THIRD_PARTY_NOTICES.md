@@ -4,6 +4,8 @@ Keep this file, the source records, and the original license files when redistri
 
 | Material | Credit | Included source of terms and provenance |
 | --- | --- | --- |
+| QR Code Generator 2.0.4 | Kazuhiko Arase | `vendor/qrcode/LICENSE` (MIT) and `vendor/qrcode/SOURCES.json`; generator and UTF-8 encoder bundled unmodified |
+| jsQR, independent QR decoder used by tests | Cosmo Wolfe and contributors | `vendor/testing/jsQR-LICENSE` (Apache-2.0) and `vendor/qrcode/SOURCES.json`; not included in the browser application |
 | PDF.js and bundled rendering assets | Mozilla and upstream contributors | `vendor/pdfjs/LICENSE` and all other `vendor/pdfjs/*LICENSE*` files; notices are also embedded in `dist/index.html` |
 | Bangers | Vernon Adams | `vendor/fonts/bangers-OFL.txt` and `bangers-METADATA.pb` |
 | Creepster | Sideshow / Font Diner | `vendor/fonts/creepster-OFL.txt` and `creepster-METADATA.pb` |

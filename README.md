@@ -32,6 +32,10 @@ The [original hosted preview](https://opencanvas-studio.cocoa-lotus-4165.chatgpt
 
 24 new individually composed designs, 36 rebuilt Flyer Lab designs, five additional font families, large template previews, saved template bookmarks, and reversible duotone photo editing. See the [release guide](docs/ART-DIRECTED.md) and [Canva feature comparison](docs/CANVA-COMPARISON.md).
 
+## More tools for your own designs
+
+Curved editable text, your own uploaded fonts, print PDFs with physical sizes and crop marks, locally generated QR codes, and photo color palettes are now part of the editor. Open **Text**, **Tools**, **Brand**, or **Export** to use them. Read the [tool guide](docs/PRODUCTIVITY.md) for controls, portable font files, and print limits.
+
 ## Template discovery
 
 The gallery, editor sidebar and Home recommendations mix collections while spacing out repeated imagery, layouts and topics. Search and filters retain their scope, and loading more cards keeps the existing order stable. Creative Crossovers adds 32 editable designs in eight layout families using the existing credited AI artwork and original shapes.
@@ -48,11 +52,12 @@ An optional workspace backend supports cloud project copies, shared editing with
 - Text, shapes, uploaded images, editable layers, undo/redo, snapping, and alignment.
 - 1,377 template entries, including 24 City Collection designs across eight destinations, 240 Reference Remix combinations, 16 Lifestyle & Events, 24 Studio Mix and 20 People & Culture designs, with 60 original generated photo/art assets. Default browsing shows 609 design cards, grouping older style and size variations; enable Show all variations to see every entry.
 - People-focused campaign layouts with documented artwork origins, format/style filters, and replaceable photo layers. See [template sources and research](docs/TEMPLATE-SOURCES.md).
-- 44 font combinations, eight bundled open font families, text effects, and saved styles.
+- 46 font combinations, eight bundled open font families, custom font uploads, curved text, text effects, and saved styles.
 - Multipage designs, local presentations, and PNG, JPG, flattened PDF, and editable project exports.
 - PDF/image imports from Canva or other tools, preserved as flat artwork with editable overlays.
 - Drawing tools, charts, image adjustments, simple background removal, resizing, and CSV bulk creation.
 - Brand kits and a local business workspace for campaigns, review stages, and imported ad reports.
+- QR codes with editable content and colors, plus photo-derived palettes that can be saved as Brand Kits.
 - Right-click copy/paste, style transfer, layer order, page alignment, locking, links, descriptions, local comments, and reusable single-element components.
 
 ![Right-click element actions](docs/images/context-menu.png)
@@ -72,7 +77,7 @@ npm test
 npm run check
 ```
 
-These commands need no third-party packages. The current baseline contains **102 automated checks**. See [development notes](docs/DEVELOPMENT.md) for source layout and the order for rebuilding feature modules.
+These commands need no third-party packages. The current baseline contains **167 automated checks**. See [development notes](docs/DEVELOPMENT.md) for source layout and the order for rebuilding feature modules.
 
 The standalone HTML currently also contains the original editor core. Separating that core from the generated bundle is on the [roadmap](ROADMAP.md).
 

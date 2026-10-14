@@ -1,5 +1,7 @@
 # Canva comparison and design priorities
 
+**Release update, October 14, 2026:** OpenCanvas now adds curved text, local custom-font management, print PDF sizes/bleed/crop marks, QR codes, and photo palette extraction. The [new tool guide](PRODUCTIVITY.md) records how these work and their limits. The table below remains the historical comparison; it does not represent the status after these additions. This release is not the result of a completed exhaustive audit of every Canva screen.
+
 Reviewed October 14, 2026. This audit compares Canva's public galleries and product/help pages with OpenCanvas's implementation at commit `3d1aa91`. It records the baseline before the next redesign, so proposed work below is not a claim that it has shipped. New releases should report their changes separately.
 
 The aim is a useful independent design editor with strong original templates. This is a focused audit, not an inspection of every Canva template, every account-specific menu, or Canva's private implementation. Public pages and the supplied screenshots were used as references; no Canva template files, proprietary code, or paid artwork were imported.

@@ -9,6 +9,9 @@ Maintained by Mathew Minguel. These are proposed directions, not promises or rel
 - [x] Home and recent project discovery
 - [x] Multipage editing and PDF/image import
 - [x] Text combinations and drawing tools
+- [x] Curved editable text and portable custom fonts
+- [x] Print PDF sizes, bleed, crop marks and preview guides
+- [x] Local QR generation and photo palette extraction
 - [x] Brand kits, CSV bulk creation, and local business tools
 - [x] Right-click element actions
 
