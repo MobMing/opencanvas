@@ -9,3 +9,5 @@ test('new-wave discovery mixes photos and keeps searches relevant',()=>{const mi
 test('imported graphics retain license, provenance and passive SVG content',()=>{assert.match(fs.readFileSync('assets/lucide/LICENSE','utf8'),/ISC License/);for(const a of JSON.parse(fs.readFileSync('assets/lucide/PROVENANCE.json')).assets){assert.equal(crypto.createHash('sha256').update(fs.readFileSync('assets/lucide/'+a.path)).digest('hex'),a.sha256);assert.doesNotMatch(icons[a.id],/<script|onload=|href=/i);}assert.equal(JSON.parse(fs.readFileSync('assets/people/WAVE-PROMPTS.json')).length,8);});
 
 
+
+test('accent block copy has at least 4.5 to 1 contrast for every palette',()=>{const lum=h=>{const a=h.slice(1).match(/../g).map(x=>parseInt(x,16)/255).map(x=>x<=.04045?x/12.92:((x+.055)/1.055)**2.4);return .2126*a[0]+.7152*a[1]+.0722*a[2]};for(const t of c.items){const a=lum(c.waveAccentInk(t)),b=lum(t.accent);assert.ok((Math.max(a,b)+.05)/(Math.min(a,b)+.05)>=4.5,t.id);}});
