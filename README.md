@@ -109,3 +109,7 @@ The Design Combinations pack adds 120 theme/style combinations and 24 original e
 
 36 new layouts use 34 different existing artwork assets across 27 photo-led designs and nine graphic-only designs. Template cards omit repeated imagery badges, with origins recorded in [artwork credits](docs/ARTWORK.md). Discovery now spaces repeated photos across the full library. [Collection details](docs/FLYER-LAB.md).
 
+
+## Gaming and category discovery
+
+[Gaming Studio](docs/GAMING.md) adds 24 distinct compositions, from neon controllers and esports crests to stream schedules and tournament brackets. [Everyday Stories](docs/CATEGORY-COLLECTION.md) adds 26 editable designs across all 25 topics. The Gaming tab now has poster, banner/stream-screen and social sections; every category has relevant search shortcuts. Repeated Reference Remix palettes are grouped by default, with **Show all variations** and specific searches preserving access to them. See the [full category audit](docs/CATEGORY-AUDIT.md) for coverage and remaining gaps.

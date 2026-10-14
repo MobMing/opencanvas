@@ -18,7 +18,7 @@ test('240 combinations preserve editable copy, image metadata and safe layer bou
 });
 test('20 families interleave with 12 distinct editable combinations each',()=>{
  assert.equal(c.families.length,20);assert.equal(new Set(c.items.slice(0,20).map(t=>t.family)).size,20);
- assert.equal(c.distinctTemplateConcepts(c.items).length,240);
+ assert.equal(c.distinctTemplateConcepts(c.items).length,58,'Default discovery groups palette variations while retaining distinct photos and calendar months');
  const signatures=new Set();
  for(const f of c.families){const items=c.items.filter(t=>t.family===f.key);assert.equal(items.length,12);assert.equal(new Set(items.map(t=>t.title)).size,12);assert.equal(new Set(items.map(t=>t.paletteName)).size,12);}
  for(const t of c.items){const a=c.makeReferenceDesign(t,assets),b=c.makeReferenceDesign(t,assets);assert.notEqual(a.id,b.id);assert.ok(a.elements.every(e=>!b.elements.some(f=>f.id===e.id)));signatures.add(JSON.stringify([a.background,a.elements.map(({id,...e})=>e)]));}

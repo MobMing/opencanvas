@@ -1,0 +1,35 @@
+{
+  "created": "2026-10-14",
+  "generator": "OpenAI built-in image generation",
+  "notes": "Original generated illustrative artwork for OpenCanvas. Text and layouts remain separate editable layers. Higgsfield submitted no jobs because the account plan did not support generation. WebP encoding only, without semantic edits.",
+  "assets": [
+    {
+      "id": "neon-controller",
+      "path": "assets/gaming/neon-controller.webp",
+      "prompt": "Create one original square gaming art asset, no words or letters, no logos, no watermark. Photorealistic premium 3D product render of one futuristic unbranded black game controller with asymmetric sculptural grips, floating diagonally in the lower-right two thirds of the composition, luminous cyan edge light and magenta rim light, smoked transparent buttons with simple dots only, soft violet volumetric haze on a deep midnight navy background. Dramatic large hero object, exquisite material detail, sharp professional advertising photography. Upper left remains dark uncluttered negative space for an editable headline. Do not copy an existing console controller or brand.",
+      "origin": "AI-generated illustration",
+      "bytes": 131190
+    },
+    {
+      "id": "arctic-lynx",
+      "path": "assets/gaming/arctic-lynx.webp",
+      "prompt": "Create one original square esports mascot illustration asset, no text, no letters, no watermark. A striking angular arctic lynx head inside an irregular beveled shield, ice cyan, white and dark midnight ink, sculptural faceted edges, three-quarter snarl but friendly enough for an all-ages gaming club, sleek sports vector-style graphic with very crisp edges, subtle dark blue lightning halo. Centered isolated composition on uniform nearly black navy background, no existing character or team insignia. A new distinctive professional tournament identity, bold silhouette.",
+      "origin": "AI-generated illustration",
+      "bytes": 155652
+    },
+    {
+      "id": "portal-pilot",
+      "path": "assets/gaming/portal-pilot.webp",
+      "prompt": "Create one original square cinematic videogame atmosphere image, no text, no logos, no watermark. A lone original futuristic racing pilot in an opaque reflective helmet and violet technical suit standing on the left side of a vast cyan-lit portal, vivid electric violet and teal atmospheric lighting, wet dark futuristic arena floor, monumental architecture, graphic diagonal beams, realistic high quality 3D cinematic game art. Large clean dark space in the upper-right and lower-right for editable event text. No existing videogame character, franchise references, weapons or brand symbols.",
+      "origin": "AI-generated illustration",
+      "bytes": 249410
+    },
+    {
+      "id": "cozy-arcade",
+      "path": "assets/gaming/cozy-arcade.webp",
+      "prompt": "Create one original square cozy isometric pixel-art gaming world illustration, no words, no letters, no watermark. An exquisite tiny floating arcade island at dusk, mint and pink arcade machines, small lavender trees, a glowing orange portal and stepping stones above a deep violet starry void. Deliberate crisp pixel clusters, coherent isometric lighting, sophisticated palette of lavender, coral, mint, cream and dark indigo. World concentrated in lower two thirds with calm sky above for an editable headline. Original unbranded machine designs without readable screen text, no existing game characters.",
+      "origin": "AI-generated illustration",
+      "bytes": 275676
+    }
+  ]
+}

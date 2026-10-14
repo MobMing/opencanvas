@@ -24,3 +24,9 @@ Some designs use only editable text and geometric shapes. A template's photo can
 
 [Canva music flyers](https://www.canva.com/flyers/templates/music/) and [Canva party flyers](https://www.canva.com/flyers/templates/party/) were reviewed as visual references for genre variety, contrasting type, event hierarchy and photo-led promotions. No Canva source code, template files, paid assets or watermarked previews were copied into OpenCanvas.
 
+
+## Gaming Studio and Everyday Stories
+
+[Gaming Studio](GAMING.md) includes 20 native editable compositions and four original generated illustrations, with separate editable typography. The [Gaming asset manifest](../assets/gaming/PROVENANCE.json) records exact prompts and saved paths. Higgsfield submitted no generation jobs because the connected account plan did not support them; the four illustrations were made using OpenAI’s built-in image generator. They are illustrative artwork, not real people or official game/team assets.
+
+[Everyday Stories](CATEGORY-COLLECTION.md) adds 26 original compositions built entirely from editable native text and shapes. No new raster or AI artwork is used in that collection. The [category audit](CATEGORY-AUDIT.md) records the category research, counts and limits.

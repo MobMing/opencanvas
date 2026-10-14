@@ -53,6 +53,20 @@ function makePeopleDesign(t,assets){
  }
  return d;
 }
-// One card per concept by default. Filtering happens first so any requested format remains discoverable.
-function distinctTemplateConcepts(items){const seen=new Set();return items.filter(t=>{const key=t.collection==='remix'?'remix-'+t.key:t.id.startsWith('promo-')?'promo-'+t.key:t.id;if(seen.has(key))return false;seen.add(key);return true;});}
+// Filter before grouping: a search for a title, palette or format must still find its variant.
+// Reference combinations reuse a family composition. Keep different photographs and calendar
+// months, but don't fill category pages with the same composition in twelve color schemes.
+// Individually composed collections keep their own IDs, even when layout names are shared.
+function distinctTemplateConcepts(items){
+ const seen=new Set();
+ return items.filter(t=>{
+  let key=t.collection==='remix'?'remix-'+t.key:t.id.startsWith('promo-')?'promo-'+t.key:t.id;
+  if(t.collection==='reference'&&t.family){
+   const assets=t.assetIds?.length?t.assetIds:t.asset?[t.asset]:[];
+   key=JSON.stringify(['reference',t.topic,t.layoutName||t.family,assets,t.family==='calendar'?t.variant:null]);
+  }
+  if(seen.has(key))return false;
+  seen.add(key);return true;
+ });
+}
 
