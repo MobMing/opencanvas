@@ -44,3 +44,16 @@ test('dark variations keep invitation banners and paper captions readable',()=>{
  if(t.family==='harvest')assert.ok(d.elements.some(e=>e.type==='round'&&e.color===t.bg));
  }
 });
+
+test('birthday decoration never covers portrait imagery or invitation copy',()=>{
+ const birthday=c.items.filter(t=>t.family==='birthday');
+ const original=vm.runInContext("studioTemplates.find(t=>t.layout===29)",c);
+ for(const t of [...birthday,original]){
+  const d=t.family?c.makeReferenceDesign(t,assets):c.makeStudioDesign(t,assets);
+  const photo=d.elements.find(e=>e.type==='image'),overlap=(a,b)=>a.x<b.x+b.w&&a.x+a.w>b.x&&a.y<b.y+b.h&&a.y+a.h>b.y;
+  const hat=d.elements.find(e=>e.type==='triangle');assert.ok(hat,t.id);assert.ok(hat.y+hat.h<photo.y,t.id);
+  for(const e of d.elements.filter(e=>['triangle','ellipse','text'].includes(e.type)))assert.ok(!overlap(e,photo),t.id+' '+e.type+' overlaps portrait');
+  const sub=d.elements.find(e=>e.type==='text'&&e.text===t.sub),detail=d.elements.find(e=>e.type==='text'&&e.text===t.detail);
+  assert.ok(sub.y>=photo.y+photo.h+40,t.id);assert.ok(detail.y>=sub.y+sub.h+20,t.id);
+ }
+});
