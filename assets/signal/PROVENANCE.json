@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-14",
+  "method": "OpenAI built-in image_gen",
+  "mode": "generate",
+  "assets": [
+    {
+      "id": "signal-orbit",
+      "path": "assets/signal/signal-orbit.webp",
+      "prompt": "A single original abstract 3D chrome orbital sculpture, three interlocking rounded torus rings at different tilts around a small reflective silver sphere, electric cyan and cobalt highlights with hints of violet. Premium gallery-quality futuristic rave poster hero object, highly polished liquid metal, isolated centered on a fully transparent background. Square composition, whole object visible with generous transparent margin, no cropping, no text, no letters, no logos, no shadow outside the object. Exquisite photorealistic 3D material and sculptural silhouette.",
+      "kind": "AI-generated original sculpture",
+      "changes": "Resized to 1200 pixels and encoded as WebP with transparency; no crop or semantic edits."
+    },
+    {
+      "id": "signal-ribbon",
+      "path": "assets/signal/signal-ribbon.webp",
+      "prompt": "A single original abstract 3D flowing ribbon sculpture folded into a loose vertical S, smooth liquid mercury chrome with vibrant magenta and acid-orange reflections, hollow negative spaces and elegant twisting surfaces. Premium futuristic music festival poster hero object. Isolated centered on fully transparent background, square composition, whole object visible with generous transparent margin, no cropping, no text, no logos. Photorealistic sculptural rendering, striking silhouette, no cast shadow outside object.",
+      "kind": "AI-generated original sculpture",
+      "changes": "Resized to 1200 pixels and encoded as WebP with transparency; no crop or semantic edits."
+    },
+    {
+      "id": "signal-spike",
+      "path": "assets/signal/signal-spike.webp",
+      "prompt": "A single original abstract 3D starburst sculpture, twelve soft tapered curving spikes emerging from a reflective chrome core, futuristic silver and lavender with acid green reflected rim lighting. Sophisticated sculpture for electronic music artwork, rounded organic edges, precise premium materials. Isolated centered on fully transparent background, square composition with whole object visible and generous transparent margin. No text, letters, logos, no cropping, no cast shadow outside object.",
+      "kind": "AI-generated original sculpture",
+      "changes": "Resized to 1200 pixels and encoded as WebP with transparency; no crop or semantic edits."
+    },
+    {
+      "id": "signal-glass",
+      "path": "assets/signal/signal-glass.webp",
+      "prompt": "A single original sculptural translucent iridescent glass knot, deep cobalt, clear crystal and hot pink internal refractions, rounded tubular loop twists into an asymmetrical clover form, reflective fluid surfaces, gallery-quality 3D render for a futuristic rave flyer. Isolated centered on a fully transparent background. Square composition, complete object with generous transparent margin, no text, letters, logos, no cropping, no cast shadow outside the object.",
+      "kind": "AI-generated original sculpture",
+      "changes": "Resized to 1200 pixels and encoded as WebP with transparency; no crop or semantic edits."
+    }
+  ]
+}

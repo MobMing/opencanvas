@@ -4,7 +4,10 @@ function loadCategoryCatalog(){
  const c={};vm.createContext(c);
  const sources=['catalog-data.js','industry-data.js','promo-scenes.js','promo-data.js','remix-core.js','people-collection.js','studio-collection.js','reference-collection.js','city-collection.js','discovery-collection.js','wave-collection.js','flyer-collection.js','atelier-collection.js','signature-collection.js'];
  for(const file of sources)vm.runInContext(fs.readFileSync(file,'utf8'),c,{filename:file});
- const extra=[];for(const [file,name] of [['gaming-collection.js','gamingTemplates'],['category-collection.js','categoryTemplates']])if(fs.existsSync(file)){vm.runInContext(fs.readFileSync(file,'utf8'),c,{filename:file});extra.push(name);}
+ c.openLibraryInfo=JSON.parse(fs.readFileSync('assets/open-library/manifest.json')).assets;
+ vm.runInContext(fs.readFileSync('library-briefs.js','utf8'),c);
+ vm.runInContext(fs.readFileSync('library-art-direction.js','utf8'),c);
+ const extra=[];for(const [file,name] of [['gaming-collection.js','gamingTemplates'],['category-collection.js','categoryTemplates'],['library-layouts.js','libraryTemplates'],['signal-collection.js','signalTemplates']])if(fs.existsSync(file)){vm.runInContext(fs.readFileSync(file,'utf8'),c,{filename:file});extra.push(name);}
  vm.runInContext('this.collections={niche:nicheTemplates,industry:industryCollections,signature:signatureTemplates,atelier:atelierTemplates,flyer:flyerTemplates,wave:waveTemplates,crossover:crossoverTemplates,city:cityTemplates,reference:referenceTemplates,studio:studioTemplates,people:peopleTemplates,promo:promoTemplates,remix:remixTemplates'+extra.map(name=>','+name+':'+name).join('')+'};',c);
  const html=fs.readFileSync('dist/index.html','utf8'),communityJSON=html.match(/const communityTemplates=(\[[^\n]*\]);/),originalJSON=html.match(/const templates=(\[[^\n]*\]);/);
  assert.ok(communityJSON,'Community data must be included in the audit');assert.ok(originalJSON,'Original designs must be included in the audit');
@@ -30,7 +33,7 @@ function layoutKey(t){
 }
 function formatName(t){return t.format||({Card:'card',Certificate:'certificate'}[t.category])||(t.width&&t.height?(t.width>t.height?'cover':t.width===t.height?'square':t.height===1920?'story':'post'):t.category.toLowerCase());}
 function categoryAudit(){
- const navigationTopics=[...new Set(Object.values(catalog.collections).flat().map(t=>t.topic)),'Community'];
+ const navigationTopics=[...new Set([...Object.values(catalog.collections).flat().map(t=>t.topic),'Community'])];
  return {topicCount:navigationTopics.length,total:catalog.all.length,originalsOutsideTopicNavigation:catalog.originals.length,collections:Object.fromEntries(Object.entries(catalog.collections).map(([name,items])=>[name,items.length])),categories:navigationTopics.map(topic=>{const items=catalog.all.filter(t=>t.topic===topic);return {topic,entries:items.length,defaultConcepts:c.distinctTemplateConcepts(items).length,layoutFamilies:new Set(items.map(layoutKey)).size,imageAssets:new Set(items.flatMap(imageIds)).size,formats:[...new Set(items.map(formatName))].sort(),dimensions:[...new Set(items.filter(t=>t.width&&t.height).map(t=>t.width+'×'+t.height))].sort()};})};
 }
 
@@ -40,7 +43,7 @@ test('audit covers every navigation topic, Community, and original designs witho
  const audit=categoryAudit();assert.equal(audit.topicCount,26);assert.equal(new Set(catalog.all.map(t=>t.id)).size,catalog.all.length);
  assert.equal(audit.categories.reduce((n,row)=>n+row.entries,0)+audit.originalsOutsideTopicNavigation,catalog.all.length);
  for(const row of audit.categories){assert.ok(row.entries>0,row.topic);assert.ok(row.defaultConcepts>0&&row.defaultConcepts<=row.entries,row.topic);assert.ok(row.layoutFamilies>0,row.topic);assert.ok(row.formats.length>0,row.topic);}
- assert.equal(audit.categories.find(r=>r.topic==='Community').entries,catalog.community.length);
+ assert.equal(audit.categories.find(r=>r.topic==='Community').entries,catalog.community.length+catalog.collections.libraryTemplates.filter(t=>t.topic==='Community').length);
 });
 
 test('Reference variants group consistently across all topics while photographs and real calendar months remain',()=>{

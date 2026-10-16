@@ -4,6 +4,8 @@ OpenCanvas is an independent design editor by Mathew Minguel, built with assista
 
 ## Photo and illustrated collections
 
+The new [Open Library](LIBRARY-EXPANSION.md) includes 106 credited outside photos and artworks with per-item CC0, public-domain or CC BY records in [its manifest](../assets/open-library/manifest.json). [Open sources](OPEN-SOURCES.md) records research and license evidence. CC BY template exports include visible attribution linked to the bundled credits page. [Signal Lab](LIQUID-SIGNAL.md) adds four generated chrome/glass assets with exact prompts in [its provenance file](../assets/signal/PROVENANCE.json).
+
 Images in `assets/people/` were generated with OpenAI's image generation tool for this project. People, events and places depicted in these generated scenes are illustrative, not documentary photographs or endorsements. The complete [image manifest](../assets/people/PROVENANCE.json) records each image, its prompt, creation method and processing notes. Templates retain image-origin descriptions in their image layers.
 
 Some designs use only editable text and geometric shapes. A template's photo can be replaced with your own image in the editor. A photo shown in multiple layouts remains the same source image; layout counts are not counts of unique photos.

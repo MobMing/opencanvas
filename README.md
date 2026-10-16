@@ -24,11 +24,13 @@ node server.mjs
 
 Keep that terminal open, then open **http://127.0.0.1:4173/**. On Windows, you can instead double-click `Start-OpenCanvas.cmd` in the downloaded project folder. If you see "connection refused," start the server first and reload the page. Closing the server or restarting your computer stops the local app; run it again to reopen it.
 
-The application ships ready to run in `dist/index.html`; no dependency installation or build step is needed. A recent desktop browser is recommended.
+The application ships ready to run in `dist/`, including `index.html` and its artwork bundles; no dependency installation or build step is needed. Keep the complete `dist/` folder together when hosting. A recent desktop browser is recommended.
 
 The [original hosted preview](https://opencanvas-studio.cocoa-lotus-4165.chatgpt.site/) may require access from its owner. The custom `www.opencanvas.com` address is not an active project address yet.
 
 ## Art-directed templates and editing
+
+The [Open Library expansion](docs/LIBRARY-EXPANSION.md) adds **104 templates in every creative category**, another 104 Community compositions, and **60 Liquid Signal combinations**. It includes 106 credited outside photos and artworks, four new chrome/glass illustrations, and editable subject-specific information. Pets, Crafts, Photography and Technology now have more than 100 choices each. Open Templates, select a category, or choose **Explore Signal Lab**.
 
 The new [Signature collection](docs/SIGNATURE.md) adds 20 individually composed designs for music, nightlife, markets, beauty, exhibitions, and social promotions. Every layer is editable text or native shapes; this collection adds no generated imagery. It joins 24 Art directed designs and 36 rebuilt Flyer Lab designs, with large previews, saved template bookmarks, and reversible duotone photo editing. See the [Art directed guide](docs/ART-DIRECTED.md) and [Canva feature comparison](docs/CANVA-COMPARISON.md).
 
@@ -54,7 +56,7 @@ An optional workspace backend supports cloud project copies, shared editing with
 
 - Home with recent projects, previews, favorites, folders, recoverable Trash, sorting, and search.
 - Text, shapes, uploaded images, editable layers, undo/redo, snapping, and alignment.
-- 1,397 template entries, including 20 Signature designs, 24 City Collection designs across eight destinations, 240 Reference Remix combinations, 16 Lifestyle & Events, 24 Studio Mix and 20 People & Culture designs, with 60 original generated photo/art assets. Default browsing shows 629 design cards, grouping older style and size variations; enable Show all variations to see every entry.
+- 4,211 template entries, including 2,704 Open Library compositions, 60 Signal Lab designs, 24 Gaming Studio designs and the earlier collections. Default browsing shows 3,261 cards, grouping older style and size variations; enable Show all variations to see every entry. Counts represent editable combinations, not unique source photos. [Coverage and artwork details](docs/LIBRARY-EXPANSION.md).
 - People-focused campaign layouts with documented artwork origins, format/style filters, and replaceable photo layers. See [template sources and research](docs/TEMPLATE-SOURCES.md).
 - 46 font combinations, eight bundled open font families, custom font uploads, curved text, text effects, and saved styles.
 - Multipage designs, local presentations, and PNG, JPG, SVG, flattened PDF, and editable project exports.

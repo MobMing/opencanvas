@@ -32,6 +32,12 @@ Six additional visual assets in `assets/atelier/` were created with OpenAI's bui
 The authoritative per-template records are in [community-sources/PROVENANCE.json](community-sources/PROVENANCE.json). Records describe the source, author, licensing evidence, modifications, discovery channel, and editing limits. Reddit and Pinterest references are discovery links, not blanket permission to reuse content from those services.
 # Campaign Collection imagery
 
+## Open Library artwork
+
+The 106 optimized images in `assets/open-library/` have item-specific licenses: 69 CC0, 19 public domain and 18 CC BY. `manifest.json` records creators, original source pages, license URLs, modifications and source evidence; `source-evidence.json` preserves the retrieved source metadata. `docs/OPEN-SOURCES.md` explains selection and research. These licenses apply to the included artwork and do not replace the project's own rights statement. CC BY assets carry visible template attribution and an accompanying `dist/credits.html` source page. No Canva partnership rights are claimed.
+
+Four new generated sculptures in `assets/signal/` are original OpenAI image-generation outputs. Their prompts and processing records are in `assets/signal/PROVENANCE.json`; the Signal Lab layouts also reuse the existing `atelier-chrome` asset.
+
 The 54 imagery assets in `assets/people/` were generated with OpenAI's built-in image generation tool for this project on 12–14 October 2026. They include fictional adults and crowds, equipment, a product still life abstract artwork and illustrative city scenes; they do not document real models or customer endorsements. The original prompts and output provenance are recorded in `assets/people/PROVENANCE.json`. The app bundles JPEG encodings of these assets; no Canva, Getty, Pexels or Unsplash imagery was used in this collection. Project-wide reuse terms remain described in `RIGHTS.md`.
 
 
