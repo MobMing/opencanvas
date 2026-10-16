@@ -98,7 +98,7 @@ function makeLibraryDesign(t,assets={},info=[]){
   }else{for(let i=0;i<8;i++){const angle=i*Math.PI/4;C(cx+Math.cos(angle)*s*.28-s*.15,cy+Math.sin(angle)*s*.28-s*.15,s*.3,i%2?t.ink:t.accent);}C(cx-s*.14,cy-s*.14,s*.28,t.bg);}
  };
  const usedArt=new Set();
- const photo=(x,y,w,h,index=0,extra={})=>{const id=t.assetIds[index%Math.max(1,t.assetIds.length)],src=assets[id];if(!/^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(src||'')){motif(x,y,w,h);return;}const credit=info.find(a=>a.id===id);usedArt.add(id);a.push(base('image',x,y,w,h,{src,photoCrop:{zoom:1,x:.5,y:.5},altText:credit?[credit.title,credit.creator,credit.license,credit.sourceUrl,credit.licenseUrl,'Resized, encoded and cropped in this layout.'].join(' · ').slice(0,1000):id,...extra}));};
+ const photo=(x,y,w,h,index=0,extra={})=>{const id=t.assetIds[index%Math.max(1,t.assetIds.length)],src=assets[id];if(!(typeof artworkSourceAllowed==='function'&&artworkSourceAllowed(src))&&!/^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(src||'')){motif(x,y,w,h);return;}const credit=info.find(a=>a.id===id);usedArt.add(id);a.push(base('image',x,y,w,h,{src,photoCrop:{zoom:1,x:.5,y:.5},altText:credit?[credit.title,credit.creator,credit.license,credit.sourceUrl,credit.licenseUrl,'Resized, encoded and cropped in this layout.'].join(' · ').slice(0,1000):id,...extra}));};
  // Structural layouts use disjoint text zones; photos are replaceable without flattening type.
  switch(t.family){
  case 0:kicker();title(60,126,960,235,112);photo(60,400,960,590);sub(60,1035,575,125);details(690,1035,330,145);cta();break;

@@ -29,9 +29,20 @@ function printPagePlan(page,raw={}){
 function printBatchPlans(pages,settings){if(!Array.isArray(pages)||!pages.length||pages.length>printLimits.pages)throw Error('Choose 1–30 pages to export.');const plans=pages.map(p=>printPagePlan(p,settings));if(plans.reduce((sum,p)=>sum+p.rasterW*p.rasterH,0)>printLimits.totalPixels)throw Error('This export is too large. Choose fewer pages or a lower DPI.');return plans;}
 function printArtworkPlacement(sourceW,sourceH,targetW,targetH,fit='contain'){const scale=(fit==='cover'?Math.max:Math.min)(targetW/sourceW,targetH/sourceH);return{scale,x:(targetW-sourceW*scale)/2,y:(targetH-sourceH*scale)/2,w:sourceW*scale,h:sourceH*scale};}
 function printCropLines(plan){if(!plan.settings.marks)return[];const [left,bottom,right,top]=plan.trimBox,[bl,bb,br,bt]=plan.bleedBox,gap=72/25.4,length=4*72/25.4;return[[left,bb-gap-length,left,bb-gap],[right,bb-gap-length,right,bb-gap],[left,bt+gap,left,bt+gap+length],[right,bt+gap,right,bt+gap+length],[bl-gap-length,bottom,bl-gap,bottom],[bl-gap-length,top,bl-gap,top],[br+gap,bottom,br+gap+length,bottom],[br+gap,top,br+gap+length,top]];}
+function printLinks(page,plan){
+ const fit=printArtworkPlacement(page.width,page.height,plan.trimW,plan.trimH,plan.settings.fit),[left,bottom,right,top]=plan.trimBox,out=[];
+ for(const e of page.elements||[]){
+  if(!e.link||e.hidden||e.opacity===0||![e.x,e.y,e.w,e.h,e.rotation||0].every(Number.isFinite)||e.w<=0||e.h<=0)continue;
+  let url;try{url=new URL(e.link);if(!['https:','http:','mailto:'].includes(url.protocol)||url.username||url.password||url.href.length>2000)continue;}catch{continue;}
+  const angle=(e.rotation||0)*Math.PI/180,cos=Math.abs(Math.cos(angle)),sin=Math.abs(Math.sin(angle)),w=e.w*cos+e.h*sin,h=e.w*sin+e.h*cos,cx=e.x+e.w/2,cy=e.y+e.h/2;
+  const x1=left+fit.x+(cx-w/2)*fit.scale,x2=left+fit.x+(cx+w/2)*fit.scale,y1=top-fit.y-(cy+h/2)*fit.scale,y2=top-fit.y-(cy-h/2)*fit.scale;
+  const rect=[Math.max(left,x1),Math.max(bottom,y1),Math.min(right,x2),Math.min(top,y2)];if(rect[2]<=rect[0]||rect[3]<=rect[1])continue;
+  out.push({url:url.href,rect});
+ }return out;
+}
 function makePrintPDF(pages){
  if(!Array.isArray(pages)||!pages.length||pages.length>printLimits.pages)throw Error('Print PDFs support 1–30 pages.');
- const encoder=new TextEncoder(),chunks=[],offsets=[0];let length=0,totalBytes=0;
+ const encoder=new TextEncoder(),chunks=[],offsets=[0],annotations=[];let length=0,totalBytes=0;
  const put=value=>{const bytes=typeof value==='string'?encoder.encode(value):value;chunks.push(bytes);length+=bytes.length},number=n=>{if(!Number.isFinite(n))throw Error('Invalid PDF measurement.');return Number(n.toFixed(5)).toString()},box=a=>a.map(number).join(' '),object=(id,body)=>{offsets[id]=length;put(id+' 0 obj\n'+body+'\nendobj\n')};
  put('%PDF-1.4\n');object(1,'<< /Type /Catalog /Pages 2 0 R >>');object(2,'<< /Type /Pages /Count '+pages.length+' /Kids ['+pages.map((_,i)=>(3+i*3)+' 0 R').join(' ')+'] >>');
  pages.forEach((p,i)=>{
@@ -41,9 +52,12 @@ function makePrintPDF(pages){
   const [mx,my,mw,mh]=plan.mediaBox,[bx,by,br,bt]=plan.bleedBox,[tx,ty,tr,tt]=plan.trimBox;
   if(mx!==0||my!==0||mw<=0||mh<=0||mw>3000||mh>3000||bx<0||by<0||br>mw||bt>mh||br<=bx||bt<=by||tx<bx||ty<by||tr>br||tt>bt||tr<=tx||tt<=ty)throw Error('Print page boxes must be nested inside the sheet.');
   const id=3+i*3,lines=printCropLines(plan),commands='q\n'+number(br-bx)+' 0 0 '+number(bt-by)+' '+number(bx)+' '+number(by)+' cm\n/Im0 Do\nQ\n'+(lines.length?'q\n0 G\n0.25 w\n'+lines.map(([x1,y1,x2,y2])=>[number(x1),number(y1),'m',number(x2),number(y2),'l S'].join(' ')).join('\n')+'\nQ\n':'');
-  object(id,'<< /Type /Page /Parent 2 0 R /MediaBox ['+box(plan.mediaBox)+'] /CropBox ['+box(plan.mediaBox)+'] /TrimBox ['+box(plan.trimBox)+'] /BleedBox ['+box(plan.bleedBox)+'] /Resources << /XObject << /Im0 '+(id+2)+' 0 R >> >> /Contents '+(id+1)+' 0 R >>');
+  const links=(p.links||[]).slice(0,500).filter(a=>Array.isArray(a.rect)&&a.rect.length===4&&a.rect.every(Number.isFinite)&&a.rect[0]>=tx&&a.rect[1]>=ty&&a.rect[2]<=tr&&a.rect[3]<=tt&&a.rect[2]>a.rect[0]&&a.rect[3]>a.rect[1]&&typeof a.url==='string'&&a.url.length<=2000&&/^(https?:\/\/|mailto:)/i.test(a.url));
+  const refs=links.map(link=>{const aid=3+pages.length*3+annotations.length;annotations.push({id:aid,link});return aid+' 0 R';});
+  object(id,'<< /Type /Page /Parent 2 0 R /MediaBox ['+box(plan.mediaBox)+'] /CropBox ['+box(plan.mediaBox)+'] /TrimBox ['+box(plan.trimBox)+'] /BleedBox ['+box(plan.bleedBox)+'] /Resources << /XObject << /Im0 '+(id+2)+' 0 R >> >> /Contents '+(id+1)+' 0 R'+(refs.length?' /Annots ['+refs.join(' ')+']':'')+' >>');
   object(id+1,'<< /Length '+encoder.encode(commands).length+' >>\nstream\n'+commands+'endstream');
   offsets[id+2]=length;put((id+2)+' 0 obj\n<< /Type /XObject /Subtype /Image /Width '+p.pixelWidth+' /Height '+p.pixelHeight+' /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length '+p.bytes.length+' >>\nstream\n');put(p.bytes);put('\nendstream\nendobj\n');
  });
+ for(const {id,link}of annotations){const uri=link.url.replace(/[^\x21-\x7e]/gu,c=>encodeURIComponent(c)).replace(/[\\()]/g,'\\$&').replace(/[\r\n]/g,'');object(id,'<< /Type /Annot /Subtype /Link /Rect ['+box(link.rect)+'] /Border [0 0 0] /A << /S /URI /URI ('+uri+') >> >>');}
  const xref=length;put('xref\n0 '+offsets.length+'\n0000000000 65535 f \n');for(const offset of offsets.slice(1))put(String(offset).padStart(10,'0')+' 00000 n \n');put('trailer\n<< /Size '+offsets.length+' /Root 1 0 R >>\nstartxref\n'+xref+'\n%%EOF\n');return new Blob(chunks,{type:'application/pdf'});
 }

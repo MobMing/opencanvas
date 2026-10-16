@@ -2,19 +2,24 @@ services:
   - type: web
     name: opencanvas-workspace
     runtime: node
-    plan: starter
-    buildCommand: node --check cloud/server.mjs
+    # About $8.25/month: $7 compute + 5GB x $0.25 storage. Review before activation.
+    plan: 0.5c-512mb
+    buildCommand: node --check cloud/server.mjs && node --check cloud/backups.mjs && node --check cloud/backup-cli.mjs
     startCommand: node cloud/server.mjs
     healthCheckPath: /health
     disk:
       name: opencanvas-data
       mountPath: /var/data
-      sizeGB: 1
+      sizeGB: 5
     envVars:
       - key: NODE_VERSION
         value: "24"
       - key: OPENCANVAS_DB
         value: /var/data/opencanvas.db
+      - key: BACKUP_DIR
+        value: /var/data/backups
+      - key: BACKUP_KEEP
+        value: "3"
       - key: ALLOWED_ORIGIN
         value: https://mobming.github.io
       - key: ADMIN_USER
@@ -23,8 +28,6 @@ services:
         sync: false
       - key: INVITE_CODE
         generateValue: true
-      - key: BSKY_HANDLE
-        sync: false
-      - key: BSKY_APP_PASSWORD
-        sync: false
+    # Optional R2 encrypted offsite backup settings and Bluesky settings belong
+    # in private environment settings after approval. See docs/MANAGED-HOSTING.md.
 

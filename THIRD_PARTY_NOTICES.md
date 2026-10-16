@@ -52,3 +52,7 @@ Twenty-four original OpenCanvas compositions use editable type and native geomet
 ## Lucide graphics
 
 Six icons from https://github.com/lucide-icons/lucide are included under the ISC license, with the complete upstream LICENSE and included Feather MIT notices preserved in assets/lucide/LICENSE. Source URLs and checksums appear in assets/lucide/PROVENANCE.json. PNG renderings in rendered.json change stroke colors and preserve icon geometry for portable projects.
+
+## Person cutout
+
+MediaPipe Tasks Vision 1.1.1 and Google's Selfie Multiclass 256×256 model (version 1) are included under Apache License 2.0. The unmodified runtime and model are split into binary parts for distribution; their original bytes are reconstructed on demand. [License](assets/cutout/LICENSE), [notice](assets/cutout/NOTICE.txt), and [official source URLs and SHA-256 hashes](assets/cutout/manifest.json) are retained with both source and deployed files. Images are processed on the user's device. See [capabilities and limitations](docs/PERSON-CUTOUT.md).

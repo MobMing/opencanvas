@@ -4,6 +4,8 @@ The public editor at https://mobming.github.io/opencanvas/ continues to work loc
 
 ## Recommended hosting
 
+The [managed hosting and recovery plan](MANAGED-HOSTING.md) now includes an estimated **$8.25/month** Render configuration, automatic local snapshots, optional encrypted offsite backups, tested restore commands and the activation checklist. The owner requested a cost review before activation; no paid service has been started.
+
 Use a Render Node web service with a persistent disk for a small private workspace. The repository includes `render.yaml`. Render's free web services do not preserve local SQLite files, so **use a paid service with a persistent disk**, or host this Node service yourself on a machine with durable storage. Check current charges in Render before creating anything.
 
 Official guides: [Node services](https://render.com/docs/deploy-node-express-app), [persistent disks](https://render.com/docs/disks), [free-service limits](https://render.com/docs/free).
@@ -38,7 +40,7 @@ Only the workspace owner may publish to the configured Bluesky account. Posts su
 
 Use Node.js 24. Set `ADMIN_PASSWORD`, `INVITE_CODE` and `ALLOWED_ORIGIN` in your shell or hosting secret settings, then run `node cloud/server.mjs`. The default port is 8787; `PORT` can override it. `OPENCANVAS_DB` controls the database path. Never commit the database, environment file or passwords. Use HTTPS for remote access. The frontend permits HTTP only for localhost testing.
 
-Back up the SQLite database using a consistent SQLite backup or a stopped-service filesystem snapshot, including any WAL state. The basic service is intended for a small trusted team. It has password hashing, expiring/revocable sessions, invitation-only registration, role checks, CORS origin restrictions, request limits and login throttling. Email verification, password-reset email, MFA, enterprise SSO, real-time presence, antivirus scanning and enterprise audit logs are not included. Establish an operator recovery procedure and backups before storing important team work.
+The prepared Render configuration sets `BACKUP_DIR` and retains three daily, verified SQLite snapshots. Optional R2 settings add an encrypted offsite copy. Follow the [backup and restore procedure](MANAGED-HOSTING.md) and complete a recovery drill before storing important team work. The basic service is intended for a small trusted team. It has password hashing, expiring/revocable sessions, invitation-only registration, role checks, CORS origin restrictions, request limits and login throttling. Email verification, password-reset email, MFA, enterprise SSO, real-time presence, antivirus scanning and enterprise audit logs are not included.
 
 ## Local tools remain independent
 

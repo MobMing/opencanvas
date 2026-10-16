@@ -32,7 +32,7 @@ const gamingTemplates=gamingRows.map(([title,style,layoutName,width,height,bg,in
  format:height===1920?'story':width===1600?'cover':height===1080?'square':'post',category:height===1920?'Story':width===1600||height===1080?'Social':'Poster',
  tags:tags+' gaming original editable flyer poster promo stream',description:layout>=20?'Original composition with credited generated illustration and editable typography.':'Original gaming composition with editable text and native vector motifs.'
 }));
-function gamingAssetSource(assets,key){const value=assets?.[key],src=typeof value==='string'?value:value?.src;return typeof src==='string'&&src.length<=25*1024*1024&&/^data:image\/(png|jpeg|webp|gif);base64,[A-Za-z0-9+/=]+$/.test(src)?src:null;}
+function gamingAssetSource(assets,key){const value=assets?.[key],src=typeof value==='string'?value:value?.src;return typeof src==='string'&&src.length<=25*1024*1024&&((typeof artworkSourceAllowed==='function'&&artworkSourceAllowed(src))||/^data:image\/(png|jpeg|webp|gif);base64,[A-Za-z0-9+/=]+$/.test(src))?src:null;}
 function makeGamingDesign(t,assets={}){
  const d={version:1,id:uid(),name:t.name,width:t.width,height:t.height,background:t.bg,elements:[]},a=d.elements;
  const box=(x,y,w,h,c=t.ink,extra={})=>a.push(shape(x,y,w,h,c,'rect',extra));

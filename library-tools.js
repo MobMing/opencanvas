@@ -55,3 +55,8 @@ const libraryFeatureHomeBase=promoFeatureSignature;promoFeatureSignature=functio
  const previous=libraryFeatureHomeBase(items,count),picks=['signal-lab','open-library'].flatMap(c=>{const topics=new Set();return items.filter(t=>t.collection===c&&!topics.has(t.topic)&&topics.add(t.topic)).slice(0,c==='signal-lab'?2:4);});
  const chosen=new Set(picks.map(t=>t.id));return [...picks,...previous.filter(t=>!chosen.has(t.id))];
 };
+// Keep keyboard focus on the category/filter the visitor just used after a refresh.
+function libraryFocusIdentity(){const e=document.activeElement;if(!e||!$('#createHub').contains(e))return null;const attributes=['data-hub-category','data-category-query'];for(const attribute of attributes)if(e.hasAttribute(attribute))return {attribute,value:e.getAttribute(attribute),node:e};return e.id?{id:e.id,node:e}:null;}
+function libraryRestoreFocus(previous){if(!previous||previous.node.isConnected||!$('#createHub').open)return;let next=previous.id?document.getElementById(previous.id):[...$('#createHub').querySelectorAll('['+previous.attribute+']')].find(e=>e.getAttribute(previous.attribute)===previous.value);if(!next&&previous.id==='promoMore')next=$('#promoResults');if(next){if(next.id==='promoResults')next.tabIndex=-1;next.focus({preventScroll:true});}}
+const libraryFocusHub=renderHub;renderHub=function(){const previous=libraryFocusIdentity();libraryFocusHub();libraryRestoreFocus(previous);};
+const libraryFocusContent=renderHubContent;renderHubContent=function(){const previous=libraryFocusIdentity();libraryFocusContent();libraryRestoreFocus(previous);};

@@ -61,7 +61,7 @@ test('preview waits for fonts, reports actual layers, and applies only after exp
  assert.equal(h.stats.built,1);assert.equal(h.stats.started,0);assert.equal(h.$('#templatePreviewDimensions').textContent,'1080 × 1350 px');
  assert.match(h.$('#templatePreviewFacts').innerHTML,/<b>2<\/b> editable text layers/);assert.match(h.$('#templatePreviewFacts').innerHTML,/<b>1<\/b> image layer/);assert.match(h.$('#templatePreviewFacts').innerHTML,/<b>1<\/b> editable shape/);
  assert.equal(h.$('#templatePreviewUse').disabled,false);assert.equal(h.$('#templatePreviewCanvas').height,1400);
- h.$('#templatePreviewUse').onclick();assert.equal(h.stats.started,1);assert.equal(h.stats.built,2);assert.equal(h.$('#templatePreview').open,false);
+ await h.$('#templatePreviewUse').onclick();assert.equal(h.stats.started,1);assert.equal(h.stats.built,2);assert.equal(h.$('#templatePreview').open,false);
 });
 
 test('closing a pending preview preserves the current project and restores focus',async()=>{

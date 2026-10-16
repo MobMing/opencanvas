@@ -24,7 +24,7 @@ node server.mjs
 
 Keep that terminal open, then open **http://127.0.0.1:4173/**. On Windows, you can instead double-click `Start-OpenCanvas.cmd` in the downloaded project folder. If you see "connection refused," start the server first and reload the page. Closing the server or restarting your computer stops the local app; run it again to reopen it.
 
-The application ships ready to run in `dist/`, including `index.html` and its artwork bundles; no dependency installation or build step is needed. Keep the complete `dist/` folder together when hosting. A recent desktop browser is recommended.
+The application ships ready to run in `dist/`, including `index.html`, individual artwork files and the optional cutout runtime; no dependency installation or build step is needed. Keep the complete `dist/` folder together when hosting. A recent desktop browser is recommended.
 
 The [original hosted preview](https://opencanvas-studio.cocoa-lotus-4165.chatgpt.site/) may require access from its owner. The custom `www.opencanvas.com` address is not an active project address yet.
 
@@ -46,11 +46,13 @@ Curved editable text, your own uploaded fonts, print PDFs with physical sizes an
 
 The gallery, editor sidebar and Home recommendations mix collections while spacing out repeated imagery, layouts and topics. Search and filters retain their scope, and loading more cards keeps the existing order stable. Creative Crossovers adds 32 editable designs in eight layout families using the existing credited AI artwork and original shapes.
 
+Template artwork now loads as individual first-party image files when cards approach the screen, replacing roughly 30 MB of upfront artwork scripts. Opening a template verifies and embeds its images so saved projects remain portable. The retained application HTML is still approximately 14 MB; further loading and build improvements remain on the roadmap.
+
 ## Studio Plus
 
-Open **Studio Plus** on Home or in the editor for recovery versions and workspace backups, photo zoom/pan and cutout brushes, grouped layers and reusable layouts, event campaign creation, adaptive resizing, design checks and WebM motion export. [Tool details and limits](docs/STUDIO-PLUS.md).
+Open **Studio Plus** on Home or in the editor for verified workspace backups, optional automatic folder backups, on-device person cutouts, photo framing and brushes, grouped layers, reusable layouts, campaign creation, adaptive resizing and design checks. Motion now supports scene video trimming, soundtrack start/volume, WebM and conditional MP4 export. [Tool details and limits](docs/STUDIO-PLUS.md).
 
-An optional workspace backend supports cloud project copies, shared editing with conflict protection, comments, version-specific approvals and scheduled Bluesky posts. It requires separate hosting and account setup; these connected services are not active on GitHub Pages alone. [Setup guide](docs/CONNECTED-SETUP.md).
+The optional workspace backend supports explicit cloud project copies, shared access with conflict protection, comments, version-specific approvals and scheduled Bluesky posts. The managed Render hosting and encrypted Cloudflare R2 backup plan is prepared, **not activated**. Hosting, billing and account setup still require the owner’s cost review. GitHub Pages alone does not provide cloud synchronization or live collaborative editing. [Managed setup and estimated costs](docs/MANAGED-HOSTING.md), [connection guide](docs/CONNECTED-SETUP.md).
 
 ## What works today
 
@@ -59,10 +61,10 @@ An optional workspace backend supports cloud project copies, shared editing with
 - 4,211 template entries, including 2,704 Open Library compositions, 60 Signal Lab designs, 24 Gaming Studio designs and the earlier collections. Default browsing shows 3,261 cards, grouping older style and size variations; enable Show all variations to see every entry. Counts represent editable combinations, not unique source photos. [Coverage and artwork details](docs/LIBRARY-EXPANSION.md).
 - People-focused campaign layouts with documented artwork origins, format/style filters, and replaceable photo layers. See [template sources and research](docs/TEMPLATE-SOURCES.md).
 - 46 font combinations, eight bundled open font families, custom font uploads, curved text, text effects, and saved styles.
-- Multipage designs, local presentations, and PNG, JPG, SVG, flattened PDF, and editable project exports.
+- Multipage designs, local presentations, and PNG, JPG, SVG, raster PDF with supported clickable links, and editable project exports.
 - Page rulers, manual guides with snapping, and two- or three-color linear/radial gradients for pages and supported shapes.
 - PDF/image imports from Canva or other tools, preserved as flat artwork with editable overlays.
-- Drawing tools, charts, image adjustments, simple background removal, resizing, and CSV bulk creation.
+- Drawing tools, charts, image adjustments, on-device person cutouts, manual cutout refinement, resizing, and CSV bulk creation.
 - Brand kits and a local business workspace for campaigns, review stages, and imported ad reports.
 - QR codes with editable content and colors, plus photo-derived palettes that can be saved as Brand Kits.
 - Right-click copy/paste, style transfer, layer order, page alignment, locking, links, descriptions, local comments, and reusable single-element components.
@@ -71,13 +73,15 @@ An optional workspace backend supports cloud project copies, shared editing with
 
 ## Important limits
 
-Your designs are saved **in your browser on this device**. Download `.opencanvas` project backups regularly. Different browsers, devices, ports, and website addresses have separate storage; moving to another address does not automatically move your projects.
+Your designs are saved **in your browser on this device**. Download `.opencanvas` files or a verified workspace backup from Studio Plus → Recovery. Optional folder backups create independent dated files while the editor is open; choosing a folder does not create or verify an external cloud-sync service. Different browsers, devices, ports, and website addresses have separate storage; moving to another address does not automatically move your projects. [Recovery guide](docs/RECOVERY.md).
 
-The public website is a static browser application. Connected accounts, shared projects, online comments and scheduled Bluesky publishing require the separately configured workspace server. Connected ad accounts, AI writing and automatic translation are not included. Motion provides page scenes and WebM export, with the limits described above. Some format presets are static mockups or storyboards. Imported PDF/image artwork does not become separately editable text and shapes. Current PDF output is rasterized.
+The public website is a static browser application. Connected accounts, shared projects, online comments and scheduled Bluesky publishing require the separately configured workspace server. Connected ad accounts, AI writing and automatic translation are not included. Motion supports 1–30 second trimmed scenes and one soundtrack; exports run in real time for up to three minutes. MP4 appears only when the browser reports a supported encoder. Media files must be selected again after reload. Waveform editing, multiple audio tracks and automatic captions remain unfinished. [Motion guide](docs/MOTION.md).
 
-SVG export includes supported layer links and descriptions; text and shape editing depends on the receiving application, and photos, drawings, and library artwork remain embedded images. Current image/PDF exports do not preserve clickable links or accessibility metadata. Keep `.opencanvas` files for full editing and portable project metadata. Saved components insert independent copies, not synchronized instances.
+Automatic cutouts use a person model downloaded on demand, approximately 30 MB, and run on the device without uploading the photo. This is not general pet/product segmentation; difficult hair and edges may need the existing brushes. Browser support and a 1600-pixel working-size limit apply. [Person cutout guide](docs/PERSON-CUTOUT.md).
 
-Folders and Trash are local to this browser. Trashed projects remain stored and can be restored; there is no automatic deletion. Workspace backups include their folder assignments and Trash. Clearing browser data can still remove the whole workspace.
+SVG export includes supported layer links and descriptions; text and shape editing depends on the receiving application, and photos, drawings, and library artwork remain embedded images. PDF exports now include supported clickable layer links, but the artwork remains raster RGB: selectable/vector text, CMYK output and tagged accessibility are not included. PNG/JPG exports have no clickable links. Imported PDF/image artwork remains flat, with editable overlays. Keep `.opencanvas` files for full editing and portable project metadata. Saved components insert independent copies, not synchronized instances.
+
+Folders and Trash are local to this browser. Trashed projects remain stored and can be restored; there is no automatic deletion. Workspace backups include their folder assignments, Trash, reusable layouts, custom fonts, brands, campaign plans, text styles and saved-template bookmarks. Restore adds copies and checks new backup files for accidental damage before importing. Local recovery history and session-only media are excluded. Clearing browser data can still remove the browser workspace.
 
 ## Development
 
@@ -86,7 +90,7 @@ npm test
 npm run check
 ```
 
-These commands need no third-party packages. The current baseline contains **210 automated checks**. See [development notes](docs/DEVELOPMENT.md) for source layout and the order for rebuilding feature modules.
+These commands need no third-party packages. The suite covers document validation, template artwork loading, recovery, cutout compositing, motion, exports and the optional server. Browser tests are also needed for real media encoders, file permissions and person-model inference. See [development notes](docs/DEVELOPMENT.md) for source layout and the order for rebuilding feature modules.
 
 The standalone HTML currently also contains the original editor core. Separating that core from the generated bundle is on the [roadmap](ROADMAP.md).
 

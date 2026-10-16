@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "runtimeVersion": "1.1.1",
+  "license": "Apache-2.0",
+  "runtimeSource": "https://registry.npmjs.org/@mediapipe/tasks-vision/-/tasks-vision-1.1.1.tgz",
+  "modelSource": "https://storage.googleapis.com/mediapipe-models/image_segmenter/selfie_multiclass_256x256/float32/1/selfie_multiclass_256x256.tflite",
+  "modelCard": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20Multiclass%20Segmentation.pdf",
+  "wasm": {
+    "bytes": 13519922,
+    "sha256": "0e101a010e262ef8e78f22e3c95b60a9705fd06962753c9acd6356d9fb56b7bd",
+    "parts": [
+      {
+        "file": "vision-wasm-1.bin",
+        "bytes": 4500000,
+        "sha256": "52d86dea9488d707492da2356e2fbc2d1afe80ef7bc3d609dfa7c280284b364a"
+      },
+      {
+        "file": "vision-wasm-2.bin",
+        "bytes": 4500000,
+        "sha256": "f6abca3169b17187962b874867f5232447aa297a90569d08e9f9b2c5ad560e07"
+      },
+      {
+        "file": "vision-wasm-3.bin",
+        "bytes": 4500000,
+        "sha256": "8ab310f022b6d55cceb40ea929d9844d137b4d5eb489d98f69004d3345b1359f"
+      },
+      {
+        "file": "vision-wasm-4.bin",
+        "bytes": 19922,
+        "sha256": "3dded7757eb5b42cc713aadd5245c73fcf94ccf72d728594817a9d7cc45b1a9e"
+      }
+    ]
+  },
+  "model": {
+    "bytes": 16371837,
+    "sha256": "c6748b1253a99067ef71f7e26ca71096cd449baefa8f101900ea23016507e0e0",
+    "parts": [
+      {
+        "file": "person-model-1.bin",
+        "bytes": 4500000,
+        "sha256": "1c43ec45a0ce0cf06064ed2f40cb2ab22fcd2476385da2bf678547b2d8d1e061"
+      },
+      {
+        "file": "person-model-2.bin",
+        "bytes": 4500000,
+        "sha256": "6ce88cf0b850f8f99093b97a711b026c2834e9b2841cdd800abb2b234cca9de5"
+      },
+      {
+        "file": "person-model-3.bin",
+        "bytes": 4500000,
+        "sha256": "fbecdd60681a5de1098dd498176877820977cd8ac3589093a70e7a69844938a3"
+      },
+      {
+        "file": "person-model-4.bin",
+        "bytes": 2871837,
+        "sha256": "3577c0cd298bb222f72995f045b4a04f5aca9659ac92034e27ba0d01a833a0fd"
+      }
+    ]
+  }
+}

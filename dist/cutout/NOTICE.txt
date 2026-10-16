@@ -1,0 +1,5 @@
+MediaPipe Tasks Vision 1.1.1 and Selfie Multiclass 256x256 (version 1)
+Copyright The MediaPipe Authors / Google. Licensed under Apache License 2.0; see LICENSE.
+The runtime and model are unmodified; binary parts reconstruct their original bytes.
+See manifest.json for official sources and SHA-256 integrity hashes.
+The model recognizes human subjects, not pets or products. It does not provide pixel-perfect masks.

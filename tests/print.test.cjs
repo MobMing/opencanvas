@@ -1,5 +1,5 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
-const c={Blob,Uint8Array,TextEncoder};vm.createContext(c);vm.runInContext(fs.readFileSync('print-core.js','utf8'),c);
+const c={Blob,Uint8Array,TextEncoder,URL};vm.createContext(c);vm.runInContext(fs.readFileSync('print-core.js','utf8'),c);
 const close=(a,b)=>assert.ok(Math.abs(a-b)<.00001,a+' should equal '+b),page=(width=1080,height=1350)=>({width,height,elements:[{type:'text',text:'Keep the original'}]});
 
 test('paper sizes and DPI produce exact physical trim dimensions without changing artwork',()=>{
@@ -45,4 +45,16 @@ test('multipage PDF preserves physical sizes, exact stream lengths and byte offs
 test('preview guide visibility does not affect PDF production geometry',async()=>{
  const p=page(),a=c.printPagePlan(p,{paper:'postcard',dpi:150,marks:true,guides:true,safeMm:5}),b=c.printPagePlan(p,{paper:'postcard',dpi:150,marks:true,guides:false,safeMm:20}),bytes=new Uint8Array([255,216,255,217]);
  const encode=async plan=>Buffer.from(await c.makePrintPDF([{plan,pixelWidth:plan.rasterW,pixelHeight:plan.rasterH,bytes}]).arrayBuffer());assert.deepEqual(await encode(a),await encode(b),'safe and trim guides are never burned into the PDF');
+});
+
+test('PDF link regions follow fit, crop and rotation while rejecting unsafe URLs',()=>{
+ const d={width:1000,height:500,elements:[{x:100,y:50,w:200,h:100,link:'https://example.com/tickets?q=a%20b',rotation:0},{x:900,y:0,w:200,h:100,link:'mailto:hello@example.com'},{x:0,y:0,w:100,h:50,link:'javascript:alert(1)'},{x:0,y:0,w:100,h:50,link:'https://user:password@example.com'},{x:0,y:0,w:100,h:50,link:'https://example.com',opacity:0}]},plan=c.printPagePlan(d,{paper:'custom',widthMm:100,heightMm:100,dpi:150,marks:true});
+ const links=c.printLinks(d,plan);assert.equal(links.length,2);const scale=plan.trimW/1000;close(links[0].rect[0],plan.trimBox[0]+100*scale);close(links[0].rect[3],plan.trimBox[3]-250*scale-50*scale);close(links[1].rect[2],plan.trimBox[2]);
+ d.elements=[{x:100,y:50,w:200,h:100,rotation:90,link:'https://example.com'}];const rotated=c.printLinks(d,plan);close(rotated[0].rect[2]-rotated[0].rect[0],100*scale);close(rotated[0].rect[3]-rotated[0].rect[1],200*scale);
+ const cover=c.printPagePlan(d,{paper:'custom',widthMm:100,heightMm:100,dpi:150,fit:'cover'});d.elements=[{x:0,y:0,w:100,h:100,link:'https://example.com'}];assert.equal(c.printLinks(d,cover).length,0);
+});
+test('clickable PDF annotations preserve escaped query URLs and valid cross references',async()=>{
+ const d=page(),plan=c.printPagePlan(d),bytes=new Uint8Array([255,216,255,217]),links=[{rect:[10,10,20,20],url:'https://example.com/a%20b?q=(yes)&x=1'},{rect:[0,0,20,20],url:'javascript:alert(1)'}];
+ const text=Buffer.from(await c.makePrintPDF([{plan,pixelWidth:10,pixelHeight:10,bytes,links}]).arrayBuffer()).toString('latin1');assert.match(text,/\/Annots \[6 0 R\]/);assert.match(text,/\/Subtype \/Link/);assert.ok(text.includes('/URI (https://example.com/a%20b?q=\\(yes\\)&x=1)'));assert.doesNotMatch(text,/javascript|%2520/);
+ const xref=Number(text.match(/startxref\n(\d+)/)[1]);const entries=text.slice(xref).split('\n');assert.equal(entries[1],'0 7');for(let i=1;i<7;i++)assert.ok(text.slice(Number(entries[i+2].slice(0,10))).startsWith(i+' 0 obj'));
 });
