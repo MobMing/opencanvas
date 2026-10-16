@@ -56,3 +56,7 @@ Six icons from https://github.com/lucide-icons/lucide are included under the ISC
 ## Person cutout
 
 MediaPipe Tasks Vision 1.1.1 and Google's Selfie Multiclass 256×256 model (version 1) are included under Apache License 2.0. The unmodified runtime and model are split into binary parts for distribution; their original bytes are reconstructed on demand. [License](assets/cutout/LICENSE), [notice](assets/cutout/NOTICE.txt), and [official source URLs and SHA-256 hashes](assets/cutout/manifest.json) are retained with both source and deployed files. Images are processed on the user's device. See [capabilities and limitations](docs/PERSON-CUTOUT.md).
+
+## Click-selected subjects: Magic Touch
+
+Google's MediaPipe Magic Touch v2 int8 model, version 1, is included under Apache License 2.0 for on-device selection of pets, products, people and other subjects. The unmodified 30,525,312-byte model is split into seven transport parts and shares the MediaPipe Tasks Vision 1.1.1 runtime above. [License](assets/photo-lab/LICENSE), [notice](assets/photo-lab/NOTICE.txt), and [official source URL and SHA-256 hashes](assets/photo-lab/manifest.json) accompany the source and deployed assets. The original OpenCanvas adapter downloads the model only on request and processes photos locally. Clone & blend and background compositing are original non-generative OpenCanvas code. See [Photo Lab](docs/PHOTO-LAB.md) for capabilities and limits.

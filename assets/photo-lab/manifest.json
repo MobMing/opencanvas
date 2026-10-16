@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "runtimeVersion": "1.1.1",
+  "license": "Apache-2.0",
+  "modelSource": "https://storage.googleapis.com/mediapipe-models/interactive_segmenter_v2/magic_touch/int8/1/interactive_segmentation.task",
+  "modelCard": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20MagicTouch.pdf",
+  "model": {
+    "bytes": 30525312,
+    "sha256": "38431bc66b883404e8397f74c3579404315b9b52b04a46c6346fe906a7309b03",
+    "parts": [
+      {
+        "file": "magic-touch-1.bin",
+        "bytes": 4500000,
+        "sha256": "f5be127cd77e9e12cb94843be4cb2192fb4eb94030fcf83d97735e5fbf3d2ccd"
+      },
+      {
+        "file": "magic-touch-2.bin",
+        "bytes": 4500000,
+        "sha256": "40c7f0d782c34e6d06988324ef39d788100888a1718ec9fbe873a6d0c26c3fb0"
+      },
+      {
+        "file": "magic-touch-3.bin",
+        "bytes": 4500000,
+        "sha256": "09ee42c62d2d94bed7638126acbac296a6778733b4ce36210f1c2b89ae92bd45"
+      },
+      {
+        "file": "magic-touch-4.bin",
+        "bytes": 4500000,
+        "sha256": "1b54486695e299685418fd621d634e42bb3019218fcb524779c12058b21c0610"
+      },
+      {
+        "file": "magic-touch-5.bin",
+        "bytes": 4500000,
+        "sha256": "77ca5ca14d87e63c1bf2699decab10aa9d933053471c8df37451505784e7ed53"
+      },
+      {
+        "file": "magic-touch-6.bin",
+        "bytes": 4500000,
+        "sha256": "6c7ec59ae73f86ff594ddeb4ded5e6752b6ad21fa558495986b3c10e16adfe0e"
+      },
+      {
+        "file": "magic-touch-7.bin",
+        "bytes": 3525312,
+        "sha256": "53475b7e2391948e7c8d2e72cf589ad9717968420111f22962ed2227e27a6912"
+      }
+    ]
+  }
+}

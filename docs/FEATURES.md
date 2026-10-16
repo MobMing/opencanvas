@@ -2,11 +2,22 @@
 
 An independent, subscription-free, browser-local design editor with original and credited community templates; not affiliated with Canva.
 
-Open `dist/index.html` in a modern browser, or run `node server.mjs` and visit the printed URL. No dependencies or build step are required.
+Open [the public app](https://mobming.github.io/opencanvas/) or run `node server.mjs` and visit the printed URL. Serve the complete `dist/` directory; optional model workers and artwork need its companion files. No npm installation or build step is required to run the shipped app.
 
-Features: editable original templates; drag, resize, rotate, reorder and duplicate text, shapes and uploaded images; font, color and opacity controls; undo/redo; custom canvas sizes; local project storage; editable project import/export; PNG/JPG export including transparent PNG and 2x resolution.
+## Current overview — October 2026
 
-Projects and images stay in browser storage. Export `.opencanvas` files for durable backups. Local storage is not cloud synchronization. Uploaded images are limited to 10 MB and resized to a maximum of 2400 pixels on the long edge (1600 in Photo studio). PNG/JPG exports are limited to 24 megapixels. Multipage documents, standard system fonts, and static images are supported. Team collaboration, accounts, commercial stock media, video editing, AI generation and cloud backup are not included.
+- Editable text, shapes and images; multipage projects; template discovery; custom fonts and curved text; brand kits; layers/groups; guides, gradients, SVG and supported PDF links; folders, Trash and verified workspace recovery.
+- Photo tools include on-device person cutout and click-selected pets/products, erase/restore, non-generative Clone & blend retouch, undo/reset, and solid/uploaded/blurred background previews. Segmentation downloads optional models on request; photos are not uploaded. A 1600-pixel working limit and manual edge cleanup apply. [Photo Lab](PHOTO-LAB.md).
+- Motion provides scrub, scene trims/splits/reorder, up to eight audio clips with waveform/volume/fades, source-video sound, SRT/VTT or manual editable captions, a saved local media library, WebM and browser-supported MP4. Exports run in real time for up to three minutes at 30 fps and a 1280-pixel longest side. Automatic transcription is not included. [Motion Studio](MOTION.md).
+- The optional workspace server supports cloud copies, access roles, comments/reviews, Bluesky scheduling, and **Edit together** live changes/presence/cursors. Independent fields merge; overlapping edits conflict. Live JSON is capped at 10 MiB, with default limits of 16 streams overall, eight per project and four per account. This is not a character-by-character text CRDT. [Live collaboration](LIVE-COLLABORATION.md).
+
+Projects stay in local browser storage unless explicitly saved to the workspace or joined for live sharing. Original video/audio files are stored separately on this browser and website address; their bytes are **not included in project exports, workspace backups, cloud copies or live sharing**. Keep originals separately and relink on another device. Local recovery history is also excluded from workspace backups.
+
+Managed Render hosting and encrypted Cloudflare R2 backups are prepared, **not activated**. The owner requested cost review before activation. GitHub Pages alone cannot run connected services. No paid API, provider billing, production account or custom domain has been activated by these feature additions. [Managed setup and existing cost estimate](MANAGED-HOSTING.md).
+
+The [README](../README.md) and current feature guides describe the release as a whole. The sections below preserve earlier implementation milestones and their then-current counts, build orders and exclusions; statements there that a now-listed feature is absent are historical, not the current capability matrix.
+
+## Historical implementation notes
 
 ## Studio tools
 

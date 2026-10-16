@@ -1,0 +1,22 @@
+OpenCanvas optional subject selection
+
+Google MediaPipe Magic Touch interactive segmenter v2 model, version 1 (int8).
+Copyright Google LLC. Licensed under the Apache License, Version 2.0.
+License text: LICENSE in this directory.
+Official model source:
+https://storage.googleapis.com/mediapipe-models/interactive_segmenter_v2/magic_touch/int8/1/interactive_segmentation.task
+Official guide:
+https://developers.google.com/edge/mediapipe/solutions/vision/interactive_segmenter
+Model card linked by the official guide:
+https://storage.googleapis.com/mediapipe-assets/Model%20Card%20MagicTouch.pdf
+
+The unmodified official binary is divided into seven transport parts. Concatenating
+the parts in manifest.json order reproduces the exact original bytes. Each part
+and the complete model have recorded SHA-256 digests.
+
+Runtime: Google MediaPipe Tasks Vision 1.1.1. Shared with the person cutout feature
+in ../cutout; see that directory's LICENSE, NOTICE.txt and manifest.json.
+
+OpenCanvas adapter, manual retouch brush and background composition are original
+OpenCanvas code. Model quality is not guaranteed. This is subject segmentation,
+not generative image editing. Photos are processed locally in the browser.

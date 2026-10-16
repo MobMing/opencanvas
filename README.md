@@ -50,9 +50,9 @@ Template artwork now loads as individual first-party image files when cards appr
 
 ## Studio Plus
 
-Open **Studio Plus** on Home or in the editor for verified workspace backups, optional automatic folder backups, on-device person cutouts, photo framing and brushes, grouped layers, reusable layouts, campaign creation, adaptive resizing and design checks. Motion now supports scene video trimming, soundtrack start/volume, WebM and conditional MP4 export. [Tool details and limits](docs/STUDIO-PLUS.md).
+Open **Studio Plus** on Home or in the editor for verified workspace backups, optional automatic folder backups, grouped layers, reusable layouts, campaign creation, adaptive resizing and design checks. Photo adds local person cutouts, click-selected pets/products, sampled-pixel retouching and background replacement. Motion adds a scrub timeline, scene splitting/reordering, eight audio clips with waveforms and fades, editable SRT/VTT captions, and a saved local media library. [Tool details and limits](docs/STUDIO-PLUS.md).
 
-The optional workspace backend supports explicit cloud project copies, shared access with conflict protection, comments, version-specific approvals and scheduled Bluesky posts. The managed Render hosting and encrypted Cloudflare R2 backup plan is prepared, **not activated**. Hosting, billing and account setup still require the owner’s cost review. GitHub Pages alone does not provide cloud synchronization or live collaborative editing. [Managed setup and estimated costs](docs/MANAGED-HOSTING.md), [connection guide](docs/CONNECTED-SETUP.md).
+The optional workspace backend supports explicit cloud project copies, shared access, comments, version-specific approvals and scheduled Bluesky posts. **Edit together** adds live shared editing, presence and cursors after joining a workspace project. Independent field changes merge; overlapping changes pause for conflict review. The managed Render hosting and encrypted Cloudflare R2 backup plan is prepared, **not activated**. Hosting, billing and account setup still require the owner’s cost review. GitHub Pages alone cannot run these connected services. [Managed setup and estimated costs](docs/MANAGED-HOSTING.md), [live collaboration](docs/LIVE-COLLABORATION.md).
 
 ## What works today
 
@@ -64,7 +64,8 @@ The optional workspace backend supports explicit cloud project copies, shared ac
 - Multipage designs, local presentations, and PNG, JPG, SVG, raster PDF with supported clickable links, and editable project exports.
 - Page rulers, manual guides with snapping, and two- or three-color linear/radial gradients for pages and supported shapes.
 - PDF/image imports from Canva or other tools, preserved as flat artwork with editable overlays.
-- Drawing tools, charts, image adjustments, on-device person cutouts, manual cutout refinement, resizing, and CSV bulk creation.
+- Drawing tools, charts, image adjustments, local person and click-selected subject cutouts, clone-and-blend retouching, background replacement, resizing, and CSV bulk creation.
+- Motion timeline with scene trims/splits, mixed source audio and up to eight soundtrack clips, editable captions, locally saved media, WebM and browser-supported MP4 export.
 - Brand kits and a local business workspace for campaigns, review stages, and imported ad reports.
 - QR codes with editable content and colors, plus photo-derived palettes that can be saved as Brand Kits.
 - Right-click copy/paste, style transfer, layer order, page alignment, locking, links, descriptions, local comments, and reusable single-element components.
@@ -75,13 +76,15 @@ The optional workspace backend supports explicit cloud project copies, shared ac
 
 Your designs are saved **in your browser on this device**. Download `.opencanvas` files or a verified workspace backup from Studio Plus → Recovery. Optional folder backups create independent dated files while the editor is open; choosing a folder does not create or verify an external cloud-sync service. Different browsers, devices, ports, and website addresses have separate storage; moving to another address does not automatically move your projects. [Recovery guide](docs/RECOVERY.md).
 
-The public website is a static browser application. Connected accounts, shared projects, online comments and scheduled Bluesky publishing require the separately configured workspace server. Connected ad accounts, AI writing and automatic translation are not included. Motion supports 1–30 second trimmed scenes and one soundtrack; exports run in real time for up to three minutes. MP4 appears only when the browser reports a supported encoder. Media files must be selected again after reload. Waveform editing, multiple audio tracks and automatic captions remain unfinished. [Motion guide](docs/MOTION.md).
+The public website is a static browser application. Connected accounts, live shared projects, online comments and scheduled Bluesky publishing require the separately configured workspace server. Live projects are limited to 10 MiB of canonical JSON, with default limits of 16 live streams overall, eight per project and four per account. Same-field concurrent typing is conflict-checked rather than character-by-character merged. Connected ad accounts, AI writing and automatic translation are not included. [Live collaboration limits](docs/LIVE-COLLABORATION.md).
 
-Automatic cutouts use a person model downloaded on demand, approximately 30 MB, and run on the device without uploading the photo. This is not general pet/product segmentation; difficult hair and edges may need the existing brushes. Browser support and a 1600-pixel working-size limit apply. [Person cutout guide](docs/PERSON-CUTOUT.md).
+Motion supports 1–30 second scenes, up to eight audio clips, imported SRT/VTT or manually entered captions, and real-time exports up to three minutes. MP4 appears only when the browser reports a supported encoder. Saved video/audio files survive reloads in the same browser and website address, but their original bytes are **not included in project exports, workspace backups, cloud copies or live sharing**. Keep originals separately and relink on another device. Automatic transcription is not included. [Motion guide](docs/MOTION.md).
+
+Person cutout downloads approximately 30 MB on demand; click-selected subject cutout downloads approximately 44 MB, sharing part of the runtime. Both run locally without uploading photos. Pets/products are supported through a selected point, but fine details, transparent objects and difficult lighting may need manual cleanup. Clone & blend copies nearby pixels; it does not generate hidden detail. Backgrounds are flattened when applied. Browser support and a 1600-pixel working-size limit apply. [Photo Lab guide](docs/PHOTO-LAB.md).
 
 SVG export includes supported layer links and descriptions; text and shape editing depends on the receiving application, and photos, drawings, and library artwork remain embedded images. PDF exports now include supported clickable layer links, but the artwork remains raster RGB: selectable/vector text, CMYK output and tagged accessibility are not included. PNG/JPG exports have no clickable links. Imported PDF/image artwork remains flat, with editable overlays. Keep `.opencanvas` files for full editing and portable project metadata. Saved components insert independent copies, not synchronized instances.
 
-Folders and Trash are local to this browser. Trashed projects remain stored and can be restored; there is no automatic deletion. Workspace backups include their folder assignments, Trash, reusable layouts, custom fonts, brands, campaign plans, text styles and saved-template bookmarks. Restore adds copies and checks new backup files for accidental damage before importing. Local recovery history and session-only media are excluded. Clearing browser data can still remove the browser workspace.
+Folders and Trash are local to this browser. Trashed projects remain stored and can be restored; there is no automatic deletion. Workspace backups include their folder assignments, Trash, reusable layouts, custom fonts, brands, campaign plans, text styles and saved-template bookmarks. Restore adds copies and checks new backup files for accidental damage before importing. Local recovery history and the original video/audio files in the separate media library are excluded. Clearing browser data can remove both projects and local media.
 
 ## Development
 
@@ -90,7 +93,7 @@ npm test
 npm run check
 ```
 
-These commands need no third-party packages. The suite covers document validation, template artwork loading, recovery, cutout compositing, motion, exports and the optional server. Browser tests are also needed for real media encoders, file permissions and person-model inference. See [development notes](docs/DEVELOPMENT.md) for source layout and the order for rebuilding feature modules.
+These commands need no third-party packages. The suite covers document validation, template artwork loading, recovery, photo processing, media storage, motion, live merge/stream behavior, exports and the optional server. Browser tests are also needed for real media encoders, file permissions, model inference and collaboration rendering. See [development notes](docs/DEVELOPMENT.md) for source layout and the order for rebuilding feature modules.
 
 The standalone HTML currently also contains the original editor core. Separating that core from the generated bundle is on the [roadmap](ROADMAP.md).
 

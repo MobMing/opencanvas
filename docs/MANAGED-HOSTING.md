@@ -4,7 +4,7 @@ Prepared October 16, 2026. **No hosting, billing, bucket, domain, or social acco
 
 ## Proposed setup and cost
 
-Keep the editor on GitHub Pages. Run the existing optional workspace server on Render with one persistent disk. This avoids a database migration and gives a small invited team cloud project copies, access roles, comments and approvals.
+Keep the editor on GitHub Pages. Run the existing optional workspace server on Render with one persistent disk. This avoids a database migration and gives a small invited team cloud project copies, access roles, comments, approvals and opt-in live editing with presence/cursors. The live implementation is available in the repository; the hosted service is still not activated.
 
 | Item | Prepared choice | Estimated monthly charge, USD |
 | --- | --- | ---: |
@@ -28,7 +28,7 @@ This is a single-instance starter setup, not a fully managed database or a high-
 - The owner can inspect backup status or run a snapshot from Connect. Other members cannot invoke server backup controls. Raw database files are never exposed through an HTTP download route.
 - Recovery writes a **new** database file, verifies it, revokes saved login sessions and cancels pending/sending social posts so old scheduled work cannot unexpectedly publish again.
 
-A local snapshot protects against accidental database edits; it does not protect against deletion of the whole Render service or loss of the same disk. Enable offsite storage and complete a restore drill before relying on the server for important work. Server backups include only projects explicitly saved to cloud, not browser-only projects or session-only video files. The daily schedule has an approximately 24-hour recovery-point window while the service runs. Backup failure status and private logs need operator attention; automated email alerts are not included.
+A local snapshot protects against accidental database edits; it does not protect against deletion of the whole Render service or loss of the same disk. Enable offsite storage and complete a restore drill before relying on the server for important work. Server backups include only projects saved in the workspace, not browser-only projects or original video/audio files in a device's separate local media library. The daily schedule has an approximately 24-hour recovery-point window while the service runs. Backup failure status and private logs need operator attention; automated email alerts are not included.
 
 ## Activation checklist, after cost approval
 
@@ -98,4 +98,6 @@ Render disk snapshots are separate from these application backups. Render cautio
 
 ## Remaining service work
 
-The editor does not automatically synchronize local projects, merge simultaneous edits, or show live teammate cursors. This backend remains invitation-only and does not provide password-reset email, email verification, MFA or enterprise SSO. Those are separate production hardening and collaboration tasks; the hosting preparation does not claim to add them.
+Ordinary local projects do not upload automatically. On the updated backend, **Edit together** explicitly joins a live shared project; changes are then sent automatically, independent fields merge, and teammate presence/cursors are shown. Overlapping field edits pause with a conflict rather than performing character-by-character text merging. Default limits are 10 MiB of canonical project JSON, 16 live streams overall, eight per project and four per account. Original local audio/video bytes are not uploaded by this workflow or included in server backups. See [Live collaboration](LIVE-COLLABORATION.md).
+
+This backend remains invitation-only and does not provide password-reset email, email verification, MFA or enterprise SSO. Validate streaming/reconnection through Render's actual proxy and run the provider restore drill after the owner's cost approval. The existing cost estimate is unchanged; it is not a measured capacity guarantee for 16 active editors or media-heavy projects. No hosting, paid service, bucket or production credentials have been activated by these feature additions.
