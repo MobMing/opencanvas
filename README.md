@@ -38,6 +38,10 @@ The new [Signature collection](docs/SIGNATURE.md) adds 20 individually composed 
 
 Home now has project folders and recoverable Trash. The editor restores your last saved project after loading the local workspace. **Tools** includes rulers, draggable guides, and editable page/shape gradients. **Export → SVG** keeps supported text and shapes as vectors, with embedded images and optional fonts. Read the [workspace and layout guide](docs/WORKSPACE-AND-LAYOUT.md) for controls and limits.
 
+## Import designs from Canva and other tools
+
+**Import** now opens exported PowerPoint (`.pptx`) and SVG files with supported text, shapes, and photos as separate editable layers. Review previews, layer counts, and conversion notes before opening. PDF and PNG/JPG/WebP imports preserve each page as flat artwork. Canva share links and native projects are not imported directly; download an available export from Canva first. [Formats, workflow, and limits](docs/IMPORTING-DESIGNS.md).
+
 ## More tools for your own designs
 
 Curved editable text, your own uploaded fonts, print PDFs with physical sizes and crop marks, locally generated QR codes, and photo color palettes are now part of the editor. Open **Text**, **Tools**, **Brand**, or **Export** to use them. Read the [tool guide](docs/PRODUCTIVITY.md) for controls, portable font files, and print limits.
@@ -63,7 +67,7 @@ The optional workspace backend supports explicit cloud project copies, shared ac
 - 46 font combinations, eight bundled open font families, custom font uploads, curved text, text effects, and saved styles.
 - Multipage designs, local presentations, and PNG, JPG, SVG, raster PDF with supported clickable links, and editable project exports.
 - Page rulers, manual guides with snapping, and two- or three-color linear/radial gradients for pages and supported shapes.
-- PDF/image imports from Canva or other tools, preserved as flat artwork with editable overlays.
+- Local PPTX/SVG import with supported editable layers, plus PDF/image imports preserved as flat artwork with editable overlays.
 - Drawing tools, charts, image adjustments, local person and click-selected subject cutouts, clone-and-blend retouching, background replacement, resizing, and CSV bulk creation.
 - Motion timeline with scene trims/splits, mixed source audio and up to eight soundtrack clips, editable captions, locally saved media, WebM and browser-supported MP4 export.
 - Brand kits and a local business workspace for campaigns, review stages, and imported ad reports.
@@ -82,7 +86,7 @@ Motion supports 1–30 second scenes, up to eight audio clips, imported SRT/VTT 
 
 Person cutout downloads approximately 30 MB on demand; click-selected subject cutout downloads approximately 44 MB, sharing part of the runtime. Both run locally without uploading photos. Pets/products are supported through a selected point, but fine details, transparent objects and difficult lighting may need manual cleanup. Clone & blend copies nearby pixels; it does not generate hidden detail. Backgrounds are flattened when applied. Browser support and a 1600-pixel working-size limit apply. [Photo Lab guide](docs/PHOTO-LAB.md).
 
-SVG export includes supported layer links and descriptions; text and shape editing depends on the receiving application, and photos, drawings, and library artwork remain embedded images. PDF exports now include supported clickable layer links, but the artwork remains raster RGB: selectable/vector text, CMYK output and tagged accessibility are not included. PNG/JPG exports have no clickable links. Imported PDF/image artwork remains flat, with editable overlays. Keep `.opencanvas` files for full editing and portable project metadata. Saved components insert independent copies, not synchronized instances.
+SVG export includes supported layer links and descriptions; text and shape editing depends on the receiving application, and photos, drawings, and library artwork remain embedded images. PDF exports now include supported clickable layer links, but the artwork remains raster RGB: selectable/vector text, CMYK output and tagged accessibility are not included. PNG/JPG exports have no clickable links. Imported PDF/image artwork remains flat, with editable overlays. PPTX/SVG imports reconstruct supported layers; fonts and complex layouts may change, and outlined text stays artwork. Keep `.opencanvas` files for full editing and portable project metadata. Saved components insert independent copies, not synchronized instances.
 
 Folders and Trash are local to this browser. Trashed projects remain stored and can be restored; there is no automatic deletion. Workspace backups include their folder assignments, Trash, reusable layouts, custom fonts, brands, campaign plans, text styles and saved-template bookmarks. Restore adds copies and checks new backup files for accidental damage before importing. Local recovery history and the original video/audio files in the separate media library are excluded. Clearing browser data can remove both projects and local media.
 
